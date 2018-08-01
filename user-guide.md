@@ -1,4 +1,4 @@
-### League of intelligent agents
+# League of intelligent agents
 
 Welcome to LIA, this is our project we have been working on in our spare time during college. It is still work in progress and a lot more is still to come. This project is highly influenced by Halite and other programming competitions, we aim to one day be as big as Halite and have people compete from all over the world.
 
@@ -61,44 +61,66 @@ When you open a terminal in the folder where LIA is located, you can use these c
 
 ### Help command
 
-./lia help
+
+```shell
+  ./lia help
+```
 
 This command shows you all available commands. It can be used with a command for additional information.
 
-./lia tutorial help
+```shell
+  ./lia tutorial help
+```
+### Settings command
+```shell
+  ./lia settings
+```
+This command lets you change the usage data tracking settings and tracking id settings. You can opt-in, opt-out, or reset tracking id.
 
 ### Creating a bot
 
-./lia bot BotName
+
+```shell
+  ./lia bot language botName
+```
 
 This command creates a new bot that you can name as you wish. The folder where bot is located is created in the same folder you are in right now. Inside there are files that help you setup the Intellij environment or you can open the source code in your favourite IDE. Inside src folder MyBot.java is located, this is where your main body of the bot is located.
 
 ### Compile the bot
 
-./lia compile BotName
+```shell
+  ./lia compile botName
+```
 
 This command compiles and prepares the selected bot in its respective folder.
 
+### Tutorial
+
+```shell
+  ./lia tutorial number botName
+```
+
+This command runs the desired tutorial with the selected bot, more about the tutorial later in this guide.
 ### Play
 
-./lia play BotName1 BotName2
+```shell
+./lia play botName1 botName2
+```
 
 This command compiles both bots and then runs the game between them. After the game completes loading, replay viewer is launched so you can watch the game.
 
-### Tutorial
-
-./lia tutorial number BotName
-
-This command runs the desired tutorial with the selected bot, more about the tutorial later in this guide.
-
 ### Verify
 
-./lia verify BotName
+```shell
+  ./lia verify botName
+```
 This command verifies if the content in your bot’s directory is valid.
 
 ### Zip
 
-./lia zip BotName
+```shell
+  ./lia zip botName
+```
 This command verifies, compiles and zips the selected bot, this is later used to upload your bot on our website.
 
 # Tutorial BASIC 1
@@ -108,19 +130,36 @@ This section of the guide is meant to teach you how to use our API so that you a
 ## Optional Intellij IDE usage
 
 If you are familiar with Intellij we highly recommend if you are programming in java or kotlin, since it enables you to begin playing faster.
-Your bot
+
+## Your bot
 
 If you have not yet, create a new bot with a custom name. Then open its source file with the IDE of your choosing. This is a part of the code you will see. The rest will be explained as we go on. Whenever you feel like you want to test your bot on the tutorial playground just launch it like we showed in the command section. You should not that this is tutorial part 1, which you are supposed to specify in the command.
 
-*CODE*
+```java
+  /** Called only once when the game is initialized. */
+  @Override
+  public synchronized void process(MapData mapData) {
+  }
+```
 
 The function above is called only when the game is initialized and gives you the data necessary to later parse where obstacles are located.
 
-*CODE*
+```java
+  /** Called only once when the game is initialized. */
+  /** Repeatedly called from game engine with game state updates.  */
+  @Override
+  public synchronized void process(StateUpdate stateUpdate, Api api) {
+  }
+```
 
 This function is called repeatedly about 10 times per second while the game is running. In here you can read the situation in real time. For example you can get all the data about your units, some of which are health, location, ammo count etc. That is what the stateUpdate provides. Then you can choose what you will do with your units and that is what api is for. You can tell them to move and where, implement shooting mechanics, tactics etc.
 
-*CODE*
+
+```java
+  public static void main(String[] args) throws Exception {
+    NetworkingClient.connectNew(args, new MyBot());
+  }
+```
 
 The main function is used to connect your bot to the game and is not meant to change.
 
