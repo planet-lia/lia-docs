@@ -47,6 +47,25 @@ theme = "hugo-material-docs"
 	weight = 1
 	pre = "<img src='/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
 
+
+[[menu.main]]
+	name   = "Game details"
+	url    = "game-details/"
+
+[[menu.main]]
+    parent = "Game details"
+	name   = "Game description"
+	url    = "game-details/description/"
+	weight = 2
+	pre = "&#8227;"
+
+[[menu.main]]
+    parent = "Game details"
+	name   = "Game rules"
+	url    = "game-details/rules/"
+	weight = 2
+	pre = "&#8227;"
+
 [[menu.main]]
 	name   = "Getting started"
 	url    = "getting-started/"
@@ -55,13 +74,15 @@ theme = "hugo-material-docs"
     parent = "Getting started"
 	name   = "Installation"
 	url    = "getting-started/installation/"
-	weight = 2
+	weight = 4
+	pre = "&#8227;"
 
 [[menu.main]]
     parent = "Getting started"
 	name   = "Lia CLI"
 	url    = "getting-started/cli/"
-	weight = 3
+	weight = 5
+	pre = "&#8227;"
 
 [[menu.main]]
 	name   = "Tutorials"
@@ -71,13 +92,15 @@ theme = "hugo-material-docs"
     parent = "Tutorials"
 	name   = "Tutorial Basic - Part 1"
 	url    = "tutorials/basic-1/"
-	weight = 4
+	weight = 6
+	pre = "&#8227;"
 
 [[menu.main]]
     parent = "Tutorials"
 	name   = "Tutorial Basic - Part 2"
 	url    = "tutorials/basic-2/"
-	weight = 5
+	weight = 7
+	pre = "&#8227;"
 
 
 [blackfriday]

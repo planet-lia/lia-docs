@@ -5,34 +5,91 @@ title: Lia CLI
 
 TODO brief description what the Lia CLI is.
 
+To run Lia CLI, use the following structure in terminal on linux and macOS or in [Git Bash](https://gitforwindows.org/) on Windows:
+```shell
+$./lia <command>
+```
+
+
+
+### Overview of available commands:
+
+Name | Short description
+--- | --- 
+[help](#help) | Details on how to use the tool
+[settings](#settigs) | Manages usage data tracking
+[bot](#bot) | Creates new bot in your favourite language
+... |
+
 ## Commands
-When you open the terminal in the folder where Lia is located, you can use these commands to run the game.
 
-### Help Command
-```shell
-./lia help
-```
+### Help
 
-This command shows you all available commands. It can be used with a command for additional information.
+Help provides help for any command in the application.
+Simply type lia help [path to command] for full details.
 
 ```shell
-./lia tutorial help
+Usage:
+  lia help [command] [flags]
+
+Flags:
+  -h, --help   help for help
 ```
 
-### Settings command
+Examples:
+
 ```shell
-./lia settings
+lia help       # General help 
+lia play help  # Detailed help for command 'play'
 ```
-This command lets you change the usage data tracking settings and tracking id settings. You can opt-in, opt-out, or reset tracking id.
+----
 
-### Creating a bot
+### Settings
+
+Lets you change the usage data tracking settings and tracking id settings. You can opt-in, opt-out, or reset tracking id.
+
 ```shell
-./lia bot language botName
+Usage:
+  lia settings [flags]
+
+Flags:
+  -i, --analytics-opt-in    Opt-in for anonymous analytics usage report
+  -o, --analytics-opt-out   Opt-out from anonymous analytics usage report
+  -h, --help                help for settings
+  -t, --reset-tracking-id   Reset anonymous tracking ID
 ```
 
-This command creates a new bot that you can name as you wish. The folder where bot is located is created in the same folder you are in right now. Inside there are files that help you setup the Intellij environment or you can open the source code in your favourite IDE. Inside src folder MyBot.java is located, this is where your main body of the bot is located.
+Examples:
 
-### Compile the bot
+```shell
+lia settings # View current settings
+```
+----
+### Bot
+
+Creates a new bot with the name and language of your choosing. The folder where the bot is located is created in the same folder as Lia CLI. It contains the starting code for the bot in chosen language and is ready to run (although it probably won't win any games yet). The base of the code is located in MyBot.* file.
+
+```shell
+Usage:
+  lia bot <language> <name> [flags]
+
+Flags:
+  -h, --help   help for bot
+```
+
+Examples:
+
+```shell
+lia bot java BestBot # Creates a java bot with name BestBot
+```
+----
+
+----
+##### TODO change the rest of commands
+----
+
+
+### Compile
 ```shell
 ./lia compile botName
 ```
