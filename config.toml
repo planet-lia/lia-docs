@@ -1,0 +1,87 @@
+baseURL = "https://docs.liagame.com/"
+languageCode = "en-us"
+title = "Lia Docs"
+metadataformat = "yaml"
+canonifyurls = true
+theme = "hugo-material-docs"
+
+[params]
+	# General information
+	author = "lia"
+	description = "Fighting for nerds."
+	copyright = "Lia"
+
+	# Repository
+	provider = "GitHub"
+	repo_url = "https://github.com/liagame/lia-docs"
+
+	logo = "images/logo.png"
+	favicon = ""
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+
+	# Syntax highlighting themes
+	highlight_css  = ""
+
+	[params.palette]
+	    # names can be found here: https://www.materialui.co/colors
+    	primary = "indigo"
+    	accent  = "light-blue"
+
+    [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+[social]
+#	twitter = "liagame"
+	github  = "liagame"
+	email   = "hello@liagame.com"
+
+[[menu.main]]
+	name   = "Lia"
+	url    = "/"
+	weight = 1
+	pre = "<img src='/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
+
+[[menu.main]]
+	name   = "Getting started"
+	url    = "getting-started/"
+
+[[menu.main]]
+    parent = "Getting started"
+	name   = "Installation"
+	url    = "getting-started/installation/"
+	weight = 2
+
+[[menu.main]]
+    parent = "Getting started"
+	name   = "Lia CLI"
+	url    = "getting-started/cli/"
+	weight = 3
+
+[[menu.main]]
+	name   = "Tutorials"
+	url    = "tutorials/"
+
+[[menu.main]]
+    parent = "Tutorials"
+	name   = "Tutorial Basic - Part 1"
+	url    = "tutorials/basic-1/"
+	weight = 4
+
+[[menu.main]]
+    parent = "Tutorials"
+	name   = "Tutorial Basic - Part 2"
+	url    = "tutorials/basic-2/"
+	weight = 5
+
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
