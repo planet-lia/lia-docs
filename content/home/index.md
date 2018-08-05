@@ -15,11 +15,14 @@ of enemy units in the harsh environment of a computer.
 
 ## Game Rules
 These are current rules of Lia and are subject to change. Legacy rules may be available here.
+<--
+TODO add link to legacy rules?
+-->
 
 ### Gameplay
 Each team starts with 9 units on opposite sides of the map. After the game starts it lasts for 500 seconds or ends 
-prematurely if one team loses all of its units. If the game is not ended by eliminations the team with most units wins, 
-if this is not resolved the team with least damage done loses. By default team killing is also enabled. 
+prematurely if one team loses all of its units. If the game has not ended by the process of elimination, the team with most 
+units wins. If this is still not resolved the team with least damage done loses. By default team killing is also enabled. 
 * 500 seconds of gametime TODO
 
 ### Controllable units
