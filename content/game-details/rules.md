@@ -1,4 +1,7 @@
-# Game Rules
+---
+date: 2018-08-05T04:32:25+02:00
+title: Game Rules
+---
 These are current rules of Lia and are subject to change. Legacy rules may be available here.
 <!--
 TODO add link to legacy rules?
