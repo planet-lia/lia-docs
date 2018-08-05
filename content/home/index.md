@@ -15,7 +15,7 @@ of enemy units in the harsh environment of a computer.
 
 ## Game Rules
 These are current rules of Lia and are subject to change. Legacy rules may be available here.
-<--
+<!--
 TODO add link to legacy rules?
 -->
 
