@@ -17,9 +17,14 @@ $./lia <command>
 Name | Short description
 --- | --- 
 [help](#help) | Details on how to use the tool
-[settings](#settigs) | Manages usage data tracking
+[settings](#settings) | Manages usage data tracking
 [bot](#bot) | Creates new bot in your favourite language
-... |
+[tutorial](#tutorial) | Starts a tutorial game
+[play](#play) | Starts a game between two bots
+[generate](#generate) | Generates a game and ignores replay
+[zip](#zip) | Compresses a bot
+[compile](#compile) | Compiles a bot
+|
 
 ## Commands
 
@@ -59,7 +64,7 @@ Flags:
   -t, --reset-tracking-id   Reset anonymous tracking ID
 ```
 
-Examples:
+Example:
 
 ```shell
 lia settings # View current settings
@@ -77,48 +82,123 @@ Flags:
   -h, --help   help for bot
 ```
 
+Example:
+
+```shell
+lia bot java BestBot # Creates a java bot named BestBot
+```
+----
+### Tutorial
+
+Runs the desired tutorial with the selected bot, the numbers that represent the tutorial are explained in the tutorial sections.
+
+```shell
+Usage:
+  lia tutorial <number> <name> [flags]
+
+Flags:
+  -d, --debug          toggle if you want to manually run your bot (eg.                        through debug mode in IDE)
+  -h, --help           help for tutorial
+  -w, --width string   choose width of replay window, height will be calcualted automatically
+
+```
+
+Example:
+
+```shell
+lia tutorial 1 BestBot # Starts tutorial 1 with the bot named BestBot
+```
+----
+### Play
+
+Compiles both bots and then runs the game between them. After the game completes loading, replay viewer is launched so you can watch the game.
+
+```shell
+Usage:
+  lia play <name1> <name2> [flags]
+
+Flags:
+  -c, --config string   choose custom config
+  -d, --debug ints      specify which bots you want to run manually, Examples: -d 1,2 -- debug bot1 and bot2, -d 2 -- debug bot2)
+  -g, --gseed int       game seed. 0 means random
+  -h, --help            help for play
+  -M, --map string      path to custom map settings
+  -m, --mseed int       map seed. 0 means random
+  -p, --port int        port on which game generator will run. Default is 8887
+  -r, --replay string   choose custom replay name and location
+  -v, --viewReplay      if set, the replay will not be opened in replay viewer (default true)
+  -w, --width string    choose width of replay window, height will be calcualted automatically
+
+
+```
+
+Example:
+
+```shell
+lia play BestBot WorstBot # Plays a game between bots BestBot and WorstBot
+```
+----
+### Generate
+
+Generates a game. Used in case you want to run your bots over many iterations. It will not start the replay viewer when the game ends. (Usefull for machine learning).
+
+```shell
+Usage:
+  lia generate <name1> <id1> <name2> <id2> [flags]
+
+Flags:
+  -c, --config string   choose custom config
+  -d, --debug ints      specify which bots you want to run manually, examples: -d 1,2 -- debug bot1 and bot2, -d 2 -- debug bot2)
+  -g, --gseed int       game seed. 0 means random
+  -h, --help            help for generate
+  -M, --map string      path to custom map settings
+  -m, --mseed int       map seed. 0 means random
+  -p, --port int        port on which game generator will run. Default is 8887
+  -r, --replay string   choose custom replay name and location
+
+```
+
+Example:
+
+```shell
+lia generate BestBot 1 WorstBot 2  # Generates a game between BestBot and WorstBot
+```
+----
+### Zip
+
+Verifies, compiles and zips the bot in \<name> directory. Final zip can be uploaded to the website.
+
+```shell
+Usage:
+  lia zip <name> [flags]
+
+Flags:
+  -h, --help   help for zip
+
+```
+
+Example:
+
+```shell
+lia zip BestBot # Compresses the bot named BestBot.
+```
+
+----
+### Compile
+
+Compiles and prepares the selected bot in its respective folder.
+
+```shell
+Usage:
+  lia compile <name> [flags]
+
+Flags:
+  -h, --help   help for compile
+```
 Examples:
 
 ```shell
-lia bot java BestBot # Creates a java bot with name BestBot
+compile WorstBot # Compiles a bot named WorstBot
 ```
+
 ----
-
-----
-##### TODO change the rest of commands
-----
-
-
-### Compile
-```shell
-./lia compile botName
-```
-
-This command compiles and prepares the selected bot in its respective folder.
-
-### Tutorial
-```shell
-./lia tutorial number botName
-```
-
-This command runs the desired tutorial with the selected bot, more about the tutorial later in this guide.
-### Play
-```shell
-./lia play botName1 botName2
-```
-
-This command compiles both bots and then runs the game between them. After the game completes loading, replay viewer is launched so you can watch the game.
-
-### Verify
-```shell
-./lia verify botName
-```
-
-This command verifies if the content in your bot’s directory is valid.
-
-### Zip
-```shell
-./lia zip botName
-```
-
-This command verifies, compiles and zips the selected bot, this is later used to upload your bot on our website.
