@@ -19,6 +19,7 @@ Example using a warning box.
 -->
 {{< warning title="Don't Use Sublime" >}}
 Atom is better.
+Visual Studio Code is even better!
 {{< /warning >}}
 
 
@@ -54,7 +55,7 @@ You can tell them to move and where, implement shooting mechanics, tactics etc.
 
 ```java
 public static void main(String[] args) throws Exception {
-NetworkingClient.connectNew(args, new MyBot());
+    NetworkingClient.connectNew(args, new MyBot());
 }
 ```
 
@@ -79,17 +80,17 @@ check if this was already achieved so we can stop the unit from rotating.
 
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is already in its correct position
-if (unit.orientation < 180) {
-    // If it is not we start the movement left
-    api.setRotationSpeed(unit.id, Rotation.LEFT);
-}
-else {
-  // If it is (or if it went past 180) we stop it
-  api.setRotationSpeed(unit.id, Rotation.NONE);
-}
+    // Here we get the state of the unit
+    Unit unit = stateUpdate.units[0];
+    // We check if unit is already in its correct position
+    if (unit.orientation < 180) {
+        // If it is not we start the movement left
+        api.setRotationSpeed(unit.id, Rotation.LEFT);
+    }
+    else {
+        // If it is (or if it went past 180) we stop it
+        api.setRotationSpeed(unit.id, Rotation.NONE);
+    }
 }
 ```
 So why does the unit stop later than is should? We clearly told it to stop when it reaches 180°, well simple explanation 
@@ -103,17 +104,17 @@ when you meet other players on the battlefield.
 To optimize this code so we do not call the api too many times, we add some conditions.  
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is already in its correct position
-if (unit.orientation < 180 && unit.rotation != Rotation.LEFT) {
-    // If it is not we start the movement left
-    api.setRotationSpeed(unit.id, Rotation.LEFT);
-}
-else if (unit.rotation != Rotation.NONE) {
-  // If it is (or if it went past 180) we stop it
-  api.setRotationSpeed(unit.id, Rotation.NONE);
-}
+    // Here we get the state of the unit
+    Unit unit = stateUpdate.units[0];
+    // We check if unit is already in its correct position
+    if (unit.orientation < 180 && unit.rotation != Rotation.LEFT) {
+        // If it is not we start the movement left
+        api.setRotationSpeed(unit.id, Rotation.LEFT);
+    }
+    else if (unit.rotation != Rotation.NONE) {
+        // If it is (or if it went past 180) we stop it
+        api.setRotationSpeed(unit.id, Rotation.NONE);
+    }
 }
 ```
 ## Movement
@@ -132,23 +133,23 @@ Example how to include a gif, to include files from the repository use: //static
 *GIF* TODO
 
 In the beginning we will introduce a new variable stateUpdate.time. This variable count seconds from the start of the 
-game, until the game ends. We will use it in this example to show you how movement works. Our unit will move for 3 
-seconds and then stop.
+game, until the game ends. We will use it in this example to show you how movement works. Our unit will move for 1
+second and then stop.
 
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is stopped and if the 3 seconds have elapsed
-if (unit.thrustSpeed == ThrustSpeed.NONE && stateUpdate.time < 3) {
-    // We set the movement to FORWARD
-    api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
-}
-else if (unit.thrustSpeed != ThrustSpeed.NONE && stateUpdate.time >= 3) {
-  // If we are moving and 3 seconds have elapsed, we set
-  // the movement to NONE and the unit stops
-  api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
-}
+    // Here we get the state of the unit
+    Unit unit = stateUpdate.units[0];
+    // We check if unit is stopped and if the 1 second has elapsed
+    if (unit.thrustSpeed == ThrustSpeed.NONE && stateUpdate.time < 1) {
+        // We set the movement to FORWARD
+        api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
+    }
+    else if (unit.thrustSpeed != ThrustSpeed.NONE && stateUpdate.time >= 1) {
+        // If we are moving and 1 second has elapsed, we set
+        // the movement to NONE and the unit stops
+        api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+    }
 }
 ```
 Of course you will have to use the movement functions with rotation to actually move, but more about that later on.
@@ -271,7 +272,9 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
       nextPointIndex++;
 
       if (nextPointIndex == points.length) {
-          // No more points to visit, there will be and error here FIX!
+          // No more points to visit so we stop
+          api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+          api.setRotationSpeed(unit.id, Rotation.NONE);
       } else {
           nextPoint = points[nextPointIndex];
       }
@@ -285,8 +288,6 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
 }
 ```
 
-*GIF OF CRASH* TODO
-
 All we need to do now is move forward if the angle is in the allowed zone, or fix it if it is not. You should also note that above code will crash, the problem is we do not handle what to do when we come to the last point and we just increment to the next point which does not exist.
 
 We make a small check if the angle is in the allowed offset area and then we move forward, else we stop and correct it.
@@ -294,17 +295,17 @@ We make a small check if the angle is in the allowed offset area and then we mov
 ``` java
 // If the angle is small enough move forward
 if (Math.abs(angle) < ALLOWED_ANGLE_OFFSET) {
-api.setRotationSpeed(unit.id, Rotation.NONE);
-api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
+    api.setRotationSpeed(unit.id, Rotation.NONE);
+    api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
 }
 // Else rotate to the needed direction
 else {
-api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
-if (angle < 0f) {
-  api.setRotationSpeed(unit.id, Rotation.RIGHT);
-} else {
-  api.setRotationSpeed(unit.id, Rotation.LEFT);
-}
+    api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+    if (angle < 0f) {
+        api.setRotationSpeed(unit.id, Rotation.RIGHT);
+    } else {
+        api.setRotationSpeed(unit.id, Rotation.LEFT);
+    }
 }
 ```
 Feel free to change some settings like area offset and angle offset, all of this can be even more optimised later (curved 
@@ -329,10 +330,10 @@ We can also see that vision does not work through obstacles, of which we have to
 are a great way to hide and then surprise your enemies if they are not careful.
 
 ``` java
-  // Here we implement the shooting mechanics
-  if(unit.canShoot && unit.opponentsInView.length > 0) {
-    api.shoot(unit.id);
-  }
+// Here we implement the shooting mechanics
+if(unit.canShoot && unit.opponentsInView.length > 0) {
+  api.shoot(unit.id);
+}
 ```
 
 ## Code for TUTORIAL 1
@@ -384,6 +385,7 @@ public class MyBot implements Callable {
               if (nextPointIndex == points.length) {
                   if(unit.thrustSpeed != ThrustSpeed.NONE) {
                       api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+                      api.setRotationSpeed(unit.id, Rotation.NONE);
                   }
               } else {
                   nextPoint = points[nextPointIndex];
