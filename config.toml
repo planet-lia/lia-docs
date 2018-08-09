@@ -15,7 +15,7 @@ theme = "hugo-material-docs"
 	provider = "GitHub"
 	repo_url = "https://github.com/liagame/lia-docs"
 
-	logo = "images/logo.png"
+	logo = "static/images/logo.png"
 	favicon = ""
 
 	permalink = "#"
@@ -45,7 +45,7 @@ theme = "hugo-material-docs"
 	name   = "Lia"
 	url    = "/"
 	weight = 1
-	pre = "<img src='/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
+	pre = "<img src='/static/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
 
 [[menu.main]]
 	name   = "Game description"

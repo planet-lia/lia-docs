@@ -1,6 +1,7 @@
 ---
 date: 2018-08-05T04:32:25+02:00
-title: Tutorial BASIC - Part 1
+title: Tutorial BASIC - Part 1c
+css: "tutorial"
 ---
 
 This section of the guide is meant to teach you how to use our API so that you are able to compete with other players.
@@ -69,7 +70,7 @@ In this part of the tutorial we will go through some of the basic commands you c
 
 Rotation is the first essential thing we will teach you to do. This gif shows you what we will accomplish at the end.
 
-![tutorial_rotate](//static/gifs/tutorial_rotate.gif)
+<img alt="rotate-gif" class="tutorial-gif" src="/static/tutorial/gifs/tutorial_rotate.gif">
 
 We notice that the unit rotates more than 180° more about that later.
 
@@ -131,9 +132,10 @@ Did not work for me. -David
 -->
 ![falling-cat](https://www.catgifpage.com/gifs/325.gif)
 
-How did this get here? We blame Gregor.
+How did this get here? <strike>We blame</strike> It was Gregor.
 
-![tutorial_move](//static/gifs/tutorial_move.gif)
+<img alt="move-gif" class="tutorial-gif" src="/static/tutorial/gifs/tutorial_move.gif">
+
 
 In the beginning we will introduce a new variable stateUpdate.time. This variable count seconds from the start of the 
 game, until the game ends. We will use it in this example to show you how movement works. Our unit will move for 1
@@ -166,7 +168,8 @@ seconds apart and it takes 1 second to reload 1 bullet so take care not to use t
 
 The following gif shows you the shooting mechanics we will learn here.
 
-![tutorial_shoot](//static/gifs/tutorial_shoot.gif)
+<img alt="shoot-gif" class="tutorial-gif" src="/static/tutorial/gifs/tutorial_shoot.gif">
+
 
 All we do is a simple if sentence to check if we can shoot, we also limit the unit to shoot at the start of the game 
 and not continuously.
@@ -191,7 +194,8 @@ you will have to combine the knowledge of rotation and movement as well as linea
 
 First let’s see what our bot will be capable of after this segment.
 
-![tutorial_path](//static/gifs/tutorial_path.gif)
+<img alt="path-gif" class="tutorial-gif" src="/static/tutorial/gifs/tutorial_path.gif">
+
 
 To start off you will need to know how much your unit has to turn to line up to the point you want to visit. We presume 
 that no obstacles are yet present. We will try to find a point above your unit first and since it is turned to 0° when 
@@ -319,7 +323,8 @@ This is the last section of basic 1 tutorial. It covers all of the above combine
 represented by a triangle which can be seen during replays you have already seen. This is the preview of what you will 
 learn during this part of the tutorial.  
 
-![tutorial_final](//static/gifs/tutorial_final.gif)
+<img alt="final-gif" class="tutorial-gif" src="/static/tutorial/gifs/tutorial_final.gif">
+
 
 At the end of our path we will identify the enemy and then start to shoot, unfortunate for the enemy unit, it comes 
 directly in our line of fire and dies. In the real game you will have to take care of pointing and shooting at the enemy, 
