@@ -97,7 +97,7 @@ Usage:
   lia tutorial <number> <name> [flags]
 
 Flags:
-  -d, --debug          toggle if you want to manually run your bot (eg.                        through debug mode in IDE)
+  -d, --debug          toggle if you want to manually run your bot (eg. through debug mode in IDE)
   -h, --help           help for tutorial
   -w, --width string   choose width of replay window, height will be calcualted automatically
 
