@@ -47,60 +47,35 @@ theme = "hugo-material-docs"
 	weight = 1
 	pre = "<img src='/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
 
-
 [[menu.main]]
-	name   = "Game details"
-	url    = "game-details/"
-
-[[menu.main]]
-    parent = "Game details"
 	name   = "Game description"
-	url    = "game-details/description/"
+	url    = "game-description/"
 	weight = 2
-	pre = "&#8227;"
 
 [[menu.main]]
-    parent = "Game details"
 	name   = "Game rules"
-	url    = "game-details/rules/"
-	weight = 2
-	pre = "&#8227;"
+	url    = "game-rules/"
+	weight = 3
 
 [[menu.main]]
-	name   = "Getting started"
-	url    = "getting-started/"
-
-[[menu.main]]
-    parent = "Getting started"
 	name   = "Installation"
-	url    = "getting-started/installation/"
+	url    = "installation/"
 	weight = 4
-	pre = "&#8227;"
 
 [[menu.main]]
-    parent = "Getting started"
-	name   = "Lia CLI"
-	url    = "getting-started/cli/"
+	name   = "Tutorial - Part 1"
+	url    = "tutorial-part-1/"
 	weight = 5
-	pre = "&#8227;"
 
 [[menu.main]]
-	name   = "Tutorials"
-	url    = "tutorials/"
-
-[[menu.main]]
-    parent = "Tutorials"
-	name   = "Tutorial Basic - Part 1"
-	url    = "tutorials/basic-1/"
+	name   = "Tutorial - Part 2"
+	url    = "tutorial-part-2/"
 	weight = 6
-	pre = "&#8227;"
 
 [[menu.main]]
-    parent = "Tutorials"
-	name   = "Tutorial Basic - Part 2"
-	url    = "tutorials/basic-2/"
+	name   = "Lia CLI"
+	url    = "lia-cli/"
 	weight = 7
-	pre = "&#8227;"
 
 
 [blackfriday]
