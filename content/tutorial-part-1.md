@@ -1,33 +1,116 @@
 ---
 date: 2018-08-05T04:32:25+02:00
-title: Tutorial BASIC - Part 1
+title: Tutorial - Part 1
 ---
 
-This section of the guide is meant to teach you how to use our API so that you are able to compete with other players.
+This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but almost all of the techniques can be easly used in other programming languages as well.
 
-<!--
-Example using an info box. */}}
--->
-{{< note title="Optional IntelliJ IDE Usage" >}}
-If you are familiar with IntelliJ we highly recommend if you are programming in java or kotlin, since it enables you to 
-begin playing faster.
-{{< /note >}}
+### You will learn to:
 
+* Write the code for your bot and test it
+* Move a biobot around the map
+* Make your biobot shoot
+* Make your biobot follow points on map
+* Debug your bot with IDE
 
-<!--
-Example using a warning box.
--->
-{{< warning title="Don't Use Sublime" >}}
-Atom is better.
-{{< /warning >}}
+### Prerequisites:
 
-
+* Basic programming skills. Nothing fancy, loops, functions and data structures should be enough to get you started.
+* Able to read Java code. Although this tutorial can be used for all languages, the code snippets are currently only written in Java.
+* Check our [installation guide](/installation/) and setup Lia SDK.
+* Grab a beer (or water if underage) and enjoy! :smile:
 
 ## Your Bot
-If you have not yet, create a new bot with a custom name. Then open its source file with the IDE of your choosing. This 
-is a part of the code you will see. The rest will be explained as we go on. Whenever you feel like you want to test your 
-bot on the tutorial playground just launch it like we showed in the command section. You should not that this is tutorial 
-part 1, which you are supposed to specify in the command.
+
+### 1. Preparing your bot
+As we mentioned above, we will use a Java bot for this tutorial. For all supported languages there are basic bot implementations already available on Github (eg. [Java bot](https://github.com/liagame/java-bot)). Fortunately, there is no need to download them manually as Lia-SDK can do that for us. Let's create our first bot named John. Open up a terminal (or Git Bash on Windows) and move to the extracted Lia-SDK directory (you did that in our  [installation guide](/installation/)), then type the following line and press enter:
+
+```bash
+./lia bot java John
+```
+##### *Command:* [*bot*](/lia-cli/#bot)
+
+{{< note title="Help us improve" >}}
+If this is the first time you are running lia CLI, then you will be prompted with a question to allow us anonymously track your usage data. Opt-ing in would help us improve our understanding of how our users use Lia-SDK while your data will stay completely anonymous. [Check here why and what we collect and why is it important to us.](/privacy-policy/#what-data-we-collect-and-why) 
+{{< /note >}}
+
+If you have access to the internet, the command should be executed successfully and you should see (in the same directory where Lia CLI is located) a new directory named John. Congratulations, you have successfully created your first bot!
+
+### 2. Bot vs bot
+
+Now it is time to send your bot to fight. To make things fun lets fight it against itself! Simply run:
+
+```bash
+./lia play John John
+```
+##### *Command:* [*play*](/lia-cli/#play)
+
+Now wait few seconds until the game is generated and voila, the replay is opened for the generated game! You should see something like in the image below.
+
+ <div style="text-align:center"><img src="/images/game-start.png" alt="Game start" width="60%"/></div>
+
+
+Although everything works it is not fun since the bot isn't doing anything yet. Let's fix that.
+
+
+## How it works
+
+As mentioned above, language specific implementattions already provide you everything you need in order to write meaningfull code. Let's have a quick look at how you can use all of that.
+
+Open up **MyBot.java** in **John/src/** directory with your favourite text editor (you can also open full John bot with an IDE, example for IntelliJ can be viewed [here](/tutorial-part-1/#debuging-your-code)). You will see thee following code:
+
+```java
+import lia.Api;
+import lia.Callable;
+import lia.NetworkingClient;
+import lia.api.*;
+
+/**
+ * Place to write the logic for your bots.
+ * */
+public class MyBot implements Callable {
+
+    /** Called only once when the game is initialized. */
+    @Override
+    public synchronized void process(MapData mapData) {
+        // TODO write some code to handle mapData
+    }
+
+    /** Repeatedly called from game engine with game state updates.  */
+    @Override
+    public synchronized void process(StateUpdate stateUpdate, Api api) {
+        // TODO write some code to handle stateUpdate every frame.
+        // Use api to send responses back to the game engine.
+    }
+
+    public static void main(String[] args) throws Exception {
+        NetworkingClient.connectNew(args, new MyBot());
+    }
+}
+
+```
+
+This code is the only thing that you need to understand in order to start developing. Not that much huh? :smile: 
+
+The method ```main()``` is used to connect John to the game engine and it should not be changed. You will use the two ```process(...)``` methods. Let's check them out.
+
+### Process map data
+
+The method ```process(MapData mapData)``` is called only when the game is initialized. It's parameter ```mapData``` contains all you need to know about the map and the players on it at the beginning of each game. It contains:
+
+* ```mapData.width``` - map width
+* ```mapData.height``` - map height
+* ```mapData.obstacles``` - details about the obstacles on the map
+    * ```mapData.obstacles[i].x` - x coordinate of the i-th obstacle
+    * ```mapData.obstacles[i].y` - y coordinate of the i-th obstacle
+    * ```mapData.obstacles[i].width` - width of the i-th obstacle
+    * ```mapData.obstacles[i].height` - height of the i-th obstacle
+
+* Width and height of the map
+* Array of obstacles on the map with corresponding locations and sizes
+* Locations of your units 
+
+
 
 ```java
 /** Called only once when the game is initialized. */
@@ -52,13 +135,6 @@ in real time. For example you can get all the data about your units, some of whi
 That is what the stateUpdate provides. Then you can choose what you will do with your units and that is what api is for. 
 You can tell them to move and where, implement shooting mechanics, tactics etc.
 
-```java
-public static void main(String[] args) throws Exception {
-NetworkingClient.connectNew(args, new MyBot());
-}
-```
-
-The main function is used to connect your bot to the game and is not meant to change.
 
 ## Control Your Units
 
@@ -423,3 +499,10 @@ public class MyBot implements Callable {
 }
 
 ```
+
+## Debuging your code
+
+### Next
+
+* [Tutorial - Part 2](/tutorial-part-1)
+* [Reference for lia CLI](/lia-cli)

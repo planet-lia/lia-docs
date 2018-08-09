@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Lia Docs"
 metadataformat = "yaml"
 canonifyurls = true
+enableEmoji = true
 theme = "hugo-material-docs"
 
 [params]
@@ -77,6 +78,10 @@ theme = "hugo-material-docs"
 	url    = "lia-cli/"
 	weight = 7
 
+[[menu.main]]
+	name   = "Privacy policy"
+	url    = "privacy-policy/"
+	weight = 7
 
 [blackfriday]
 	smartypants	= true
