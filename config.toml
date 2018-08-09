@@ -29,8 +29,8 @@ theme = "hugo-material-docs"
 
 	[params.palette]
 	    # names can be found here: https://www.materialui.co/colors
-    	primary = "indigo"
-    	accent  = "light-blue"
+    	primary = "green"
+    	accent  = "light-green"
 
     [params.font]
     	text = "Ubuntu"
