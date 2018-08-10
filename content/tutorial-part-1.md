@@ -17,12 +17,13 @@ This tutorial is meant to teach you how to create your very first bot that actua
 
 * Basic programming skills. Nothing fancy, loops, functions and data structures should be enough to get you started.
 * Able to read Java code. Although this tutorial can be used for all languages, the code snippets are currently only written in Java.
-* Check our [installation guide](/installation/) and setup Lia SDK.
+* Basic math skills like knowing what is 2D coordinate system, what are vectors, angles and few other basics.
+* Configured Lia-SDK. Check our [installation guide](/installation/) on how to do that.
 * Grab a beer (or water if underage) and enjoy! :smile:
 
 ----
 
-## Your Bot
+## Your bot
 
 ### 1. Preparing your bot
 As we mentioned above, we will use a Java bot for this tutorial. For all supported languages there are basic bot implementations already available on Github (eg. [Java bot](https://github.com/liagame/java-bot)). Fortunately, there is no need to download them manually as Lia-SDK can do that for us. Let's create our first bot named John. Open up a terminal (or Git Bash on Windows) and move to the extracted Lia-SDK directory (you did that in our  [installation guide](/installation/)), then type the following line and press enter:
@@ -131,138 +132,140 @@ Based on all of the data above you can then decide what you want your units to d
 
 *Learn more: [Api](/api/#api-object)*
 
+*IMPORTANT:* If for example you wan't your unit to move forward for some time you don't need to call ```api.setThrustSpeed(..., ThrustSpeed.FORWARD)``` every frame. You only call it once when you wan't your unit to start moving forward and then it will move until you tell it to stop.
+
 Now we are ready to start writing some code!  
 
-<div style="text-align:center"><img src="/images/so-it-begins.gif" alt="Game start"  width="30%"/></div>
+ <div style="text-align:center"><img src="/gifs/so-it-begins.gif" alt="So it begins"  width="30%"/></div>
 
 ----
 
-## Control Your Units
+## Control your units
 
-In this part of the tutorial we will go through some of the basic commands you can give to your units.
+In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we have run our [first game](/tutorial-part-1/#2-bot-vs-bot), there were plenty of bots on each team. How to control multiple units together is explained in the [Part-2](/tutorial-part-2/) of this tutorial, but for now we will stick with only one unit per team. 
+
+In order to do that and to also showcase other things in this tutorial, we have prepared a special playground for it. You can run your bot John in this playground by running the following command:
+
+```bash
+./lia tutorial 1 John
+```
+
+##### *Command:* [*tutorial*](/lia-cli/#tutorial)
+
+When the game is generated, you should see the map that looks something like this:
+
+ <div style="text-align:center"><img src="/images/tutorial-part-1-map.png" alt="Tutorial Part 1 - map"  width="70%"/></div>
+
+Now let's dig in.
+
+----
 
 ## Rotation
 
-Rotation is the first essential thing we will teach you to do. This gif shows you what we will accomplish at the end.
+Unit rotation is the first essential move we will cover. We wan't our unit to rotate for roughly 180° (head [here](/tutorial-part-1/#more-precise-rotation) if you wan't to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
 
-*GIF* TODO
+ <div style="text-align:center"><img src="/gifs/tutorial-part-1-rotate.gif" alt="Tutorial Part 1 - rotation" width="70%"/></div>
 
-We notice that the unit rotates more than 180° more about that later.
-
-Let’s jump into the code now. Firstly you have to get the state of your unit every time it is updated. So you can check 
-if the angle you want to set it to is achieved. After you check that you have to tell it to turn, since every unit is 
-positioned to 0° when it spawns, we will try to position it to 180° rotating left (we could also rotate right). Then we 
-check if this was already achieved so we can stop the unit from rotating.
+Each tick (or frame) we get the state of our unit which also contains the information about its orientation (check [here](/api/#stateupdate) to see what data we receive). When the unit is spawned it has orientation 0° which means that it is faced alongside the x axis. We will first set our unit to rotate to the left and then check every frame to see what its current orientation is. When orientation will be greater than 180°, we will stop the rotation. Let's look at the code:
 
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is already in its correct position
-if (unit.orientation < 180) {
-    // If it is not we start the movement left
-    api.setRotationSpeed(unit.id, Rotation.LEFT);
-}
-else {
-  // If it is (or if it went past 180) we stop it
-  api.setRotationSpeed(unit.id, Rotation.NONE);
-}
+    // Get the state of the unit
+    Unit unit = stateUpdate.units[0];
+
+    // If the unit's orientation is less than 180° and it is not rotating
+    // then start rotating it to the left (this is only called once!)
+    if (unit.orientation < 180 && unit.rotation == Rotation.NONE) {
+        api.setRotationSpeed(unit.id, Rotation.LEFT);
+    }
+    // Else the orientation equals to or exceeds 180° and thus if the unit 
+    // is still rotating we to stop it (this is also called just once!)
+    else if (unit.rotation == Rotation.LEFT) {
+        api.setRotationSpeed(unit.id, Rotation.NONE);
+    }
 }
 ```
-So why does the unit stop later than is should? We clearly told it to stop when it reaches 180°, well simple explanation 
-is that state updates are rare enough that the unit is stopped too late, since there is room for error you have to use 
-the time you have wisely, if you want to turn for too much and a few ticks of the game are calculated in between you can 
-not ensure that your commands will be accurate.
 
-Be sure to print out the actual angle and test some other values to get a feeling of accuracy which will come in handy 
-when you meet other players on the battlefield.
+### More precise rotation
 
-To optimize this code so we do not call the api too many times, we add some conditions.  
-``` java
-public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is already in its correct position
-if (unit.orientation < 180 && unit.rotation != Rotation.LEFT) {
-    // If it is not we start the movement left
-    api.setRotationSpeed(unit.id, Rotation.LEFT);
-}
-else if (unit.rotation != Rotation.NONE) {
-  // If it is (or if it went past 180) we stop it
-  api.setRotationSpeed(unit.id, Rotation.NONE);
-}
-}
-```
+As you can see, the unit does not rotate for exactly 180°. This is due to the fact that you can control your unit with precision of about 1/10th of a second which means that because of the fairly quick rotation speed of the unit you can sometimes overshoot the angle. To fix that, you need to improve the above logic when the angle is getting close to 180°, so that the unit does not rotate with speed ```Rotation.LEFT``` but ```Rotation.SLOW_LEFT```. With this you will be able to make the rotation more precise and it will only take about one more if statement in the above code to add it.
+
+*Exercise: Make the rotation more precise using ```Rotation.SLOW_LEFT```.*
+
+----
+
 ## Movement
 
-Units can move forward, backward or they can stop. Speed units move with forward is faster than backward and it can not 
-be changed. Units also stop instantly.
+Besides rotating and staying still, units can also move forward and backward (you can also both rotate and move forward/backward, but this is out of the scope for this tutorial). Moving forward is faster then moving backward and stopping is done immediately.
 
-For now we will use movement only and later we will combine all we know about rotation as well. This gif represents the 
-progress we will make for now.
+Let's now make our unit move forward for 1 seconds and then stop. It will look something like this:
+
+ <div style="text-align:center"><img src="/gifs/tutorial-part-1-move.gif" alt="Tutorial Part 1 - move" width="70%"/></div>
+
+In order to achieve that, we will need to know the current time which is stored in ```stateUpdate.time```. Based on that we will decide if it is the time to stop our unit. Check the code below:
+
+``` java
+public synchronized void process(StateUpdate stateUpdate, Api api) {
+    // Get the state of the unit
+    Unit unit = stateUpdate.units[0];
+    float time = stateUpdate.time;
+
+    // If the time is less then 1 second and the unit is not moving
+    // then start moving the unit forward
+    if (time < 1f && unit.thrustSpeed == ThrustSpeed.NONE) {
+        api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
+    }
+    // Else if one second has passed and the unit is still moving forward
+    // then make the unit stop
+    else if (time >= 1f && unit.thrustSpeed == ThrustSpeed.FORWARD) {
+        api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+    }
+}
+```
+In order to actually move somewhere you will need to combine both straight as well as the rotational movement, but more about that later. First let's look at how our unit can shoot.
+
+----
+## Shooting & ammo
+
+Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with delay of 0.2 second while reloading new ones take 1 second for each new bullet. It is probably good to take care not to use all the bullets at once if unnecessary.
+
+The following gif shows you an example of shooting mechanics.
+
+ <div style="text-align:center"><img src="/gifs/tutorial-part-1-shoot.gif" alt="Tutorial Part 1 - shoot" width="70%"/></div>
+
+And this is how this looks in the code: 
+
+``` java
+public synchronized void process(StateUpdate stateUpdate, Api api) {
+    // Get the state of the unit
+    Unit unit = stateUpdate.units[0];
+
+    // If the unit can shoot (weapon is reloaded enough time has passed since
+    // the last shot) then tell the engine to shot.
+    if (unit.canShoot) {
+      api.shoot(unit.id);
+    }
+}
+```
+
+When you will want to create a custom shooting logic where you will not want to shoot all the bullets at once, then you should take a look at the ```unit.nBullets``` in [StateUpdate](/api/#stateupdate) reference.
+
+----
+
+## Following points
+
+Now let 
+
+If your units can follow points, you can later easier understand the concept of pathfinding in Lia. To follow points 
+you will have to combine the knowledge of rotation and movement as well as linear algebra.
+
+First let’s see what our bot will be capable of after this segment.
 
 <!--
 Example how to include a gif, to include files from the repository use: //static/gifs/<NAME_OF_FILE>
 -->
 ![falling-cat](https://www.catgifpage.com/gifs/325.gif)
 
-*GIF* TODO
-
-In the beginning we will introduce a new variable stateUpdate.time. This variable count seconds from the start of the 
-game, until the game ends. We will use it in this example to show you how movement works. Our unit will move for 3 
-seconds and then stop.
-
-``` java
-public synchronized void process(StateUpdate stateUpdate, Api api) {
-// Here we get the state of the unit
-Unit unit = stateUpdate.units[0];
-// We check if unit is stopped and if the 3 seconds have elapsed
-if (unit.thrustSpeed == ThrustSpeed.NONE && stateUpdate.time < 3) {
-    // We set the movement to FORWARD
-    api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
-}
-else if (unit.thrustSpeed != ThrustSpeed.NONE && stateUpdate.time >= 3) {
-  // If we are moving and 3 seconds have elapsed, we set
-  // the movement to NONE and the unit stops
-  api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
-}
-}
-```
-Of course you will have to use the movement functions with rotation to actually move, but more about that later on.
-
-*Curved movement second gif, Subtitled with commands used speed.forward, turn.left...* TODO
-
-## Shooting & Ammo
-
-When shooting you have a total of 3 bullets at your disposal before you have to reload. You can shoot each bullet 0.2 
-seconds apart and it takes 1 second to reload 1 bullet so take care not to use them all at once if unnecessary.
-
-The following gif shows you the shooting mechanics we will learn here.
-
-*GIF* TODO
-
-All we do is a simple if sentence to check if we can shoot, we also limit the unit to shoot at the start of the game 
-and not continuously.
-
-``` java
-public synchronized void process(StateUpdate stateUpdate, Api api) {
-    // Here we get the state of the unit
-    Unit unit = stateUpdate.units[0];
-    // We shoot the whole magazine at once
-    if (unit.canShoot && stateUpdate.time < 1) {
-      // Tell the unit to shoot one bullet, this is then called
-      // continuously until one second has passed
-      api.shoot(unit.id);
-    }
-}
-```
-
-## Following points
-
-If your units can follow points, you can later easier understand the concept of pathfinding in Lia. To follow points 
-you will have to combine the knowledge of rotation and movement as well as linear algebra.
-
-First let’s see what our bot will be capable of after this segment.
 
 *GIF* TODO
 
@@ -272,50 +275,71 @@ it spawns the angle, between the point and where your unit is facing, should be 
 purpose is explained in the comments, and later we fill the array of points we want to visit, feel free to change the 
 values and test the algorithm.
 
+1. calculate the angle to the point toward which your unit needs to rotate
+2. rotate your unit so that its rotation matches the angle
+3. move forward 
+4. if the unit reaches the destination then finish
+5. if the offset angle is too big then stop and rotate
+
+DO THE SAME FOR MULTIPLE POINTS
+
+!!!! note that you should check if the wished value is already set before setting it. Example:
+
 ``` java
-// We define points where we want our unit to move to
+import com.badlogic.gdx.math.Vector2;
+
+...
+
+// Points on the map that our unit will visit
 private Vector2[] points = new Vector2[] {
-    new Vector2(5f, 23f),
-    new Vector2(21f, 23f),
-    new Vector2(28f, 19f),
-    new Vector2(28f, 3f),
-    new Vector2(48f, 3f),
-    new Vector2(51f, 25f),
-    new Vector2(58f, 25f),
-    new Vector2(63f, 4f)
-};
-// This index tells us to which point we are going (will change later)
+         new Vector2(5f, 23f),
+         new Vector2(21f, 23f),
+         new Vector2(28f, 19f),
+         new Vector2(28f, 3f),
+         new Vector2(48f, 3f),
+         new Vector2(51f, 25f),
+         new Vector2(58f, 25f),
+         new Vector2(63f, 8f)
+ };
+ 
+// Tells the index of the next point we will visit
 private int nextPointIndex = 0;
-// A global vector to preserve our data when there is no need
-// to change it
-private Vector2 vector = new Vector2();
-/** Repeatedly called from game engine with game state updates.  */
+
+/** Repeatedly called from game engine with game state updates. */
 @Override
 public synchronized void process(StateUpdate stateUpdate, Api api) {
-  // Here we get the state of the unit
+  // Here we get the state of the unit and it's location
   Unit unit = stateUpdate.units[0];
-  // Unit location
   float x = unit.x;
   float y = unit.y;
 
-  // We save the next point in a vector
+  // Get the next point we need to visit
   Vector2 nextPoint = points[nextPointIndex];
-  // First lets just try to find the angle to the first point
-  // Set the temporary vector to our next point
-  vector.set(nextPoint);
-  vector.sub(x, y);
-  // Vector2 has a function to calculate angle
-  // from x axis to y axis in positive direction (counter clockwise)
-  float angle = vector.angle() - unit.orientation;
-  // We calculate the shortest angle distance to our destination
-  // meaning we will know if we have to turn right or left
+
+  // Make a copy of the next point so that we will be able to modify it
+  Vector2 tmp = new Vector2(nextPoint);
+  // Substract the position of the unit from the next point vector to 
+  // get the vector from player to next point as shown above.
+  tmp.sub(x, y);
+
+  // Get the angle between the vector from the unit to the next point and
+  // the orientation of the unit.
+  // (Check below 1* if you wan't to know how angle() method is implemented)
+  float angle = tmp.angle() - unit.orientation;
+
+  // Angles can always be represented with a positive or negative value that 
+  // is smaller than 180°. Here we optimize this so that we wil better know 
+  // to which rotation we should turn.
   if (angle > 180) angle -= 360;
   else if (angle < -180) angle += 360;
+
   //Our angle should now be calculated lets print it out
   System.out.println(angle);
   // the first angle should be 90 -> 89.999999 is close enough
 }
 ```
+##### *1\*: [```angle()```](https://github.com/libgdx/libgdx/blob/65fd2fe17115710c035793e7605c69847e54d8bc/gdx/src/com/badlogic/gdx/math/Vector2.java#L321)* implementation
+
 Now that we have an angle we should rotate to that angle and move forward, but it is not as simple as it sounds. Since 
 we learned that you can miss out on state updates and your angle could be corrupted, you need to take some precautions.
 
@@ -387,7 +411,9 @@ if (angle < 0f) {
 Feel free to change some settings like area offset and angle offset, all of this can be even more optimised later (curved 
 movement instead of stopping to correct the angle).
 
-## Identify the Enemy
+----
+
+## Identifying the enemy
 This is the last section of basic 1 tutorial. It covers all of the above combined with vision of your units. Vision is 
 represented by a triangle which can be seen during replays you have already seen. This is the preview of what you will 
 learn during this part of the tutorial.  
@@ -412,7 +438,9 @@ are a great way to hide and then surprise your enemies if they are not careful.
   }
 ```
 
-## Code for TUTORIAL 1
+----
+
+## Final code
 
 ``` java
 public class MyBot implements Callable {
@@ -501,7 +529,11 @@ public class MyBot implements Callable {
 
 ```
 
-## Debuging your code
+----
+
+## Extra: Debugging
+
+----
 
 ### Next
 
