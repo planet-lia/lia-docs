@@ -39,6 +39,7 @@ Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per 
 * Range: 40
 
 ## Viewing Area
+
 Each biobot have a viewing area that resemble a triangle. It has a length of 30 and does not span through obstacles. Width of 
 the furthest side of the triangle is 16. The viewing area is always in front of the biobot and it moves with it.
 
@@ -48,3 +49,84 @@ the furthest side of the triangle is 16. The viewing area is always in front of 
 ###### TODO: viewing area gif, the unit is rotating
 
 ## Custom Game Rules
+
+If you want to run a custom game, weather you need to test something or you just want to play a different kind of game with your friend, all you have to do is change the "game-config.json" file, located in the data folder of liagame-SDK.
+
+Json files do not have comments, but for the sake of this tutorial the sentence with a # before it is intended to explain the data in this json file.
+
+Be advised that some properties may break the game if you push them too far, for example the map size could overload your memory or too many units on the screen could do the same. Have fun!
+```json
+{
+  "version": "0.1.0",
+  "simulation": {
+    "ticksPerSecond": 30, 
+    "velocityIterationsPerTick": 6,
+    "positionIterationsPerTick": 4
+  },
+  "bots": {
+    "initResponseTimeout": 4000,
+    "tickResponseTimeout": 200,
+    "ticksPerRequest": 5,
+    "maxFailedResponses": 8,
+    "initialConnectionTimeout": 5000
+  },
+  "gameDetails": {
+    "mapWidth": 144, # size of the map in engine units
+    "mapHeight": 81, 
+    "gameDuration": 100, # game duration in seconds
+    "background": {
+      "r": 0.2,
+      "g": 0.2,
+      "b": 0.2,
+      "a": 1.0
+    },
+    "unitsPerTeam": 1, # number of units per team (server default 12)
+    "teamKill": true, # by default team killing is allowed
+    "mapType": -1 # map type tells the generator which map to use -1 means random
+  },
+  # data for the generator of maps
+  "obstacles": {
+    "nObstacles": {"min": 5, "max": 12},
+    "minObstacleSize": {"min":0.8, "max": 2},
+    "maxObstacleSize": {"min": 5, "max": 8},
+    "blockSize": 3.0,
+    "blockToCoolerRatio": 0.8
+  },
+  # this changes unit properties, watch out for "size" it may break the game
+  "units": {
+    "size": 2,
+    "health": 100, 
+    "forwardVelocity": 7.2,
+    "backwardVelocity": 5,
+    "rotationVelocityDeg": 54,
+    "notMovingRotationVelocityDeg": 108,
+    "timeBetweenShoots": 0.2,
+    "nBulletsInMagazine": 3,
+    "reloadTime": 1,
+    "bulletRange": 40,
+    "respawnTime": 10,
+    "healthRecoveryTime": 1.0,
+    "healthRecoveryPoints": 8,
+    "recoveryStartsAfter": 8.0
+  },
+  # you can change the area units are able to see
+  "viewingArea": {
+    "length": 30, # length of the triangle
+    "width": 16, # the width at the base of triange
+    "offset": -1,
+    "lineWidth": 2
+  },
+  # change the bullet properties here
+  "bullets": {
+    "size": 0.4,
+    "velocity": 32,
+    "damage": 40
+  },
+  # just the visual representation of the health bar
+  "healthBar": {
+    "width": 1.8,
+    "height": 0.16,
+    "offset": 1.4
+  }
+}
+```
