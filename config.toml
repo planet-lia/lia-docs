@@ -79,9 +79,14 @@ theme = "hugo-material-docs"
 	weight = 7
 
 [[menu.main]]
+	name   = "API"
+	url    = "api/"
+	weight = 8
+
+[[menu.main]]
 	name   = "Privacy policy"
 	url    = "privacy-policy/"
-	weight = 7
+	weight = 9
 
 [blackfriday]
 	smartypants	= true

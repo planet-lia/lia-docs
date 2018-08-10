@@ -20,6 +20,8 @@ This tutorial is meant to teach you how to create your very first bot that actua
 * Check our [installation guide](/installation/) and setup Lia SDK.
 * Grab a beer (or water if underage) and enjoy! :smile:
 
+----
+
 ## Your Bot
 
 ### 1. Preparing your bot
@@ -52,6 +54,7 @@ Now wait few seconds until the game is generated and voila, the replay is opened
 
 Although everything works it is not fun since the bot isn't doing anything yet. Let's fix that.
 
+----
 
 ## How it works
 
@@ -90,52 +93,50 @@ public class MyBot implements Callable {
 
 ```
 
-This code is the only thing that you need to understand in order to start developing. Not that much huh? :smile: 
+This code is the only thing that you need to understand in order to start developing. Not that much huh? :smile: The method ```main()``` is used to connect John to the game engine and it should not be changed. You will use the two ```process(...)``` methods. Let's check them out.
 
-The method ```main()``` is used to connect John to the game engine and it should not be changed. You will use the two ```process(...)``` methods. Let's check them out.
-
-### Process map data
-
-The method ```process(MapData mapData)``` is called only when the game is initialized. It's parameter ```mapData``` contains all you need to know about the map and the players on it at the beginning of each game. It contains:
-
-* ```mapData.width``` - map width
-* ```mapData.height``` - map height
-* ```mapData.obstacles``` - details about the obstacles on the map
-    * ```mapData.obstacles[i].x` - x coordinate of the i-th obstacle
-    * ```mapData.obstacles[i].y` - y coordinate of the i-th obstacle
-    * ```mapData.obstacles[i].width` - width of the i-th obstacle
-    * ```mapData.obstacles[i].height` - height of the i-th obstacle
-
-* Width and height of the map
-* Array of obstacles on the map with corresponding locations and sizes
-* Locations of your units 
-
+### Handling map data
 
 
 ```java
 /** Called only once when the game is initialized. */
 @Override
 public synchronized void process(MapData mapData) {
+    // TODO write some code to handle mapData
 }
 ```
 
-The function above is called only when the game is initialized and gives you the data necessary to later parse where 
-obstacles are located.
+The method ```process(MapData mapData)``` is called only once when the game is initialized. It's parameter ```mapData``` contains all you need to know about the map and the players on it at the beginning of each game.
+
+*Learn more: [MapData](/api/#mapdata)*
+
+### Handling game state
 
 ```java
-/** Called only once when the game is initialized. */
 /** Repeatedly called from game engine with game state updates.  */
 @Override
 public synchronized void process(StateUpdate stateUpdate, Api api) {
+    // TODO write some code to handle stateUpdate every frame.
+    // Use api to send responses back to the game engine.
 }
 ```
 
-This function is called repeatedly about 10 times per second while the game is running. In here you can read the situation 
-in real time. For example you can get all the data about your units, some of which are health, location, ammo count etc. 
-That is what the stateUpdate provides. Then you can choose what you will do with your units and that is what api is for. 
-You can tell them to move and where, implement shooting mechanics, tactics etc.
+The method ```process(StateUpdate stateUpdate, Api api)``` 10 times per each game second, this is the meat of your code. It has two parameters. First parameter ```stateUpdate``` holds the info about everything that is happening on the map in current time that you are allowed to know.
 
-
+*Learn more: [StateUpdate](/api/#stateupdate)*
+
+### Making decisions
+
+Based on all of the data above you can then decide what you want your units to do. To do this, you need to use the second parameter in the method ```process(StateUpdate stateUpdate, Api api)``` called ```api```. The methods that you call on ```api``` object tells the engine what you want to do with your units. You can move your units forward, backward, rotate them or make them shoot.
+
+*Learn more: [Api](/api/#api-object)*
+
+Now we are ready to start writing some code!  
+
+<div style="text-align:center"><img src="/images/so-it-begins.gif" alt="Game start"  width="30%"/></div>
+
+----
+
 ## Control Your Units
 
 In this part of the tutorial we will go through some of the basic commands you can give to your units.
