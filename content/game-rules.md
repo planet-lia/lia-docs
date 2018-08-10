@@ -2,7 +2,7 @@
 date: 2018-08-05T04:32:25+02:00
 title: Game Rules
 ---
-These are current rules of Lia and are subject to change. Legacy rules may be available here.
+These are current rules of Lia and are subject to change.
 <!--
 TODO add link to legacy rules?
 -->
@@ -20,7 +20,7 @@ Map is automatically generated and can be of many shapes such as diagonal, cross
 * Width: 216
 * Height: 122
 
-## Controllable biobots
+## Controllable Biobots
 Each biobot has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat.
 
 * Health: 100 HP
@@ -38,7 +38,7 @@ Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per 
 * Speed: 32 /s
 * Range: 40
 
-## Viewing area
+## Viewing Area
 Each biobot have a viewing area that resemble a triangle. It has a length of 30 and does not span through obstacles. Width of 
 the furthest side of the triangle is 16. The viewing area is always in front of the biobot and it moves with it.
 
@@ -46,3 +46,5 @@ the furthest side of the triangle is 16. The viewing area is always in front of 
 * Width: 16
 
 ###### TODO: viewing area gif, the unit is rotating
+
+## Custom Game Rules
