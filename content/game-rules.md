@@ -99,7 +99,7 @@ Be advised that some properties may break the game if you push them too far, for
     "forwardVelocity": 7.2,
     "backwardVelocity": 5,
     "rotationVelocityDeg": 54,
-    "notMovingRotationVelocityDeg": 108,
+    "slowRotationVelocityDeg": 14,
     "timeBetweenShoots": 0.2,
     "nBulletsInMagazine": 3,
     "reloadTime": 1,
