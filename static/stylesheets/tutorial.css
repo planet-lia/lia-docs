@@ -1,0 +1,4 @@
+.tutorial-gif {
+    /* added empirically, could fail for larger screens */
+    max-height: 350px;
+}
