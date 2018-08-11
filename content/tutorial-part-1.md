@@ -640,7 +640,7 @@ TODO
 
 ----
 
-### Next
+### Next:
 
 * [Tutorial - Part 2](/tutorial-part-1)
 * [Reference for lia CLI](/lia-cli)

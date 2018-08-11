@@ -118,3 +118,8 @@ Be aware that some properties may break the game if you change them too much, fo
   }
 }
 ```
+
+### Next:
+
+* [Game description](/game-description)
+* [Tutorial - Part 1](/tutorial-part-1)
