@@ -630,7 +630,9 @@ public class MyBot implements Callable {
 }
 ```
 
-Good job for reading this far! If you wan't to, you can check the [next section](/tutorial-part-1/#extra-debugging-your-code) that describes how to effectively debug your code, or you can go and read the [Part 2](/tutorial-part-1) of this tutorial. Otherwise you are already well equipped to dig deeper into the world of Lia by yourself. HF! :smile:
+Good job for reading this far! If you want to, you can check the [next section](/tutorial-part-1/#extra-debugging-your-code) that describes how to effectively debug your code, or you can go and read the [Part 2](/tutorial-part-1) of this tutorial that will show you how to use the basic pathfinding library and how to handle multiple units at once.
+
+Otherwise you are already well equipped to dig deeper into the world of Lia by yourself. HF! :smile:
 
 ## Extra: Debugging your code
 
