@@ -42,6 +42,17 @@ the furthest side of the triangle is 16. The viewing area is always in front of 
 * Length: 30
 * Width: 16
 
+## Bot restrictions
+
+When generating our games on Lia servers we need to limit your bot so that it does not use too much time or other reasources. Thus we place the following limitaitons on your bot:
+
+* When the bot receives the first update it has 4 seconds to respond
+* For all other game updates the bot needs to respond in 0.5 seconds
+* If the bot fails to respond in time for 8 or more times in one game it automatically looses
+* If the bot does not connect withing 5 seconds since the game engine started it also looses
+
+When running your bot locally in debug mode, no restricitons are set. (Check [here](/tutorial-part-1/#extra-debugging-your-code) to see how to run your bot in debug mode)
+
 ## Custom Game Rules
 
 If you want to run a custom game, weather you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
