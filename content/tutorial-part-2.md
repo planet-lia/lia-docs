@@ -1,6 +1,6 @@
 ---
 date: 2018-08-05T04:32:25+02:00
-title: Tutorial BASIC - Part 2
+title: Tutorial - Part 2
 ---
 
 In this section of the tutorial we will add some useful insight in all the things you learned this far. One of those things is pathfinding, we have actually already implemented most of the things you need for a good pathfinding algorithm, but we need to add some logic to it.

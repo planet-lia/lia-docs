@@ -67,7 +67,7 @@ Flags:
 Example:
 
 ```shell
-lia settings # View current settings
+lia settings  # View current settings
 ```
 ----
 ### Bot
@@ -85,9 +85,16 @@ Flags:
 Example:
 
 ```shell
-lia bot java BestBot # Creates a java bot named BestBot
+lia bot java BestBot  # Creates a java bot named BestBot
 ```
+
+To check which languages are supported run: 
+```shell
+lia --languages
+```
+
 ----
+
 ### Tutorial
 
 Runs the desired tutorial with the selected bot, the numbers that represent the tutorial are explained in the tutorial sections.
@@ -106,7 +113,7 @@ Flags:
 Example:
 
 ```shell
-lia tutorial 1 BestBot # Starts tutorial 1 with the bot named BestBot
+lia tutorial 1 BestBot  # Starts tutorial 1 with the bot named BestBot
 ```
 ----
 ### Play
@@ -135,7 +142,7 @@ Flags:
 Example:
 
 ```shell
-lia play BestBot WorstBot # Plays a game between bots BestBot and WorstBot
+lia play BestBot WorstBot -g 2 -m 3  # Plays a game between bots BestBot and WorstBot with fixed specified game and map seeds
 ```
 ----
 ### Generate
@@ -180,7 +187,7 @@ Flags:
 Example:
 
 ```shell
-lia zip BestBot # Compresses the bot named BestBot.
+lia zip BestBot  # Compresses the bot named BestBot.
 ```
 
 ----
@@ -198,7 +205,7 @@ Flags:
 Examples:
 
 ```shell
-compile WorstBot # Compiles a bot named WorstBot
+compile WorstBot  # Compiles a bot named WorstBot
 ```
 
 ----

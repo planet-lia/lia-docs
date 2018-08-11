@@ -617,17 +617,21 @@ pre span{
     color:hsla(0,0%,100%,.7)
 }
 .admonition{
-    background:#29b6f6;
-    color:#fff
+    background:#60c5ae;
+    color:#fff;
 }
 .admonition pre{
     background:hsla(0,0%,100%,.3)
 }
 .admonition.warning{
-    background:#e84e40
+    background:#019170
 }
-.admonition a,.admonition a:hover{
-    color:#fff
+.admonition a {
+    color:#fff !important;
+    font-weight: bold;
+}
+.admonition a:hover {
+    color:#fff !important;
 }
 .article{
     font-size:14px;
