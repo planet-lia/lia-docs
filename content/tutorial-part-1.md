@@ -636,11 +636,19 @@ Otherwise you are already well equipped to dig deeper into the world of Lia by y
 
 ## Extra: Debugging your code
 
-TODO
+Lia-SDK can, besides just quickly and effortlessly generating games, also help you with the debugging. Usually when you run the [```play```](/lia-cli/#play) command through terminal or GitBash, the game automatically runs the game engine and two bots you have specified in command. This is great because you can see the resulting game within seconds, but sometimes you want to do it more manually, stop the game in between or run the debugger to see what is going on.
+
+Fortunatelly the ```play``` command has a flag with which you say which bots you will run manually. An example would look like this:
+
+```bash
+./lia play John Bob -d 1 
+```
+
+
 
 ----
 
 ### Next:
 
 * [Tutorial - Part 2](/tutorial-part-1)
-* [Reference for lia CLI](/lia-cli)
+* [Reference for Lia CLI](/lia-cli)

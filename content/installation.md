@@ -41,4 +41,4 @@ If Lia-SDK commands fail because they can't find Git Bash, then the location tha
 ### Next:
 
 * [Tutorial - Part 1](/tutorial-part-1)
-* [Reference for lia CLI](/lia-cli)
+* [Reference for Lia CLI](/lia-cli)
