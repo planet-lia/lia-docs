@@ -1,16 +1,25 @@
 # Lia Docs
-The official Lia documentation page.
+The official Lia documentation website.
+
+The website if available on: [https://docs.liagame.com](https://docs.liagame.com).
+
+We encourage community collaboration, we are always glad to receive pull requests. 
+If you would like to contribute, please read the [development](#development)
+section.
 
 ## TODO
-- [ ] Add GIFs
-- [ ] Remove examples of info/warning box from Tutorial BASIC Part 1
-- [ ] Review the config.toml settings (Description field specifically)
-- [ ] Update the color scheme to match Lia brand colors
-- [ ] Update logo
 - [ ] Add favicon
 
 ## Development
-The website is created using [Hugo](https://gohugo.io/) and the 
+All development is done on the *dev* branch. The *master* branch represents
+the [production documentation](https://docs.liagame.com).
+
+We also have a development (dev branch) page that is used for final review of
+the changes to be pushed to the production documentation, available here:
+[https://docs-dev.liagame.com](https://docs-dev.liagame.com)
+
+
+The website is created using [Hugo](https://gohugo.io) and the 
 [Material Docs theme](https://github.com/digitalcraftsman/hugo-material-docs).
 
 Unless you have a good reason, **do not** change the `hugo-material-docs` theme. 

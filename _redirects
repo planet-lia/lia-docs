@@ -1,0 +1,4 @@
+# Used by Netlify to redirect alias domains to the primary domain
+
+https://www.docs.liagame.com/* https://docs.liagame.com/:splat 301!
+https://liagame-docs.netlify.com/* https://docs.liagame.com/:splat 301!
