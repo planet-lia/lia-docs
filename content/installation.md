@@ -28,7 +28,7 @@ Next to lia executable and data directory Lia-SDK will also store your bots and 
 If Lia-SDK commands fail because they can't find Git Bash, then the location that SDK uses does not match the location of your Git Bash installation. To update the path:
 
 1. Go to the directory where you have extracted Lia-SDK and open **data/cli-config.json** in a text editor.
-2. Then change the following line so that it will contain the path to your Git Bash installation.
+2. Then change the following line so that it will contain the path to your Git Bash installation. Note that you need to escape backslashes (\\) with double backslashes (\\\\).
 
 ```json
 { 

@@ -3,7 +3,7 @@ date: 2018-08-05T04:32:25+02:00
 title: Tutorial - Part 1
 ---
 
-This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but almost all of the techniques can be easly used in other programming languages as well.
+This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but all of the techniques can be easly used in other programming languages as well.
 
 ### You will learn to:
 
@@ -17,9 +17,13 @@ This tutorial is meant to teach you how to create your very first bot that actua
 
 * Basic programming skills. Nothing fancy, loops, functions and data structures should be enough to get you started.
 * Able to read Java code. Although this tutorial can be used for all languages, the code snippets are currently only written in Java.
-* Basic math skills like knowing what is 2D coordinate system, what are vectors, angles and few other basics.
 * Configured Lia-SDK. Check our [installation guide](/installation/) to learn how to do that.
-* Grab a beer (or water if underage) and enjoy! :smile:
+
+And this is what our biobot will be able to do at the end of this tutorial:
+
+ <div style="text-align:center"><img src="/gifs/tutorial-part-1-final.gif" alt="Tutorial Part 1 - final" width="70%"/></div>
+
+Let's dive in!
 
 ----
 
@@ -670,7 +674,7 @@ cd John # You need to be in the same directory as the run.sh script
 bash run.sh 8887 # 8887 is default game engine port
 ```
 
-But this does not give us a lot of value as we want to be able to debug the code with a propper debuger. Let's see how this can be done with IntelliJ IDEA.
+But this does not give us a lot of value as we want to be able to debug the code with a propper debuger. Let's see how this can be done with IntelliJ IDEA (We are by no means affiliated with JetBrains, the creators of IntelliJ IDEA, this IDE is used here just to showcase the point).
 
 ### Connecting your bot with IntelliJ IDEA
 

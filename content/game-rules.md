@@ -18,8 +18,8 @@ Map is automatically generated and can be of many shapes such as diagonal, cross
 * Width: 216
 * Height: 122
 
-## Controllable Biobots
-Each biobot has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat.
+## Units
+Each unit (a controllable biobot) has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat.
 
 * Health: 100 HP
 * Regeneration speed (after 8s out of combat): 8 HP/s
@@ -58,6 +58,8 @@ When running your bot locally in debug mode, no restricitons are set. (Check [he
 If you want to run a custom game, weather you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
 Be aware that some properties may break the game if you change them too much, for example if you put 10.000 units to fight it will probably take ages before the game generates! :smile: Have fun!
+
+### Example of game-config.json
 
 ```json
 {

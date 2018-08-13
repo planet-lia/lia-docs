@@ -14,4 +14,5 @@ For example if our whole onboarding process is based on the user going through t
 If for example we see that most of our users only completed the first tutorial and not the second, let alone played their own games, we then know that the problem most likely lies in our Tutorial - Part 1 and not for example that the play command is not understandable. 
 By collecting data we could also see if our users learned how to run their bots in debug mode (which we believe is very important!) and if most of them didn't, we can add some aditional tutorials on our site or do some other stuff to fix that. 
 
+
 All in all, the data we collect will never expose your identity but it will immensely contribute in making the Lia experience as enjoyable as possible.
