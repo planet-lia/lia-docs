@@ -33,7 +33,7 @@ Each unit (a controllable biobot) has 100 health points and starts with 3 bullet
  <div style="text-align:center"><img src="/images/unit.png" alt="Unit" width="20%"/></div>
 
 ## Bullets
-Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per second and it travels a length of 40 or until it hits an obstacle which is eider a wall or a unit.
+Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per second and it travels a length of 40 or until it hits an obstacle which is either a wall or a unit.
 
 * Damage: 40 HP
 * Speed: 32 /s
@@ -62,7 +62,7 @@ When running your bot locally in debug mode, no restricitons are set. (Check [he
 
 ## Custom Game Rules
 
-If you want to run a custom game, weather you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
+If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
 Be aware that some properties may break the game if you change them too much, for example if you put 10.000 units to fight it will probably take ages before the game generates! :smile: Have fun!
 
