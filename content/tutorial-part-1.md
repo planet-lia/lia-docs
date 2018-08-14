@@ -186,7 +186,7 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
     }
     // Else the orientation equals to or exceeds 180° and thus if the unit 
     // is still rotating we to stop it (this is also called just once!)
-    else if (unit.rotation == Rotation.LEFT) {
+    else if (unit.orientation >= 180 && unit.rotation == Rotation.LEFT) {
         api.setRotationSpeed(unit.id, Rotation.NONE);
     }
 }
