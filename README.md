@@ -7,9 +7,6 @@ We encourage community collaboration, we are always glad to receive pull request
 If you would like to contribute, please read the [development](#development)
 section.
 
-## TODO
-- [ ] Add favicon
-
 ## Development
 All development is done on the *dev* branch. The *master* branch represents
 the [production documentation](https://docs.liagame.com).
