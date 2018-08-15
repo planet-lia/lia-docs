@@ -61,6 +61,91 @@ Although everything works, the game is not fun to watch as the bot isn't doing a
 
 ----
 
+## How it works
+
+As mentioned above, language specific implementations already provide you everything you need in order to write meaningfull code for your bot. Let's have a quick look at what is provided.
+
+Open up **MyBot.java** in **John/src/** directory with your favourite text editor (you can also open John bot with an IDE, example for IntelliJ can be viewed [here](/tutorial-part-1/#connecting-your-bot-with-intellij-idea) but it should be also possible to open it in other IDEs, you should just import your bot as a Gradle project). When you open it up you will see the following code:
+
+```java
+import lia.Api;
+import lia.Callable;
+import lia.NetworkingClient;
+import lia.api.*;
+
+/**
+ * Place to write the logic for your bots.
+ * */
+public class MyBot implements Callable {
+
+    /** Called only once when the game is initialized. */
+    @Override
+    public synchronized void process(MapData mapData) {
+        // TODO write some code to handle mapData
+    }
+
+    /** Repeatedly called from game engine with game state updates.  */
+    @Override
+    public synchronized void process(StateUpdate stateUpdate, Api api) {
+        // TODO write some code to handle stateUpdate every frame.
+        // Use api to send responses back to the game engine.
+    }
+
+    public static void main(String[] args) throws Exception {
+        NetworkingClient.connectNew(args, new MyBot());
+    }
+}
+
+```
+
+This code is the only thing that you need to understand in order to start developing. Not that much huh? :smile: The method ```main()``` is used to connect John to the game engine and it should not be changed. You will only use the two ```process(...)``` methods, so let's check them out.
+
+### Handling map data
+
+
+```java
+/** Called only once when the game is initialized. */
+@Override
+public synchronized void process(MapData mapData) {
+    // TODO write some code to handle mapData
+}
+```
+
+The method ```process(MapData mapData)``` is called only once when the game is initialized. It's parameter ```mapData``` contains all the data about the map and the players on it that you need at the beginning of the game (click on link below to see exactly what data you get).
+
+*Learn more: [MapData](/api/#mapdata)*
+
+### Handling game state
+
+```java
+/** Repeatedly called from game engine with game state updates.  */
+@Override
+public synchronized void process(StateUpdate stateUpdate, Api api) {
+    // TODO write some code to handle stateUpdate every frame.
+    // Use api to send responses back to the game engine.
+}
+```
+
+The method ```process(StateUpdate stateUpdate, Api api)``` is called 10 times per game second and will contain the meat of your logic. It has two parameters. First parameter ```stateUpdate``` holds the data about everything that is happening on the map in current time that you are allowed to know. (The second parameter is explaind below)
+
+*Learn more: [StateUpdate](/api/#stateupdate)*
+
+### Making decisions
+
+Based on the data you receive each frame you can then decide what you want your units to do. To do this, you need to use the second parameter in the method ```process(StateUpdate stateUpdate, Api api)``` called ```api```. The methods that you call on ```api``` object tell the game engine what you want to do with your units. You can move your units forward, backward, rotate them or make them shoot.
+
+*Learn more: [Api](/api/#api-object)*
+
+{{< note title="Calling Api methods" >}}
+When you want to tell the game engine that you wan't your unit to do something, it is enough to call the appropriate ```api``` method only once. For example if you want your unit to move forward, you should only call ```api.setThrustSpeed()``` method once. Then the unit will move forward by itself until you tell it to stop. 
+{{< /note >}}
+
+Don't worry if all of this doesn't make much sence, just keep on reading. When you will see the examples below you will quickly understand what is going on. Anyway, we are ready to start writing some code!  
+
+ <div style="text-align:center"><img src="/gifs/so-it-begins.gif" alt="So it begins"  width="30%"/></div>
+
+----
+
 ## Control your units
 
 In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we have run our [first game](/tutorial-part-1/#2-bot-vs-bot), there were plenty of bots on each team. How to control multiple units is explained in [Part-2](/tutorial-part-2/) of this tutorial, but for now we will stick with only one unit per team. 
