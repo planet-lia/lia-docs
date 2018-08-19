@@ -1104,7 +1104,7 @@ h1 .article .headerlink{
         color:#fff
     }
     .drawer{
-        position:fixed;
+        position: relative !important;
         z-index:4
     }
     #toggle-search:checked~.main .results,.drawer,.toggle-search .results{
@@ -1301,7 +1301,7 @@ h1 .article .headerlink{
     -o-transition: height 0.5s ease;
     transition: height 0.2s ease;
 }
-.clickable {
+.clickableTitle {
     cursor: pointer;
 }
 /* Prevent moving the page when scrollbar appears */

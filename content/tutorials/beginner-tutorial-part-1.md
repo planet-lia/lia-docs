@@ -1,6 +1,7 @@
 ---
 date: 2018-08-05T04:32:25+02:00
-title: Tutorial - Part 1
+title: Beginner tutorial - Part 1
+tutorial: true
 ---
 
 This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but all of the techniques can be easly used in other programming languages as well.
@@ -27,45 +28,12 @@ Let's dive in!
 
 ----
 
-## Your bot
+## Understand your bot
 
-### 1. Preparing your bot
-As we mentioned above, we will use a Java bot for this tutorial. For all supported languages there are basic bot implementations already available on Github (eg. [Java bot](https://github.com/liagame/java-bot)). Fortunately, there is no need to download them manually as Lia-SDK can do that for us. Let's create our first bot named John. Open up a terminal (or Git Bash on Windows) and move to the extracted Lia-SDK directory (as seted up in our [installation guide](/installation/)) then type the following line and press enter:
+Lia supports several programming languages out of the box. For each supported language there is a basic bot implementation that provides you with everything you need in order to quickly start writing meaningful code. Let's have a quick look at what you can do with it.
 
-```bash
-./lia bot java John
-```
-##### *Command:* [*bot*](/lia-cli/#bot)
-
-{{< note title="Help us improve" >}}
-If this is the first time you are running lia CLI, then you will be prompted with a question to allow us anonymously track your usage data. Opt-ing in would help us improve our understanding of how our users use Lia-SDK and thus help us improve our project while your data will stay completely anonymous. [Check here why and what we collect and why is it so important to us.](/privacy-policy/#what-data-we-collect-and-why) 
-{{< /note >}}
-
-If you have access to the internet, the ```bot``` command should be executed successfully and you should see (in the same directory where Lia CLI is located) a new directory named John. Congratulations, you have successfully created your first bot!
-
-### 2. Bot vs bot
-
-Now it is time to send your bot to battle. To make things fun let's battle it against itself! Simply run:
-
-```bash
-./lia play John John
-```
-##### *Command:* [*play*](/lia-cli/#play)
-
-Now wait few seconds until the game is generated and voila, the replay is opened for the generated game! You should see something like in the image below.
-
- <div style="text-align:center"><img src="/images/game-start.png" alt="Game start" width="60%"/></div>
-
-
-Although everything works, the game is not fun to watch as the bot isn't doing anything yet. Let's fix that.
-
-----
-
-## How it works
-
-As mentioned above, language specific implementations already provide you everything you need in order to write meaningfull code for your bot. Let's have a quick look at what is provided.
-
-Open up **MyBot.java** in **John/src/** directory with your favourite text editor (you can also open John bot with an IDE, example for IntelliJ can be viewed [here](/tutorial-part-1/#connecting-your-bot-with-intellij-idea) but it should be also possible to open it in other IDEs, you should just import your bot as a Gradle project). When you open it up you will see the following code:
+Make sure that you still have a java bot John that we created in our <a href="/getting-started/#create-your-bot" target="_blank">Getting started</a> guide.
+Open up **MyBot.java** in **John/src/** directory with your favourite text editor (you can also open full John directory with an IDE as a Gradle project). When you open it up you will see the following code (note to delete the code that we have added in getting started guide):
 
 ```java
 import lia.Api;
@@ -87,8 +55,7 @@ public class MyBot implements Callable {
     /** Repeatedly called from game engine with game state updates.  */
     @Override
     public synchronized void process(StateUpdate stateUpdate, Api api) {
-        // TODO write some code to handle stateUpdate every frame.
-        // Use api to send responses back to the game engine.
+        // HERE DELETE EVERYTHING THAT WE HAVE ADDED IN GETTING STARTED GUIDE
     }
 
     public static void main(String[] args) throws Exception {
@@ -98,7 +65,7 @@ public class MyBot implements Callable {
 
 ```
 
-This code is the only thing that you need to understand in order to start developing. Not that much huh? :smile: The method ```main()``` is used to connect John to the game engine and it should not be changed. You will only use the two ```process(...)``` methods, so let's check them out.
+This code is the only thing that you need to understand in order to start developing. The method ```main()``` is used to connect John to the game engine and it should not be changed. You will only use the two ```process(...)``` methods, so let's check them out.
 
 ### Handling map data
 
@@ -134,13 +101,11 @@ The method ```process(StateUpdate stateUpdate, Api api)``` is called 10 times pe
 
 Based on the data you receive each frame you can then decide what you want your units to do. To do this, you need to use the second parameter in the method ```process(StateUpdate stateUpdate, Api api)``` called ```api```. The methods that you call on ```api``` object tell the game engine what you want to do with your units. You can move your units forward, backward, rotate them or make them shoot.
 
+When you want to tell the game engine that you want your unit to do something, it is enough to call the appropriate ```api``` method only once. For example if you want your unit to move forward, you should only call ```api.setThrustSpeed()``` method once. Then the unit will move forward by itself until you tell it to stop. 
+
 *Learn more: [Api](/api/#api-object)*
 
-{{< note title="Calling Api methods" >}}
-When you want to tell the game engine that you wan't your unit to do something, it is enough to call the appropriate ```api``` method only once. For example if you want your unit to move forward, you should only call ```api.setThrustSpeed()``` method once. Then the unit will move forward by itself until you tell it to stop. 
-{{< /note >}}
-
-Don't worry if all of this doesn't make much sence, just keep on reading. When you will see the examples below you will quickly understand what is going on. Anyway, we are ready to start writing some code!  
+Don't worry if all of this doesn't make much sense, just keep on reading. When you will continue with the tutorial you will quickly understand what is going on. Anyway, we are ready to start writing some code!  
 
  <div style="text-align:center"><img src="/gifs/so-it-begins.gif" alt="So it begins"  width="30%"/></div>
 
@@ -168,7 +133,7 @@ Now let's dig in.
 
 ## Rotation
 
-Unit rotation is the first essential move we will cover. We wan't our unit to rotate for roughly 180° (head [here](/tutorial-part-1/#more-precise-rotation) if you wan't to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
+Unit rotation is the first essential move we will cover. We want our unit to rotate for roughly 180° (head [here](/tutorial-part-1/#more-precise-rotation) if you want to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
 
  <div style="text-align:center"><img src="/gifs/tutorial-part-1-rotate.gif" alt="Tutorial Part 1 - rotation" width="70%"/></div>
 
@@ -185,11 +150,16 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
         api.setRotationSpeed(unit.id, Rotation.LEFT);
     }
     // Else the orientation equals to or exceeds 180° and thus if the unit 
-    // is still rotating we to stop it (this is also called just once!)
+    // is still rotating we stop it (this is also called just once!)
     else if (unit.orientation >= 180 && unit.rotation == Rotation.LEFT) {
         api.setRotationSpeed(unit.id, Rotation.NONE);
     }
 }
+```
+
+When you paste the code above into your MyBot.java file, you can run the ```tutorial``` command again as already shown before:
+```bash
+./lia tutorial 1 John
 ```
 
 ### More precise rotation
@@ -202,7 +172,7 @@ As you can see, the unit does not rotate for exactly 180°. This is due to the f
 
 ## Movement
 
-Besides rotating and staying still, units can also move forward and backward (you can also both rotate and move forward/backward, but this is out of the scope for this tutorial). Moving forward is faster than moving backward and stopping is done immediately.
+Besides rotating and staying still, units can also move forward and backward (you can also both rotate and move forward/backward at the same time, but this is out of the scope for this tutorial). Moving forward is faster than moving backward and stopping is done immediately.
 
 Let's make our unit move forward for 1 seconds and then stop. It will look like this:
 
@@ -228,12 +198,15 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
     }
 }
 ```
+
+If you replace the ```process(StateUpdate stateUpdate, Api api) ``` method in your MyBot.java with the one above and run the ```tutorial``` command, your unit should move forward. (You can run ```tutorial``` command whenever you want to see the changes you have made in action)
+
 In order to actually move to some meaningfull location you will need to combine both straight as well as the rotational movement, but more about that later. First let's look at how our unit can shoot.
 
 ----
 ## Shooting & ammo
 
-Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with delay of 0.2 second while reloading new ones take 1 second for each new one. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
+Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with delay of 0.2 second while reloading new ones take 1 second each. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
 
 The following gif shows you an example of shooting mechanics.
 
@@ -345,7 +318,7 @@ private boolean moveToDestination(Unit unit, Vector2 destination, Api api) {
         }
 
         // Calculate the angle (Method defined in point 2.)
-        float angle = angleBetweenUnitAndPoint(unit, destination);
+        float angle = angleBetweenUnitAndDestination(unit, destination);
 
         // Find if the angle is small enough so we can move forward
         boolean moveForward = Math.abs(angle) < ALLOWED_ANGLE_OFFSET;
@@ -371,7 +344,7 @@ private boolean moveToDestination(Unit unit, Vector2 destination, Api api) {
 Note that in the code above when we for example set the thrust speed to ```ThrustSpeed.NONE``` we don't check if the thrustSpeed already has this value. We do this so that the code is more readable, but if you want to optimize it later, then this is definitely a thing to consider.
 {{< /note >}}
 
-Great! Let's now join all of this together into a working example.
+Great! Let's now join all of this together into a working example by adding a few more lines on the top of the class and some into the ```process(StateUpdate stateUpdate, Api api)``` method. They will glue together all the parts that we have written so far.
 
 ```java
 import lia.Api;
@@ -397,7 +370,7 @@ public class MyBot implements Callable {
         // Here we call our method!
         boolean arrived = moveToDestination(unit, destination, api);
         if (arrived) {
-            System.out.println("Arrived!")
+            System.out.println("Arrived!");
         }
     }
 
@@ -409,7 +382,7 @@ public class MyBot implements Callable {
         ... // Implemented in point 1. Omitted for sanity.
     }
 
-    private float angleBetweenUnitAndPoint(Unit unit, Vector2 destination) {
+    private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
         ... // Implemented in point 2. Omitted for sanity.
     }
 
@@ -423,8 +396,7 @@ public class MyBot implements Callable {
     }
 }
 ```
-
-Awesome, it works! 
+Awesome! Now run the ```tutorial``` command again and you should see your unit moving to the destination.
 
 ----
 
@@ -480,7 +452,7 @@ public class MyBot implements Callable {
 }
 ```
 
-This is what we get:
+This is what we get after running the ```tutorial``` command again:
 
  <div style="text-align:center"><img src="/gifs/tutorial-part-1-path.gif" alt="Tutorial Part 1 - path" width="70%"/></div>
 
@@ -577,7 +549,7 @@ public class MyBot implements Callable {
         }
 
         // Calculate the angle (Method defined in point 2.)
-        float angle = angleBetweenUnitAndPoint(unit, destination);
+        float angle = angleBetweenUnitAndDestination(unit, destination);
 
         // Find if the angle is small enough so we can move forward
         boolean moveForward = Math.abs(angle) < ALLOWED_ANGLE_OFFSET;
@@ -604,7 +576,7 @@ public class MyBot implements Callable {
             Math.abs(destination.y - unit.y) < ALLOWED_DESTINATION_OFFSET;
     }
 
-    private float angleBetweenUnitAndPoint(Unit unit, Vector2 destination) {
+    private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
         // Create a vector from the unit to the destination by substracting
         // base unit location vector from base destination vector
         Vector2 unitToDest = new Vector2(destination);

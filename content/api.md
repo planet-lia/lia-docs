@@ -1,5 +1,5 @@
 ---
-title: "Api"
+title: "API"
 date: 2018-08-09T17:29:46+02:00
 ---
 
@@ -11,18 +11,18 @@ Here is the collection of everything your bot can get from game engine and every
 
 Bot receives MapData object only once when the game is initialized.
 
-* **```width```** - *map width in game units*
-* **```height```** - *map height in game units*
-* **```obstacles```** - *list of obstacles, each contains:*
-    * **```x```** - *obstacle's x coordinate*
-    * **```y```** - *obstacle's y coordinate*
-    * **```width```** - *obstacle's width*
-    * **```height```** - *obstacle's height*
-* **```unitLocations```** - *list of your units locations, each contains:*
-    * **```id```** - *unit's unique identifier*
-    * **```x```** - *unit's x coordinate*
-    * **```y```** - *unit's y coordinate*
-    * **```orientation```** - *angle in degrees between x axis and the direction to which the unit is facing*
+* **```width```**```: float``` - *map width in game units*
+* **```height```**```: float``` - *map height in game units*
+* **```obstacles```**```: array``` - *list of obstacles, each contains:*
+    * **```x```**```: float``` - *obstacle's x coordinate*
+    * **```y```**```: float``` - *obstacle's y coordinate*
+    * **```width```**```: float``` - *obstacle's width*
+    * **```height```**```: float``` - *obstacle's height*
+* **```unitLocations```**```: array``` - *list of your units locations, each contains:*
+    * **```id```**```: int``` - *unit's unique identifier*
+    * **```x```**```: float``` - *unit's x coordinate*
+    * **```y```**```: float``` - *unit's y coordinate*
+    * **```orientation```**```: float``` - *angle in degrees between x axis and the direction to which the unit is facing*
 
 **Examples:**  
 
@@ -46,28 +46,28 @@ public synchronized void process(MapData mapData) {
 
 Bot receives StateUpdate about 10 times per game second. It holds the data about what is going on with your units on the map at current game time.
 
-* **```time```** - *current game time in seconds*
-* **```units```** - *list of your units that are still alive, each contains:*
-    * **```id```** - *unit's unique identifier*
-    * **```health```** - *unit's health*
-    * **```x```** - *unit's x location*
-    * **```y```** - *unit's y location*
-    * **```orientation```** - *angle in degrees between x axis and the direction to which the unit is facing*
-    * **```thrustSpeed```** - *speed with which the unit is moving (```NONE```, ```FORWARD```, ```BACKWARD```)*
-    * **```rotation```** - *type of rotation of the unit (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```)*
-    * **```canShoot```** - *a boolean value if the player has enough ammo and enough time has passed since last shot*
-    * **```nBullets```** - *number of bullets currently loaded in the gun*
-    * **```opponentsInView```** - *list of opponent units that your unit sees, each contains:*
-        * * **```id```** - *opponent unit's unique identifier*
-        * **```health```** - *opponent unit's health*
-        * **```x```** - *opponent unit's x location*
-        * **```y```** - *opponent unit's y location*
-        * **```orientation```** - *angle in degrees between x axis and the direction to which the unit's is facing*
-    * **```bulletsInView```** - *list of opponent bullets that your unit sees, each contains:*
-        * **```x```** - *opponent unit's x location*
-        * **```y```** - *opponent unit's y location*
-        * **```orientation```** - *angle in degrees between x axis and the direction to which the unit's is facing*
-        * **```velocity```** - *speed with which the bullet is moving*
+* **```time```**```: float``` - *current game time in seconds*
+* **```units```**```: array``` - *list of your units that are still alive, each contains:*
+    * **```id```**```: int``` - *unit's unique identifier*
+    * **```health```**```: int``` - *unit's health*
+    * **```x```**```: float``` - *unit's x location*
+    * **```y```**```: float``` - *unit's y location*
+    * **```orientation```**```: float``` - *angle in degrees between x axis and the direction to which the unit is facing*
+    * **```thrustSpeed```**```: enum``` - *speed with which the unit is moving (```NONE```, ```FORWARD```, ```BACKWARD```)*
+    * **```rotation```**```: enum``` - *type of rotation of the unit (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```)*
+    * **```canShoot```**```: boolean``` - *a boolean value if the player has enough ammo and enough time has passed since last shot*
+    * **```nBullets```**```: int``` - *number of bullets currently loaded in the gun*
+    * **```opponentsInView```**```: array``` - *list of opponent units that your unit sees, each contains:*
+        * **```id```**```: int``` - *opponent unit's unique identifier*
+        * **```health```**```: int``` - *opponent unit's health*
+        * **```x```**```: float``` - *opponent unit's x location*
+        * **```y```**```: float``` - *opponent unit's y location*
+        * **```orientation```**```: float``` - *angle in degrees between x axis and the direction to which the unit's is facing*
+    * **```bulletsInView```**```: array``` - *list of opponent bullets that your unit sees, each contains:*
+        * **```x```**```: float``` - *opponent unit's x location*
+        * **```y```**```: float``` - *opponent unit's y location*
+        * **```orientation```**```: float``` - *angle in degrees between x axis and the direction to which the unit's is facing*
+        * **```velocity```**```: float``` - *speed with which the bullet is moving*
 
 **Examples:**  
 
@@ -96,9 +96,9 @@ Bot receives StateUpdate about 10 times per game second. It holds the data about
 
 Together with [StateUpdate](/api/#stateupdate), Api object is received every tick about 10 times per game second. Through it you can communicate with the game engine. You can use the following methods:
 
-* **```shoot(int unitId)```** - *tells the game engine that you wan't the unit with ```unitId``` to shoot*
-* **```setRotationSpeed(int unitId, Rotation rotation)```** - *sets the rotation of the unit with ```unitId``` to choosen rotation value*
-* **```setThrustSpeed(int unitId, ThrustSpeed speed)```** - *sets the speed with which the unit with ```unitId``` moves forwards/backwards*
+* **```shoot(int unitId)```** - *tells the game engine that you want the unit with ```unitId``` to shoot*
+* **```setRotationSpeed(int unitId, Rotation rotation)```** - *sets the rotation of the unit with ```unitId``` to choosen rotation value (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```)*
+* **```setThrustSpeed(int unitId, ThrustSpeed speed)```** - *sets the speed with which the unit with ```unitId``` moves (```NONE```, ```FORWARD```, ```BACKWARD```)*
 
 **Examples:**  
 

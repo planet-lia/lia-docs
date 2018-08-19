@@ -10,7 +10,7 @@ If you wan't to know what Lia is all about then here are a couple of places wher
 
 * [Game description](/game-description/) - Understand the plot behind the game
 * [Game rules](/game-rules) - Learn about all of the game details
-* [Tutorial - Part 1](/tutorial-part-1) - Start coding within mintues
+* [Getting started](/getting-started/) - Get started with Lia
 
 ## Supported languages
 

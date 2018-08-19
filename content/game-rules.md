@@ -18,19 +18,20 @@ Map is automatically generated and can be of many shapes such as diagonal, cross
 * Width: 216
 * Height: 122
 
- <div style="text-align:center"><img src="/images/game-start.png" alt="Game start" width="80%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/game-start.png" alt="Game start" width="80%"/></div>
 
 
 ## Units
 Each unit (a controllable biobot) has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat.
 
+* Size: 2
 * Health: 100 HP
 * Regeneration speed (after 8s out of combat): 8 HP/s
 * Bullets in magazine: 3
 * Delay between shots: 0.2s
 * Reload time: 1s
 
- <div style="text-align:center"><img src="/images/unit.png" alt="Unit" width="20%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/unit.png" alt="Unit" width="20%"/></div>
 
 ## Bullets
 Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per second and it travels a length of 40 or until it hits an obstacle which is either a wall or a unit.
@@ -47,7 +48,7 @@ the furthest side of the triangle is 16. The viewing area is always in front of 
 * Length: 30
 * Width: 16
 
- <div style="text-align:center"><img src="/images/viewing-area.png" alt="Viewing area" width="60%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/viewing-area.png" alt="Viewing area" width="60%"/></div>
 
 ## Bot restrictions
 
@@ -141,5 +142,5 @@ Be aware that some properties may break the game if you change them too much, fo
 
 ### Next:
 
-* [Game description](/game-description)
-* [Tutorial - Part 1](/tutorial-part-1)
+* [Game description](/game-description/)
+* [Getting started](/getting-started/) - Get started with Lia

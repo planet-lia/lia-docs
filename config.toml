@@ -86,40 +86,81 @@ theme = "hugo-material-docs"
 
 [[menu.main]]
 	parent = "Docs"
-	name   = "Privacy policy"
-	url    = "privacy-policy/"
+	name   = "Common problems"
+	url    = "common-problems/"
 	weight = 9
 
+[[menu.main]]
+	parent = "Docs"
+	name   = "Privacy policy"
+	url    = "privacy-policy/"
+	weight = 10
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Overview"
+	url    = "examples/overview/"
+	weight = 1
 
 [[menu.examples]]
 	parent = "Examples"
 	name   = "Rotation"
 	url    = "examples/rotation/"
-	weight = 13
+	weight = 2
 
 [[menu.examples]]
 	parent = "Examples"
 	name   = "Movement"
-	url    = "examples/rotation/"
-	weight = 13
+	url    = "examples/movement/"
+	weight = 3
 
 [[menu.examples]]
 	parent = "Examples"
 	name   = "Shooting & ammo"
-	url    = "examples/rotation/"
-	weight = 13
+	url    = "examples/shooting-and-ammo/"
+	weight = 4
 
 [[menu.examples]]
 	parent = "Examples"
-	name   = "Follow points"
-	url    = "examples/rotation/"
-	weight = 13
+	name   = "Identifying the enemy"
+	url    = "examples/identifying-the-enemy/"
+	weight = 5
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Following path"
+	url    = "examples/following-path/"
+	weight = 6
 
 [[menu.examples]]
 	parent = "Examples"
 	name   = "Pathfinding"
-	url    = "examples/rotation/"
-	weight = 13
+	url    = "examples/pathfinding/"
+	weight = 7
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Multiple units"
+	url    = "examples/multiple-units/"
+	weight = 8
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Debugging your code"
+	url    = "examples/debugging-your-code/"
+	weight = 9
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Using an IDE"
+	url    = "examples/using-ide/"
+	weight = 9
+
+[[menu.tutorials]]
+	parent = "Tutorials"
+	name   = "Beginner tutorial - Part 1"
+	url    = "tutorials/beginner-tutorial-part-1/"
+	weight = 9
 
 [blackfriday]
 	smartypants	= true

@@ -39,54 +39,77 @@
       <div class="toc">
   
         <!-- Render docs menu -->
-        <span class="section clickable" id="docsMenuTitle">Docs</span>
-        {{ if gt (len .Site.Menus.main) 0 }}
-        <div class='collapsible {{ if not (isset .Params "example") }}open{{ end }}' id="docsMenu"> 
-          <ul>
-              {{ partial "nav" . }}
-          </ul>
+        <div>
+          <span class="section clickableTitle">Docs</span>
+          {{ if gt (len .Site.Menus.main) 0 }}
+          <div class='collapsible {{ if and (not (isset .Params "example")) (not (isset .Params "tutorial")) }}open{{ end }}'> 
+            <ul>
+                {{ partial "nav" . }}
+            </ul>
+          </div>
+          {{ end }}
         </div>
-        {{ end }}
-
+        
         <!-- Render examples menu -->
-        <span class="section clickable" id="examplesMenuTitle">Examples</span>
-        {{ if gt (len .Site.Menus.examples) 0 }}
-        <div class='collapsible {{ if isset .Params "example" }}open{{ end }}' id="examplesMenu"> 
-          <ul>
-            {{ partial "nav_examples" . }}
-          </ul>
+        <hr>
+        <div>
+          <span class="section clickableTitle">Examples</span>
+          {{ if gt (len .Site.Menus.examples) 0 }}
+          <div class='collapsible {{ if isset .Params "example" }}open{{ end }}'> 
+            <ul>
+              {{ partial "nav_examples" . }}
+            </ul>
+          </div>
+          {{ end }}
         </div>
-        {{ end }}
+
+        <!-- Render tutorials menu -->
+        <hr>
+        <div>
+          <span class="section clickableTitle">Tutorials</span>
+          {{ if gt (len .Site.Menus.examples) 0 }}
+          <div class='collapsible {{ if isset .Params "tutorial" }}open{{ end }}'> 
+            <ul>
+              {{ partial "nav_tutorials" . }}
+            </ul>
+          </div>
+          {{ end }}
+        </div>
+        
 
 
         {{ if isset .Site.Params "author" }}
         <hr>
-        <span class="section">Contact Us</span>
-        <ul>
-          {{ with .Site.Social.twitter }}
-          <li>
-            <a href="https://twitter.com/{{ . }}" target="_blank" title="@{{ . }} on Twitter">
-              @{{ . }} on Twitter
-            </a>
-          </li>
-          {{ end }}
+        <div>
+          <span class="section clickableTitle">Contact Us</span>
+          <div class='collapsible'> 
+            <ul>
+              {{ with .Site.Social.twitter }}
+              <li>
+                <a href="https://twitter.com/{{ . }}" target="_blank" title="@{{ . }} on Twitter">
+                  @{{ . }} on Twitter
+                </a>
+              </li>
+              {{ end }}
 
-          {{ with .Site.Social.github }}
-          <li>
-            <a href="https://github.com/{{ . }}" target="_blank" title="@{{ . }} on GitHub">
-              @{{ . }} on GitHub
-            </a>
-          </li>
-          {{ end }}
+              {{ with .Site.Social.github }}
+              <li>
+                <a href="https://github.com/{{ . }}" target="_blank" title="@{{ . }} on GitHub">
+                  @{{ . }} on GitHub
+                </a>
+              </li>
+              {{ end }}
 
-          {{ with .Site.Social.email }}
-          <li>
-            <a href="mailto:{{ . }}" title="Email of {{ . }}">
-              Contact via email
-            </a>
-          </li>
-          {{ end }}
-        </ul>
+              {{ with .Site.Social.email }}
+              <li>
+                <a href="mailto:{{ . }}" title="Email of {{ . }}">
+                  Contact via email
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
         {{ end }}
       </div>
     </div>

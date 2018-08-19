@@ -8,9 +8,9 @@ In Lia you command an army of biological robots or biobots using your programmin
 You start the game with a predefined number of biobots which you can move around the map, make them shoot and teach them very simple or super advanced tactic to detect, track down and eliminate the opponent. To do that you can use your favourite programming language and your favourite development tools,  and then test out your code on your local machine by figthing your bot against itself, older versions of itself, or example bots that are provided by Lia team. Whenever you are ready you can then upload your bot online to battle countless other programmers around the world!
 
 <br>
- <div style="text-align:center"><img src="/gifs/example-gameplay.gif" alt="Example gameplay" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="70%"/></div>
 
 ### Next:
 
 * [Game rules](/game-rules)
-* [Tutorial - Part 1](/tutorial-part-1)
+* [Getting started](/getting-started/) - Get started with Lia

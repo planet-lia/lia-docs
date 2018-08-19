@@ -28,6 +28,8 @@ Name | Short description
 
 ## Commands
 
+----
+
 ### Help
 
 Help provides help for any command in the application.
