@@ -142,7 +142,7 @@ Each tick (or frame) we get the state of our unit that also contains the informa
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
     // Get the state of the unit
-    Unit unit = stateUpdate.units[0];
+    UnitData unit = stateUpdate.units[0];
 
     // If the unit's orientation is less than 180° and it is not rotating
     // then start rotating it to the left (this is only called once!)
@@ -183,7 +183,7 @@ In order to achieve that, we will need to know the current game time which is st
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
     // Get the state of the unit
-    Unit unit = stateUpdate.units[0];
+    UnitData unit = stateUpdate.units[0];
     float time = stateUpdate.time;
 
     // If the time is less then 1 second and the unit is not moving
@@ -217,7 +217,7 @@ And this is how it looks in code:
 ``` java
 public synchronized void process(StateUpdate stateUpdate, Api api) {
     // Get the state of the unit
-    Unit unit = stateUpdate.units[0];
+    UnitData unit = stateUpdate.units[0];
 
     // If the unit can shoot (weapon is reloaded enough time has passed since
     // the last shot) then tell the engine to shot.
@@ -260,7 +260,7 @@ final float ALLOWED_DESTINATION_OFFSET = 2f;
 
 // Unit is at destination if distance between unit and destination on both
 // x and y axis is less then ALLOWED_DESTINATION_OFFSET
-private boolean atDestination(Unit unit, Vector2 destination) {
+private boolean atDestination(UnitData unit, Vector2 destination) {
     return Math.abs(destination.x - unit.x) < ALLOWED_DESTINATION_OFFSET &&
             Math.abs(destination.y - unit.y) < ALLOWED_DESTINATION_OFFSET;
 }
@@ -280,7 +280,7 @@ The easiest way to calculate the direction towards which our unit needs to turn 
 Let's see how this looks in code (note that vector angle is always measured in the direction from positive x axis to positive y axis):
 
 ```java
-private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
+private float angleBetweenUnitAndDestination(UnitData unit, Vector2 destination) {
     // Create a vector from the unit to the destination by substracting
     // base unit location vector from base destination vector
     Vector2 unitToDest = new Vector2(destination);
@@ -309,7 +309,7 @@ We now need to decide when our unit should move forward so that it will move clo
 ```java
 final float ALLOWED_ANGLE_OFFSET = 15f;
 
-private boolean moveToDestination(Unit unit, Vector2 destination, Api api) {
+private boolean moveToDestination(UnitData unit, Vector2 destination, Api api) {
         // If we are already at the destination then stop the unit
         // (Method defined in point 1.)
         if (atDestination(unit, destination)) {
@@ -365,7 +365,7 @@ public class MyBot implements Callable {
     @Override
     public synchronized void process(StateUpdate stateUpdate, Api api) {
         // Get the current state of our unit
-        Unit unit = stateUpdate.units[0];
+        UnitData unit = stateUpdate.units[0];
 
         // Here we call our method!
         boolean arrived = moveToDestination(unit, destination, api);
@@ -374,15 +374,19 @@ public class MyBot implements Callable {
         }
     }
 
-    private boolean moveToDestination(Unit unit, Vector2 destination, Api api) {
+    private boolean moveToDestination(UnitData unit, Vector2 destination, Api api) {
         ... // Implemented in point 3. Omitted for sanity.
     }
 
-    private boolean atDestination(Unit unit, Vector2 destination) {
+    private boolean atDestination(UnitData unit, Vector2 destination) {
         ... // Implemented in point 1. Omitted for sanity.
     }
 
+<<<<<<< HEAD:content/tutorials/beginner-tutorial-part-1.md
     private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
+=======
+    private float angleBetweenUnitAndPoint(UnitData unit, Vector2 destination) {
+>>>>>>> 0a5071bbdf1e69dc558938606af1edc76102c43a:content/tutorial-part-1.md
         ... // Implemented in point 2. Omitted for sanity.
     }
 
@@ -432,7 +436,7 @@ public class MyBot implements Callable {
     @Override
     public synchronized void process(StateUpdate stateUpdate, Api api) {
         // Get the current state of our unit
-        Unit unit = stateUpdate.units[0];
+        UnitData unit = stateUpdate.units[0];
 
         // If there is still a point in our path that we need to visit
         // then move towards it
@@ -518,7 +522,7 @@ public class MyBot implements Callable {
     @Override
     public synchronized void process(StateUpdate stateUpdate, Api api) {
         // Get the current state of our unit
-        Unit unit = stateUpdate.units[0];
+        UnitData unit = stateUpdate.units[0];
 
         // If there is still a point in our path that we need to visit
         // then move towards it
@@ -540,7 +544,7 @@ public class MyBot implements Callable {
         }
     }
     
-    private boolean moveToDestination(Unit unit, Vector2 destination, Api api) {
+    private boolean moveToDestination(UnitData unit, Vector2 destination, Api api) {
         // If we are already at the destination then stop the unit
         // (Method defined in point 1.)
         if (atDestination(unit, destination)) {
@@ -571,12 +575,16 @@ public class MyBot implements Callable {
         return false; // We haven't arrived yet
     }
 
-    private boolean atDestination(Unit unit, Vector2 destination) {
+    private boolean atDestination(UnitData unit, Vector2 destination) {
         return Math.abs(destination.x - unit.x) < ALLOWED_DESTINATION_OFFSET &&
             Math.abs(destination.y - unit.y) < ALLOWED_DESTINATION_OFFSET;
     }
 
+<<<<<<< HEAD:content/tutorials/beginner-tutorial-part-1.md
     private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
+=======
+    private float angleBetweenUnitAndPoint(UnitData unit, Vector2 destination) {
+>>>>>>> 0a5071bbdf1e69dc558938606af1edc76102c43a:content/tutorial-part-1.md
         // Create a vector from the unit to the destination by substracting
         // base unit location vector from base destination vector
         Vector2 unitToDest = new Vector2(destination);
