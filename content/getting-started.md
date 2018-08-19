@@ -1,6 +1,6 @@
 ---
 date: 2018-08-05T04:32:25+02:00
-title: Installation
+title: Getting started
 ---
 
 Let's set you up for countless hours of fun! To start playing Lia you will first need to do couple of things:
@@ -42,3 +42,12 @@ If Lia-SDK commands fail because they can't find Git Bash, then the location tha
 
 * [Tutorial - Part 1](/tutorial-part-1)
 * [Reference for Lia CLI](/lia-cli)
+
+
+
+## TODO
+
+* test your installation and data collection
+* copy paste your first bot (java and python examples)
+* run it again
+* new references to tutorials

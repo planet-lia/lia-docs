@@ -1,4 +1,39 @@
-    <script>
+  <script>
+    {{ "/* Togle menus */" | safeJS }}
+    var docsMenuTitle = document.getElementById("docsMenuTitle");
+    var examplesMenuTitle = document.getElementById("examplesMenuTitle");
+  
+    var swapMenus = function(toOpenId, toCloseId) {
+      var toOpen = document.getElementById(toOpenId);
+      var toClose = document.getElementById(toCloseId);
+      
+      toClose.classList.remove("open");
+      toClose.style.height ="0px";
+      toOpen.classList.add("open");
+      toOpen.style.height = toOpen.querySelector("ul").clientHeight + "px";
+    }
+
+    // Add callback to titles
+    docsMenuTitle.addEventListener("click", function() {
+      swapMenus("docsMenu", "examplesMenu");
+    });
+    examplesMenuTitle.addEventListener("click", function(e) {
+      swapMenus("examplesMenu", "docsMenu");
+    });
+
+    // Collapse the hidden one
+    var docsMenu = document.getElementById("docsMenu");
+    var examplesMenu = document.getElementById("examplesMenu");
+
+    if (docsMenu.classList.contains("open")) {
+      swapMenus("docsMenu", "examplesMenu");
+    } 
+    else {
+      swapMenus("examplesMenu", "docsMenu");
+    }
+  </script>
+   
+   <script>
     {{ with .Scratch.Get "repo_id" }}
       var base_url = '{{ (printf "%s" $.Site.BaseURL) | safeJS }}';
       var repo_id  = '{{ . | safeJS }}';

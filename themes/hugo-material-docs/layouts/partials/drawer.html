@@ -37,16 +37,31 @@
       <hr>
 
       <div class="toc">
+  
+        <!-- Render docs menu -->
+        <span class="section clickable" id="docsMenuTitle">Docs</span>
         {{ if gt (len .Site.Menus.main) 0 }}
-        <ul>
-          {{ partial "nav" . }}
-        </ul>
+        <div class='collapsible {{ if not (isset .Params "example") }}open{{ end }}' id="docsMenu"> 
+          <ul>
+              {{ partial "nav" . }}
+          </ul>
+        </div>
         {{ end }}
+
+        <!-- Render examples menu -->
+        <span class="section clickable" id="examplesMenuTitle">Examples</span>
+        {{ if gt (len .Site.Menus.examples) 0 }}
+        <div class='collapsible {{ if isset .Params "example" }}open{{ end }}' id="examplesMenu"> 
+          <ul>
+            {{ partial "nav_examples" . }}
+          </ul>
+        </div>
+        {{ end }}
+
 
         {{ if isset .Site.Params "author" }}
         <hr>
         <span class="section">Contact Us</span>
-        
         <ul>
           {{ with .Site.Social.twitter }}
           <li>

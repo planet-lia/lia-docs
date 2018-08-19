@@ -1292,3 +1292,19 @@ h1 .article .headerlink{
     }
 }
  
+/***************** CUSTOM CSS *****************/
+
+.collapsible {
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease;
+    -moz-transition: height 0.5s ease;
+    -o-transition: height 0.5s ease;
+    transition: height 0.2s ease;
+}
+.clickable {
+    cursor: pointer;
+}
+/* Prevent moving the page when scrollbar appears */
+html {
+    overflow-y: scroll;
+}
