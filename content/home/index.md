@@ -14,4 +14,4 @@ If you wan't to know what Lia is all about then here are a couple of places wher
 
 ## Supported languages
 
- <div style="text-align:center"><img src="/images/supported-languages.png" alt="supported languages" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/supported-languages.png" alt="supported languages" width="50%"/></div>

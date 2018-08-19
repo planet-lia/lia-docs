@@ -18,11 +18,11 @@ This tutorial is meant to teach you how to create your very first bot that actua
 
 * Basic programming skills. Nothing fancy, loops, functions and data structures should be enough to get you started.
 * Able to read Java code. Although this tutorial can be used for all languages, the code snippets are currently only written in Java.
-* Configured Lia-SDK. Check our [installation guide](/installation/) to learn how to do that.
+* Configured Lia-SDK. Check our [getting started](/getting-started/) guide to learn how to do that.
 
 And this is what our biobot will be able to do at the end of this tutorial:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-final.gif" alt="Tutorial Part 1 - final" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-final.gif" alt="Tutorial Part 1 - final" width="70%"/></div>
 
 Let's dive in!
 
@@ -107,7 +107,7 @@ When you want to tell the game engine that you want your unit to do something, i
 
 Don't worry if all of this doesn't make much sense, just keep on reading. When you will continue with the tutorial you will quickly understand what is going on. Anyway, we are ready to start writing some code!  
 
- <div style="text-align:center"><img src="/gifs/so-it-begins.gif" alt="So it begins"  width="30%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/so-it-begins.gif" alt="So it begins"  width="30%"/></div>
 
 ----
 
@@ -125,7 +125,7 @@ In order to do that and to also showcase some other things, we have prepared a s
 
 When the game is generated, you should see the map that looks something like this:
 
- <div style="text-align:center"><img src="/images/tutorial-part-1-map.png" alt="Tutorial Part 1 - map"  width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/images/tutorial-part-1-map.png" alt="Tutorial Part 1 - map"  width="70%"/></div>
 
 Now let's dig in.
 
@@ -135,7 +135,7 @@ Now let's dig in.
 
 Unit rotation is the first essential move we will cover. We want our unit to rotate for roughly 180° (head [here](/tutorial-part-1/#more-precise-rotation) if you want to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-rotate.gif" alt="Tutorial Part 1 - rotation" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-rotate.gif" alt="Tutorial Part 1 - rotation" width="70%"/></div>
 
 Each tick (or frame) we get the state of our unit that also contains the information about unit's orientation (check [here](/api/#stateupdate) to see all the data you receive). When the unit is spawned it has orientation 0° which means that it is faced alongside the x axis. We will first set our unit to rotate to the left and then check every frame to see what its current orientation is. When orientation will be greater than 180°, we will stop rotating. Let's look at the code:
 
@@ -176,7 +176,7 @@ Besides rotating and staying still, units can also move forward and backward (yo
 
 Let's make our unit move forward for 1 seconds and then stop. It will look like this:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-move.gif" alt="Tutorial Part 1 - move" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-move.gif" alt="Tutorial Part 1 - move" width="70%"/></div>
 
 In order to achieve that, we will need to know the current game time which is stored in ```stateUpdate.time```. Based on that we will decide if it is the time to stop our unit. Check the code below:
 
@@ -210,7 +210,7 @@ Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot 
 
 The following gif shows you an example of shooting mechanics.
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-shoot.gif" alt="Tutorial Part 1 - shoot" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-shoot.gif" alt="Tutorial Part 1 - shoot" width="70%"/></div>
 
 And this is how it looks in code: 
 
@@ -239,7 +239,7 @@ In this part you will need to know some basic math stuff, but if you aren't a fa
 
 Okay, first let's move our unit to the upper left part of the map. The final result should look something like this:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-go-to-point.gif" alt="Tutorial Part 1 - go to point" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-go-to-point.gif" alt="Tutorial Part 1 - go to point" width="70%"/></div>
 
 Our movement algoritm will consist out of three parts:
 
@@ -275,7 +275,7 @@ In our examples we will use [```Vector2```](https://github.com/libgdx/libgdx/blo
 
 The easiest way to calculate the direction towards which our unit needs to turn is by calculating the angle between the vector that represents unit's orientation and the vector between our unit location and destination. What we mean by that is shown below (we need to calculate the α angle):
 
- <div style="text-align:center"><img src="/images/angle-to-rotate.png" alt="Tutorial Part 1 - angle to rotate" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/images/angle-to-rotate.png" alt="Tutorial Part 1 - angle to rotate" width="50%"/></div>
 
 Let's see how this looks in code (note that vector angle is always measured in the direction from positive x axis to positive y axis):
 
@@ -382,11 +382,7 @@ public class MyBot implements Callable {
         ... // Implemented in point 1. Omitted for sanity.
     }
 
-<<<<<<< HEAD:content/tutorials/beginner-tutorial-part-1.md
     private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
-=======
-    private float angleBetweenUnitAndPoint(UnitData unit, Vector2 destination) {
->>>>>>> 0a5071bbdf1e69dc558938606af1edc76102c43a:content/tutorial-part-1.md
         ... // Implemented in point 2. Omitted for sanity.
     }
 
@@ -458,7 +454,7 @@ public class MyBot implements Callable {
 
 This is what we get after running the ```tutorial``` command again:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-path.gif" alt="Tutorial Part 1 - path" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-path.gif" alt="Tutorial Part 1 - path" width="70%"/></div>
 
 *Exercise: As you can see, our points in path are not set perfectly and thus our unit is hitting the wall and sliding against it alot. Your job is to optimize the values of points in path so that your unit will not touch the wall. :smile:*
 
@@ -484,7 +480,7 @@ Here is an example of how we can make our unit shoot when it has at least one op
 
 This is our final code which also includes the shooting logic mentioned [above](/tutorial-part-1/#identifying-the-enemy). The final result should look something like this:
 
- <div style="text-align:center"><img src="/gifs/tutorial-part-1-final.gif" alt="Tutorial Part 1 - final" width="70%"/></div>
+ <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-final.gif" alt="Tutorial Part 1 - final" width="70%"/></div>
 
 ```java
 import lia.Api;
@@ -580,11 +576,7 @@ public class MyBot implements Callable {
             Math.abs(destination.y - unit.y) < ALLOWED_DESTINATION_OFFSET;
     }
 
-<<<<<<< HEAD:content/tutorials/beginner-tutorial-part-1.md
     private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
-=======
-    private float angleBetweenUnitAndPoint(UnitData unit, Vector2 destination) {
->>>>>>> 0a5071bbdf1e69dc558938606af1edc76102c43a:content/tutorial-part-1.md
         // Create a vector from the unit to the destination by substracting
         // base unit location vector from base destination vector
         Vector2 unitToDest = new Vector2(destination);
@@ -620,65 +612,8 @@ Otherwise you are already well equipped to dig deeper into the world of Lia by y
 
 ---
 
-## Extra: Debugging your code
-
-Lia-SDK can, besides quickly and effortlessly generating games, also help you with debugging your code. Usually when you run the [```play```](/lia-cli/#play) command through terminal or GitBash, Lia CLI automatically runs game engine and two bots that you have specified in command. This is great because you can see the resulting game within seconds, but sometimes you want to do it more manually and stop the game in between to run the debugger and see what is going on with your bot.
-
-### Generating game in debug mode
-
-Fortunatelly the ```play``` command has a flag with which you say which bots you will run manually. Below command will generate a game between bots Jon and Bob. Lia CLI will take care of running Bob, while John will have to be run manually.
-
-```bash
-./lia play John Bob -d 1 # -d stands for debug mode and 1 defines that first bot (in this case John) will be run manually.
-# If you would type -d 2 then Bob would have to be run manually and if you would set -d 1,2 then both bots would have  to 
-# be run manually
-```
-
-After you press ENTER, you should see the following output: 
-```text
-...
-Running game generator
-Server started on port 8887.
-Running bot Bob
-AI service for player 2 has connected.
-```
-
-Game server will then wait until you manually connect your bot.
-
-### Manually connecting your bot
-
-Connecting the bot manually is very simple, you just need to type those three commands:
-```bash
-./lia compile John # Compile your bot (run it also if you are using interpreted languages like python)
-cd John # You need to be in the same directory as the run.sh script
-bash run.sh 8887 # 8887 is default game engine port
-```
-
-But this does not give us a lot of value as we want to be able to debug the code with a propper debuger. Let's see how this can be done with IntelliJ IDEA (We are by no means affiliated with JetBrains, the creators of IntelliJ IDEA, this IDE is used here just to showcase the point).
-
-### Connecting your bot with IntelliJ IDEA
-
-Make sure you have [IntelliJ IDEA](https://www.jetbrains.com/idea/) installed. You can then open your bot with it the following way.
-
-1. Launch IDEA and click Open on the welcome screen. <br/> &nbsp;
-    <div style="text-align:center"><img src="/images/intellij-open.png" alt="Open IntelliJ IDEA" width="30%" vspace="20"/></div>
-2. Locate your bot John, mark it and then choose OK. <br/> &nbsp;
-    <div style="text-align:center"><img src="/images/intellij-path-to-john.png" alt="Path to John" width="30%"/></div>
-3. On the next screen tick *Use auto-import* checkbox and click OK. 
-4. Editor will open up and you will see Gradle installing dependencies. Wait until it is finished.
-5. Open up *MyBot* (arrow 1) then click on the empty space in 20th line (shown by arrow 2) so that our debugger will stop there and then run the debug mode (arrow 3). Note that the game engine should be running and waiting for John to connect. <br/> &nbsp;
-
-    <div style="text-align:center"><img src="/images/intellij-opened.png" alt="Opened IntelliJ IDEA" width="90%"/></div>
-
-If all went well, you should be able to see the game engine successfully connecting your bot and starting to generate the game but stopping at the beginning. If you look in your IDEA editor you can see that the IDEA has paused the game generation and you can now analyse the state of your bot.
-
- <div style="text-align:center"><img src="/images/intellij-debug.png" alt="Debug IntelliJ IDEA" width="90%"/></div>
-
-That is it. Happy debugging!
-
-----
-
 ### Next:
 
-* [Tutorial - Part 2](/tutorial-part-1)
-* [Reference for Lia CLI](/lia-cli)
+* [Examples](/examples/overview/)
+* [Reference for Lia CLI](/lia-cli/)
+* [API reference](/api/)

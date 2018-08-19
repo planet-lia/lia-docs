@@ -75,7 +75,7 @@ In order to improve our bot we need to write some code for it.
 With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). 
 
 We will make our units shoot while also moving forward and rotating left.
-To acheave that repalce the code in the file that you have opened up with the code below. 
+To acheave that replace the code in the file that you have opened up with the code below. 
 Note that we won't be explaining how the code works here as this and much more is explained in our [examples](/examples/overview/). 
 This here is just to showcase how to make changes to your bot and use them in your battles.
 
@@ -200,6 +200,10 @@ Now save the file and run the ```play``` command again:
 After the game is generated you should see all of your units rotating to the left and constantly shooting as shown in image below.
 
  <div style="text-align:center"><img src="/static/docs/images/dummy-game.png" alt="Dummy game" width="60%"/></div>
+
+{{< note title="Using an IDE" >}}
+You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/examples/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
+{{< /note >}}
 
 ## Where to go from here
 
