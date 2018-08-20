@@ -100,7 +100,7 @@ lia --languages
 ### playground
 
 Runs the desired playground with the selected bot.
-Playground number 1 generates a 1v1 battle on a handmade map while playgrounds 2 and 3 play a game against our in-house bots.
+Playground number 1 generates a 1v1 battle on a handmade map while playgrounds 2 and 3 play a game against our in-house bots made by Lia team.
 
 ```shell
 Usage:
@@ -115,7 +115,7 @@ Flags:
 Example:
 
 ```shell
-lia playground 1 BestBot  # Starts playground 1 with the bot named BestBot
+lia playground 2 BestBot  # Battles yor bot named BestBot against one of the bots made by Lia team
 ```
 ----
 ### play
