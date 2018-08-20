@@ -146,8 +146,8 @@ theme = "hugo-material-docs"
 
 [[menu.tutorials]]
 	parent = "Tutorials"
-	name   = "Beginner tutorial - Part 1"
-	url    = "tutorials/beginner-tutorial-part-1/"
+	name   = "Beginner tutorial"
+	url    = "tutorials/beginner-tutorial/"
 	weight = 1
 
 [[menu.tutorials]]

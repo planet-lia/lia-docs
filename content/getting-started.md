@@ -214,7 +214,7 @@ The next step is to write some meaningful code.
 If you want to start **coding on your own** without too much guidance, we suggest you to check out our [examples](/examples/overview/). 
 They contain most of the basic and also more advanced stuff that you need in order to build a real fighting bot.
 
-If you are still a beginner programmer or you just prefer to **learn in a more guided way**, we suggest you to go through our [Beginner tutorial](/tutorials/beginner-tutorial-part-1/) where you will learn how to create your first bot that can win games step by step.
+If you are still a beginner programmer or you just prefer to **learn in a more guided way**, we suggest you to go through our [Beginner tutorial](/tutorials/beginner-tutorial/) where you will learn how to create your first bot that can win games step by step.
 
 Whichever path you take, have fun! :smile:
 
@@ -223,6 +223,6 @@ Whichever path you take, have fun! :smile:
 ### Related:
 
 * [Examples](/examples/overview/)
-* [Beginner tutorial](/tutorials/beginner-tutorial-part-1/) 
+* [Beginner tutorial](/tutorials/beginner-tutorial/) 
 * [Reference for Lia CLI](/lia-cli)
 * [API reference](/api/)
