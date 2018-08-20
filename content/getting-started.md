@@ -219,6 +219,10 @@ They contain most of the basic and also more advanced stuff that you need in ord
 
 If you are still a beginner programmer or you just prefer to **learn in a more guided way**, we suggest you to go through our [Beginner tutorial](/tutorials/beginner-tutorial/) where you will learn how to create your first bot that can win games step by step.
 
+{{< note title="Fighting bots made by Lia team" >}}
+Besides fighting your bots against themselves, you can also fight locally two bots made by Lia team. In order to do that you will need to run ```playground``` command instead of ```play``` command. Head [here](/lia-cli/#playground) to learn how to do that.
+{{< /note >}}
+
 Whichever path you take, have fun! :smile:
 
 ----
