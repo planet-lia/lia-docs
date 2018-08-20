@@ -5,3 +5,5 @@ example: true
 ---
 
 Examples...
+
+How to use them, where to paste code, how tu run commands etc. What is api and what is state update. How to read examples

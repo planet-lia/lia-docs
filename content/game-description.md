@@ -10,7 +10,7 @@ You start the game with a predefined number of biobots which you can move around
 <br>
  <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="70%"/></div>
 
-### Next:
+### Related:
 
 * [Game rules](/game-rules)
 * [Getting started](/getting-started/) - Get started with Lia

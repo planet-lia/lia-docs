@@ -220,7 +220,7 @@ Whichever path you take, have fun! :smile:
 
 ----
 
-### Next:
+### Related:
 
 * [Examples](/examples/overview/)
 * [Beginner tutorial](/tutorials/beginner-tutorial-part-1/) 

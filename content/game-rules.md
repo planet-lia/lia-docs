@@ -40,7 +40,7 @@ Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per 
 * Speed: 32 /s
 * Range: 40
 
-## Viewing Area
+## Viewing area
 
 Each biobot have a viewing area that resembles triangle. The area has a length of 30 and does not span through obstacles. Width of 
 the furthest side of the triangle is 16. The viewing area is always in front of the biobot and it moves with it.
@@ -59,9 +59,9 @@ When generating our games on Lia servers we need to limit your bot so that it do
 * If the bot fails to respond in time for 8 or more times in one game it automatically looses
 * If the bot does not connect withing 5 seconds since the game engine started it also looses
 
-When running your bot locally in debug mode, no restricitons are set. (Check [here](/tutorial-part-1/#extra-debugging-your-code) to see how to run your bot in debug mode)
+When running your bot locally in debug mode, no restricitons are set. (Check [here](/tutorials/debugging-your-code/) to see how to run your bot in debug mode)
 
-## Custom Game Rules
+## Custom game rules
 
 If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
@@ -140,7 +140,7 @@ Be aware that some properties may break the game if you change them too much, fo
 }
 ```
 
-### Next:
+### Related:
 
 * [Game description](/game-description/)
 * [Getting started](/getting-started/) - Get started with Lia

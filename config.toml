@@ -144,23 +144,23 @@ theme = "hugo-material-docs"
 	url    = "examples/multiple-units/"
 	weight = 8
 
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Debugging your code"
-	url    = "examples/debugging-your-code/"
-	weight = 9
-
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Using an IDE"
-	url    = "examples/using-ide/"
-	weight = 9
-
 [[menu.tutorials]]
 	parent = "Tutorials"
 	name   = "Beginner tutorial - Part 1"
 	url    = "tutorials/beginner-tutorial-part-1/"
-	weight = 9
+	weight = 1
+
+[[menu.tutorials]]
+	parent = "Tutorials"
+	name   = "Debugging your code"
+	url    = "tutorials/debugging-your-code/"
+	weight = 2
+
+[[menu.tutorials]]
+	parent = "Tutorials"
+	name   = "Using an IDE"
+	url    = "tutorials/using-ide/"
+	weight = 3
 
 [blackfriday]
 	smartypants	= true

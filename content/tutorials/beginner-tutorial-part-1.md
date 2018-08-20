@@ -219,8 +219,8 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
     // Get the state of the unit
     UnitData unit = stateUpdate.units[0];
 
-    // If the unit can shoot (weapon is reloaded enough time has passed since
-    // the last shot) then tell the engine to shot.
+    // If the unit can shoot (weapon is reloaded and enough time has 
+    // passed since he last shot) then tell the engine to shot.
     if (unit.canShoot) {
       api.shoot(unit.id);
     }
@@ -235,9 +235,11 @@ If you will want to create a custom shooting logic where you will not want to sh
 
 Since we already know how to rotate and move our unit forward, it should be fairly simple to choose a specific point on the map and move our unit to it. After we do that, moving through a path described with a set of points will be a peace of cake. 
 
-In this part you will need to know some basic math stuff, but if you aren't a fan of it then don't worry, later on when you will be developing the AI for your bot, all the math part will already be set up and you will be able to focus on your AI.
+In this part you will need to know some basic math stuff, but if you aren't a fan of it then don't worry, later on when you will be developing the AI for your bot, all the math part will already be set up and you will be able to focus on your AI. 
 
-Okay, first let's move our unit to the upper left part of the map. The final result should look something like this:
+There is also an option to skip this and the next section (<a href="/tutorials/beginner-tutorial-part-1/#following-path" target="_blank">Following path</a>) of the tutorial altogether and instead reade our <a href="/examples/pathfinding/" target="_blank">pathfinding example</a> which provides you with a decent movement system out of the box with almost no effort. Eather way, the following section should come in handy later when you will be for example programming the logic for following opponents so it is good to at least skim through it.
+
+If you are still here, let's start by moving our unit to the upper left part of the map. The result should look something like this:
 
  <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-go-to-point.gif" alt="Tutorial Part 1 - go to point" width="70%"/></div>
 
@@ -310,35 +312,35 @@ We now need to decide when our unit should move forward so that it will move clo
 final float ALLOWED_ANGLE_OFFSET = 15f;
 
 private boolean moveToDestination(UnitData unit, Vector2 destination, Api api) {
-        // If we are already at the destination then stop the unit
-        // (Method defined in point 1.)
-        if (atDestination(unit, destination)) {
-            api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
-            return true; // We have arrived
-        }
-
-        // Calculate the angle (Method defined in point 2.)
-        float angle = angleBetweenUnitAndDestination(unit, destination);
-
-        // Find if the angle is small enough so we can move forward
-        boolean moveForward = Math.abs(angle) < ALLOWED_ANGLE_OFFSET;
-
-        if (moveForward) {
-            // Stop rotating and move forward
-            api.setRotationSpeed(unit.id, Rotation.NONE);
-            api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
-        }
-        else {
-            // Stop moving forward and rotate closer to the wanted angle
-            api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
-            if (angle < 0) {
-                api.setRotationSpeed(unit.id, Rotation.RIGHT);
-            } else {
-                api.setRotationSpeed(unit.id, Rotation.LEFT);
-            }
-        }
-        return false; // We haven't arrived yet
+    // If we are already at the destination then stop the unit
+    // (Method defined in point 1.)
+    if (atDestination(unit, destination)) {
+        api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+        return true; // We have arrived
     }
+
+    // Calculate the angle (Method defined in point 2.)
+    float angle = angleBetweenUnitAndDestination(unit, destination);
+
+    // Find if the angle is small enough so we can move forward
+    boolean moveForward = Math.abs(angle) < ALLOWED_ANGLE_OFFSET;
+
+    if (moveForward) {
+        // Stop rotating and move forward
+        api.setRotationSpeed(unit.id, Rotation.NONE);
+        api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
+    }
+    else {
+        // Stop moving forward and rotate closer to the wanted angle
+        api.setThrustSpeed(unit.id, ThrustSpeed.NONE);
+        if (angle < 0) {
+            api.setRotationSpeed(unit.id, Rotation.RIGHT);
+        } else {
+            api.setRotationSpeed(unit.id, Rotation.LEFT);
+        }
+    }
+    return false; // We haven't arrived yet
+}
 ```
 {{< note title="Optional optimization" >}}
 Note that in the code above when we for example set the thrust speed to ```ThrustSpeed.NONE``` we don't check if the thrustSpeed already has this value. We do this so that the code is more readable, but if you want to optimize it later, then this is definitely a thing to consider.
@@ -462,9 +464,9 @@ This is what we get after running the ```tutorial``` command again:
 
 ## Identifying the enemy
 
-Last but not least, our unit needs to be able to see the enemy so that it can shoot it. In order to do that, each unit holds the data about the opponents it currently sees in its vision area (the triangular shape attached to the front of the unit that you can see in above gifs). Although the graphics in the game shows as if the unit can see through the walls, it can not and everything works as expected (except for the graphics :smile:).
+Last but not least, our unit needs to be able to see the enemy so that it can shoot it. In order to do that, each unit holds the data about the opponents it currently sees in its viewing area (the triangular shape attached to the front of the unit that you can see in above gifs). Although the graphics in the game shows as if the unit can see through the walls, it can not and everything works as expected (except for the graphics :smile:).
 
-Here is an example of how we can make our unit shoot when it has at least one opponent in its vision area:
+Here is an example of how we can make our unit shoot when it has at least one opponent in its viewing area:
 
 ``` java
   // If the unit can shoot (has enough bullets and enough time has passed since the last shoot)
@@ -606,13 +608,13 @@ public class MyBot implements Callable {
 }
 ```
 
-Good job for reading this far! If you want to, you can check the [next section](/tutorial-part-1/#extra-debugging-your-code) that describes how to effectively debug your code, or you can go and read the [Part 2](/tutorial-part-1) of this tutorial that will show you how to use the basic pathfinding library and how to handle multiple units at once.
+Good job for reading this far! Now you should be ready to go into the world of Lia by yourself.
 
-Otherwise you are already well equipped to dig deeper into the world of Lia by yourself. HF! :smile:
+Also check our <a href="/examples/overview/" target="_blank">examples</a> as they might help you with your journey. We especially recommend you to check the <a href="/examples/pathfinding/" target="_blank">pathfinding</a> and <a href="/examples/multiple-units/" target="_blank">multiple units</a> examples as they build upon the knowledge you received in this tutorial.  
 
 ---
 
-### Next:
+### Related:
 
 * [Examples](/examples/overview/)
 * [Reference for Lia CLI](/lia-cli/)
