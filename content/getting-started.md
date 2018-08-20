@@ -137,9 +137,12 @@ from lia.api import *
 
 class MyBot(Bot):
     
+    # Called only once when the game is initialized.
     def process_map_data(self, map_data):
         pass
 
+    # Repeatedly called from game engine with game state updates
+    # Use api object to tell game engine what you want your units to do
     def process_state(self, state_update, api):
         # Make all of your units move forward, rotate left and shoot
         for unit in state_update['units']:
