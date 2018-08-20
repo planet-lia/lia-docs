@@ -202,7 +202,7 @@ After the game is generated you should see all of your units rotating to the lef
  <div style="text-align:center"><img src="/static/docs/images/dummy-game.png" alt="Dummy game" width="60%"/></div>
 
 {{< note title="Using an IDE" >}}
-You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/examples/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
+You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
 {{< /note >}}
 
 ## Where to go from here

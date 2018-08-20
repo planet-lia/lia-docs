@@ -5,7 +5,7 @@ example: true
 ---
 
 
-Use the pathfinding library to find the path and move your unit from different points.
+Use the pathfinding library to find the path and move your unit between different points.
 
 *Note: This pathfinding library is only provided for ```Java``` and ```Kotlin``` bots.*
 
@@ -97,7 +97,8 @@ private int[][] points = new int[][]{
 };
 ```
 
-Then we let the library parse the MapData object into a structure that can be used by our pathFollower which we can then initialize.
+Then we let the library parse the MapData object into a structure that can be used by our pathFollower.
+When we have that, we use it to initialize our pathFollower.
 
 ```java
 public synchronized void process(MapData mapData) {
@@ -109,7 +110,7 @@ public synchronized void process(MapData mapData) {
 ```
 
 In the main loop of the game we then proceed by checking every frame if the unit arrived at destination and if it did we choose a new path. 
-We then also make the unit follow the chosen path using ```pathFollower.follow(...)``` method.
+Here we also make the unit follow the chosen path using ```pathFollower.follow(...)``` method.
 
 ```java
 public synchronized void process(StateUpdate stateUpdate, Api api) {

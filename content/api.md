@@ -9,7 +9,7 @@ Here is the collection of everything your bot can get from game engine and every
 
 ## MapData
 
-Bot receives MapData object only once when the game is initialized.
+Bot receives MapData object once when the game is initialized.
 
 * **```width```**```: float``` - *map width in game units*
 * **```height```**```: float``` - *map height in game units*
@@ -44,7 +44,7 @@ public synchronized void process(MapData mapData) {
 
 ## StateUpdate
 
-Bot receives StateUpdate about 10 times per game second. It holds the data about what is going on with your units on the map at current game time.
+Bot receives StateUpdate 10 times per game second. It holds the data about what is going on with your units on the map at current game time.
 
 * **```time```**```: float``` - *current game time in seconds*
 * **```units```**```: array``` - *list of your units that are still alive, each contains:*
@@ -94,7 +94,7 @@ Bot receives StateUpdate about 10 times per game second. It holds the data about
 
 ## Api object
 
-Together with [StateUpdate](/api/#stateupdate), Api object is received every tick about 10 times per game second. Through it you can communicate with the game engine. You can use the following methods:
+Together with [StateUpdate](/api/#stateupdate), Api object is received every tick 10 times per game second. Through it you can communicate with the game engine and tell it what you want your units to do. You can use the following methods:
 
 * **```shoot(int unitId)```** - *tells the game engine that you want the unit with ```unitId``` to shoot*
 * **```setRotationSpeed(int unitId, Rotation rotation)```** - *sets the rotation of the unit with ```unitId``` to choosen rotation value (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```)*

@@ -113,7 +113,7 @@ Don't worry if all of this doesn't make much sense, just keep on reading. When y
 
 ## Control your units
 
-In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we have run our [first game](/tutorial-part-1/#2-bot-vs-bot), there were plenty of bots on each team. How to control multiple units is explained in [Part-2](/tutorial-part-2/) of this tutorial, but for now we will stick with only one unit per team. 
+In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we have run our [first game](/getting-started/#simulate-a-game), there were plenty of bots on each team. How to control multiple units is explained in our [Multiple units example](/examples/multiple-units/), but for now we will stick with only one unit per team. 
 
 In order to do that and to also showcase some other things, we have prepared a special playground for it. You can run your bot John in this playground by running the following command:
 
@@ -133,7 +133,7 @@ Now let's dig in.
 
 ## Rotation
 
-Unit rotation is the first essential move we will cover. We want our unit to rotate for roughly 180° (head [here](/tutorial-part-1/#more-precise-rotation) if you want to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
+Unit rotation is the first essential move we will cover. We want our unit to rotate for roughly 180° (head [here](/tutorials/beginner-tutorial-part-1/#more-precise-rotation) if you want to learn how to rotate it for almost *exactly* 180°). This is what we are aiming for:
 
  <div style="text-align:center"><img src="/static/tutorials/gifs/tutorial-part-1-rotate.gif" alt="Tutorial Part 1 - rotation" width="70%"/></div>
 
@@ -237,7 +237,7 @@ Since we already know how to rotate and move our unit forward, it should be fair
 
 In this part you will need to know some basic math stuff, but if you aren't a fan of it then don't worry, later on when you will be developing the AI for your bot, all the math part will already be set up and you will be able to focus on your AI. 
 
-There is also an option to skip this and the next section (<a href="/tutorials/beginner-tutorial-part-1/#following-path" target="_blank">Following path</a>) of the tutorial altogether and instead reade our <a href="/examples/pathfinding/" target="_blank">pathfinding example</a> which provides you with a decent movement system out of the box with almost no effort. Eather way, the following section should come in handy later when you will be for example programming the logic for following opponents so it is good to at least skim through it.
+There is also an option to skip this and the next section (<a href="/tutorials/beginner-tutorial-part-1/#following-path" target="_blank">Following path</a>) of the tutorial altogether and instead reade our <a href="/examples/pathfinding/" target="_blank">Pathfinding example</a> which provides you with a decent movement system out of the box with almost no effort. Eather way, the following section should come in handy later when you will be for example programming the logic for following opponents so it is good to at least skim through it.
 
 If you are still here, let's start by moving our unit to the upper left part of the map. The result should look something like this:
 
