@@ -71,9 +71,9 @@ public class MyBot implements Callable {
 Run this command to mimic the gif above:
 
 ```bash
-./lia tutorial 1 {name-of-your-bot}
+./lia playground 1 {name-of-your-bot}
 ```
-##### *Command:* [*tutorial*](/lia-cli/#tutorial)
+##### *Command:* [*playground*](/lia-cli/#playground)
 
 ----
 

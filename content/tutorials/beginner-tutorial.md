@@ -118,10 +118,10 @@ In this part of the tutorial we will show you how to implement a basic unit move
 In order to do that and to also showcase some other things, we have prepared a special playground for it. You can run your bot John in this playground by running the following command:
 
 ```bash
-./lia tutorial 1 John
+./lia playground 1 John
 ```
 
-##### *Command:* [*tutorial*](/lia-cli/#tutorial)
+##### *Command:* [*playground*](/lia-cli/#playground)
 
 When the game is generated, you should see the map that looks something like this:
 
@@ -159,7 +159,7 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
 
 When you paste the code above into your MyBot.java file, you can run the ```tutorial``` command again as already shown before:
 ```bash
-./lia tutorial 1 John
+./lia playground 1 John
 ```
 
 ### More precise rotation

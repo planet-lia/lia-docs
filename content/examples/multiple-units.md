@@ -117,7 +117,7 @@ Run this command to mimic the gif above:
 ```bash
 ./lia play {name-of-your-bot} {name-of-your-bot}
 ```
-##### *Command:* [*tutorial*](/lia-cli/#tutorial)
+##### *Command:* [*play*](/lia-cli/#play)
 
 ----
 

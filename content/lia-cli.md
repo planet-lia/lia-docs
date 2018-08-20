@@ -19,7 +19,7 @@ Name | Short description
 [help](#help) | Details on how to use the tool
 [settings](#settings) | Manages usage data tracking
 [bot](#bot) | Creates new bot in your favourite language
-[tutorial](#tutorial) | Starts a tutorial game
+[playground](#playground) | Starts a game in a preset playground
 [play](#play) | Starts a game between two bots
 [generate](#generate) | Generates a game and ignores replay
 [zip](#zip) | Compresses a bot
@@ -30,7 +30,7 @@ Name | Short description
 
 ----
 
-### Help
+### help
 
 Help provides help for any command in the application.
 Simply type lia help [path to command] for full details.
@@ -51,7 +51,7 @@ lia play help  # Detailed help for command 'play'
 ```
 ----
 
-### Settings
+### settings
 
 Lets you change the usage data tracking settings and tracking id settings. You can opt-in, opt-out, or reset tracking id.
 
@@ -72,7 +72,7 @@ Example:
 lia settings  # View current settings
 ```
 ----
-### Bot
+### bot
 
 Creates a new bot with the name and language of your choosing. The folder where the bot is located is created in the same folder as Lia CLI. It contains the starting code for the bot in chosen language and is ready to run (although it probably won't win any games yet). The base of the code is located in MyBot.* file.
 
@@ -97,28 +97,28 @@ lia --languages
 
 ----
 
-### Tutorial
+### playground
 
-Runs the desired tutorial with the selected bot, the numbers that represent the tutorial are explained in the tutorial sections.
+Runs the desired playground with the selected bot.
+Playground number 1 generates a 1v1 battle on a handmade map while playgrounds 2 and 3 play a game against our in-house bots.
 
 ```shell
 Usage:
-  lia tutorial <number> <name> [flags]
+  lia playground <number> <name> [flags]
 
 Flags:
   -d, --debug          toggle if you want to manually run your bot (eg. through debug mode in IDE)
-  -h, --help           help for tutorial
+  -h, --help           help for playground
   -w, --width string   choose width of replay window, height will be calcualted automatically
-
 ```
 
 Example:
 
 ```shell
-lia tutorial 1 BestBot  # Starts tutorial 1 with the bot named BestBot
+lia playground 1 BestBot  # Starts playground 1 with the bot named BestBot
 ```
 ----
-### Play
+### play
 
 Compiles both bots and then runs the game between them. After the game completes loading, replay viewer is launched so you can watch the game.
 
@@ -147,7 +147,7 @@ Example:
 lia play BestBot WorstBot -g 2 -m 3  # Plays a game between bots BestBot and WorstBot with fixed specified game and map seeds
 ```
 ----
-### Generate
+### generate
 
 Generates a game. Used in case you want to run your bots over many iterations. It will not start the replay viewer when the game ends. (Usefull for machine learning).
 
@@ -173,7 +173,7 @@ Example:
 lia generate BestBot 1 WorstBot 2  # Generates a game between BestBot and WorstBot
 ```
 ----
-### Zip
+### zip
 
 Verifies, compiles and zips the bot in \<name> directory. Final zip can be uploaded to the website.
 
@@ -193,7 +193,7 @@ lia zip BestBot  # Compresses the bot named BestBot.
 ```
 
 ----
-### Compile
+### compile
 
 Compiles and prepares the selected bot in its respective folder.
 

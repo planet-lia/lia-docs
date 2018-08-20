@@ -29,7 +29,7 @@ If you are a complete beginner or if you have skipped our [Beginner tutorial](/t
 * [Identifying the enemy example](/examples/identifying-the-enemy/) - Shows how your unit can detect an enemy
 * [Following path example](/examples/following-path/) - Shows how your unit can follow a path on a map
 
-If you have already finished our [Beginner tutorial](/tutorials/beginner-tutorial/) or have experiences with AI game development and want to figure things out by yourself, we recommend you to check the following tutorials:
+If you have already finished our [Beginner tutorial](/tutorials/beginner-tutorial/) or have experiences with AI game development and want to figure things out by yourself, we recommend you to check the following examples:
 
 * [Pathfinding example](/examples/pathfinding/) - Shows how your unit can navigate on the map all by itself
 * [Multiple units example](/examples/multiple-units/) - Shows how you can manage multiple units at the same time
