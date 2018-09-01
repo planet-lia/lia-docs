@@ -112,7 +112,7 @@ public class MyBot implements Callable {
     public synchronized void process(StateUpdate stateUpdate, Api api) {
         // Make all of your units move forward, rotate left and shoot
         for (int i = 0; i < stateUpdate.units.length; i++) {
-            Unit unit = stateUpdate.units[i];
+            UnitData unit = stateUpdate.units[i];
             api.setRotationSpeed(unit.id, Rotation.LEFT);
             api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
             api.shoot(unit.id);
