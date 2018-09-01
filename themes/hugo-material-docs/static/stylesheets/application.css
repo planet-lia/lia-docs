@@ -1104,7 +1104,7 @@ h1 .article .headerlink{
         color:#fff
     }
     .drawer{
-        position: relative !important;
+        position: fixed;
         z-index:4
     }
     #toggle-search:checked~.main .results,.drawer,.toggle-search .results{
