@@ -42,7 +42,7 @@ public class MyBot implements Callable {
 
     /** Repeatedly called from game engine with game state updates.  */
     @Override
-    public synchronized void process(State stateUpdate, Api api) {
+    public synchronized void process(StateUpdate stateUpdate, Api api) {
         // Go through all the units and move them randomly on the mapeUpdat
         for (UnitData unitData : stateUpdate.units) {
             // Get the corresponding Unit object based on unit id
