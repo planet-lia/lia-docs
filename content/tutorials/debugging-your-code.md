@@ -5,11 +5,11 @@ tutorial: true
 ---
 
 
-Lia-SDK can, besides quickly and effortlessly generating games, also help you with debugging your code. Usually when you run the [```play```](/lia-cli/#play) command through terminal or GitBash, Lia CLI automatically runs game engine and two bots that you have specified in command. This is great because you can see the resulting game within seconds, but sometimes you want to do it more manually and stop the game in between to run the debugger and see what is going on with your bot.
+Lia-SDK can, besides quickly and effortlessly generating games, also help you with debugging your code. Usually when you run the [```play```](/lia-cli/#play) command through terminal or GitBash, Lia CLI automatically runs the game engine and two bots that you have specified in command. This is great because you can see the resulting game within seconds, but sometimes you want to do it more manually and stop the game in between to run the debugger and see what is going on with your bot.
 
 ### Generating game in debug mode
 
-Fortunatelly the ```play``` command has a flag with which you say which bots you will run manually. Below command will generate a game between bots Jon and Bob. Lia CLI will take care of running Bob, while John will have to be run manually.
+Fortunatelly the ```play``` command has a flag with which you say which bots you will run manually. The command below will generate a game between bots Jon and Bob. Lia CLI will take care of running Bob, while John will have to be run manually.
 
 ```bash
 ./lia play John Bob -d 1 # -d stands for debug mode and 1 defines that first bot (in this case John) will be run manually.
@@ -30,7 +30,7 @@ Game server will then wait until you manually connect your bot.
 
 ### Manually connecting your bot
 
-Connecting the bot manually is very simple, you just need to type those three commands:
+Connecting the bot manually is very simple, you just need to type these three commands:
 ```bash
 ./lia compile John # Compiles your bot (run it also if you are using interpreted languages like Python)
 cd John # You need to be in the same directory as the run.sh script

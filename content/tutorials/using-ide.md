@@ -4,14 +4,14 @@ date: 2018-08-19T17:09:19+02:00
 tutorial: true
 ---
 
-We highly suggest you to use an IDE for writing your bot. 
+We highly suggest you use an IDE for writing your bot. 
 It can help you in many ways, including:
 
-* **Debuggin your code** - Check our <a href="/tutorials/debugging-your-code/" target="_blank">debugging example</a>
+* **Debugging your code** - Check our <a href="/tutorials/debugging-your-code/" target="_blank">debugging example</a>
 * **Managing imports** - It can automatically detect which classes you are using. 
 Since for most bot we already provide some of them such as Pathfinding, the IDE will help you find it.
 * **Autocompletion** - Our <a href="/api/" target="_blank">API</a> provides you with many different fields and methods. 
-IDE can help you autocomplete them and can easly show you which ones exists without looking into the source files.
+IDE can help you autocomplete them and can easily show you which ones exists without looking into the source files.
 * Much more...
 
 ## Using Java/Kotlin bot with IDE

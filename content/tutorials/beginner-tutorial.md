@@ -4,7 +4,7 @@ title: Beginner tutorial
 tutorial: true
 ---
 
-This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but all of the techniques can be easly used in other programming languages as well.
+This tutorial is meant to teach you how to create your very first bot that actually does something. To explain presented ideas it currently uses Java, but all of the techniques can be easily used in other programming languages as well.
 
 ### You will learn to:
 
@@ -93,7 +93,7 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
 }
 ```
 
-The method ```process(StateUpdate stateUpdate, Api api)``` is called 10 times per game second and will contain the meat of your logic. It has two parameters. First parameter ```stateUpdate``` holds the data about everything that is happening on the map in current time that you are allowed to know. (The second parameter is explaind below)
+The method ```process(StateUpdate stateUpdate, Api api)``` is called 10 times per game second and will contain the meat of your logic. It has two parameters. First parameter ```stateUpdate``` holds the data about everything that is happening on the map in current time that you are allowed to know. (The second parameter is explained below)
 
 *Learn more: [StateUpdate](/api/#stateupdate)*
 
@@ -113,7 +113,7 @@ Don't worry if all of this doesn't make much sense, just keep on reading. When y
 
 ## Control your units
 
-In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we have run our [first game](/getting-started/#simulate-a-game), there were plenty of bots on each team. How to control multiple units is explained in our [Multiple units example](/examples/multiple-units/), but for now we will stick with only one unit per team. 
+In this part of the tutorial we will show you how to implement a basic unit movement and shooting logic. As you have seen when we ran our [first game](/getting-started/#simulate-a-game), there were plenty of bots on each team. How to control multiple units is explained in our [Multiple units example](/examples/multiple-units/), but for now we will stick with only one unit per team. 
 
 In order to do that and to also showcase some other things, we have prepared a special playground for it. You can run your bot John in this playground by running the following command:
 
@@ -201,12 +201,12 @@ public synchronized void process(StateUpdate stateUpdate, Api api) {
 
 If you replace the ```process(StateUpdate stateUpdate, Api api) ``` method in your MyBot.java with the one above and run the ```tutorial``` command, your unit should move forward. (You can run ```tutorial``` command whenever you want to see the changes you have made in action)
 
-In order to actually move to some meaningfull location you will need to combine both straight as well as the rotational movement, but more about that later. First let's look at how our unit can shoot.
+In order to actually move to some meaningful location you will need to combine both straight as well as the rotational movement, but more about that later. First let's look at how our unit can shoot.
 
 ----
 ## Shooting & ammo
 
-Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with delay of 0.2 second while reloading new ones take 1 second each. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
+Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with a delay of 0.2 second while reloading new ones takes 1 second each. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
 
 The following gif shows you an example of shooting mechanics.
 
@@ -233,11 +233,11 @@ If you will want to create a custom shooting logic where you will not want to sh
 
 ## Reaching point on the map
 
-Since we already know how to rotate and move our unit forward, it should be fairly simple to choose a specific point on the map and move our unit to it. After we do that, moving through a path described with a set of points will be a peace of cake. 
+Since we already know how to rotate and move our unit forward, it should be fairly simple to choose a specific point on the map and move our unit to it. After we do that, moving through a path described with a set of points will be a piece of cake. 
 
 In this part you will need to know some basic math stuff, but if you aren't a fan of it then don't worry, later on when you will be developing the AI for your bot, all the math part will already be set up and you will be able to focus on your AI. 
 
-There is also an option to skip this and the next section (<a href="/tutorials/beginner-tutorial/#following-path" target="_blank">Following path</a>) of the tutorial altogether and instead reade our <a href="/examples/pathfinding/" target="_blank">Pathfinding example</a> which provides you with a decent movement system out of the box with almost no effort. Eather way, the following section should come in handy later when you will be for example programming the logic for following opponents so it is good to at least skim through it.
+There is also an option to skip this and the next section (<a href="/tutorials/beginner-tutorial/#following-path" target="_blank">Following path</a>) of the tutorial altogether and instead read our <a href="/examples/pathfinding/" target="_blank">Pathfinding example</a> which provides you with a decent movement system out of the box with almost no effort. Either way, the following section should come in handy later when you will be for example programming the logic for following opponents so it is good to at least skim through it.
 
 If you are still here, let's start by moving our unit to the upper left part of the map. The result should look something like this:
 
@@ -253,7 +253,7 @@ For the sake of simplicity and clean code, let us analyse each point separately.
 
 ### 1. Reaching destination
 
-Your unit's location is stored in ```x``` and ```y``` values which are of type ```float```. Beacuse of that and also the fact that you only have limited precision due to "only" receiving game state updates every 0.1 game seconds, we can't be sure that our unit will be able to always arrive directly on the specified point. But we really don't need to be this precise as it is good enough if we decide that our unit is at destination when it is in a certain distance from the destination point.
+Your unit's location is stored in ```x``` and ```y``` values which are of type ```float```. Because of that and also the fact that you only have limited precision due to "only" receiving game state updates every 0.1 game seconds, we can't be sure that our unit will be able to always arrive directly on the specified point. But we really don't need to be this precise as it is good enough if we decide that our unit is at destination when it is in a certain distance from the destination point.
 
 The logic is simple, if the absolute distance from our unit to destination on both x and y axis is less then ```ALLOWED_DESTINATION_OFFSET = 2f``` then our unit is at the destination. Code below represents this:
 
@@ -404,7 +404,7 @@ Awesome! Now run the ```tutorial``` command again and you should see your unit m
 
 ## Following path
 
-As mentioned above, after we can reach a point on the map, following a full path on the map that is build out of multiple points is a peace of cake. The only things you need to modify from the example above are shown below:
+As mentioned above, after we can reach a point on the map, following a full path on the map that is build out of multiple points is a piece of cake. The only things you need to modify from the example above are shown below:
 
 ```java
 ...

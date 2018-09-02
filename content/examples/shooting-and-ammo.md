@@ -34,7 +34,7 @@ Run this command to mimic the gif above:
 
 In this example we make the unit at index 0 shoot if it can (meaning that it has its weapon reloaded).
 
-Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with delay of 0.2 second while reloading new ones take 1 second each. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
+Each unit has the ability to hold 3 bullets at once. Those bullets can be shoot with a delay of 0.2 second while reloading new ones takes 1 second each. In a real fight it is probably good to take care not to use all the bullets at once if unnecessary.
 
 If you will want to create a custom shooting logic where you will not want to shoot all the bullets at once, then you should take a look at the ```unit.nBullets``` in [StateUpdate](/api/#stateupdate) object.
 

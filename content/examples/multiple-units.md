@@ -123,7 +123,7 @@ Run this command to mimic the gif above:
 
 ## Explanation
 
-Each of our units is represented by an object of class ```Unit```. In it we store the path that our unit needs to follow within the ```pathFollower``` field. ```Unit``` class also has a method ```moveAround(UnitData unitData, Api api)``` that takes a current state of a corresponding unit and can then move it around the map based on the path it sets. So again, the ```Unit``` class is ment to store the state of each unit on your team.
+Each of our units is represented by an object of class ```Unit```. In it we store the path that our unit needs to follow within the ```pathFollower``` field. ```Unit``` class also has a method ```moveAround(UnitData unitData, Api api)``` that takes a current state of a corresponding unit and can then move it around the map based on the path it sets. So again, the ```Unit``` class is meant to store the state of each unit on your team.
 
 In ```MyBot``` class we create a map that will store ```Unit``` objects for all of our units. Those objects are accessible through unit id. Example shown below.
 ```java

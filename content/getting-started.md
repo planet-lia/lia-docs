@@ -3,7 +3,7 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
-Let's set you up for countless hours of fun! Before we will let you to start exploring on your own we will go through the following essential steps:
+Let's set you up for countless hours of fun! Before we let you start exploring on your own we will go through the following essential steps:
 
 1. Download Lia-SDK for your operating system
 2. Test your setup by playing a sample game
@@ -75,7 +75,7 @@ In order to improve our bot we need to write some code for it.
 With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). 
 
 We will make our units shoot while also moving forward and rotating left.
-To acheave that replace the code in the file that you have opened up with the code below. 
+To achieve that replace the code in the file that you have opened up with the code below. 
 Note that we won't be explaining how the code works here as this and much more is explained in our [examples](/examples/overview/). 
 This here is just to showcase how to make changes to your bot and use them in your battles.
 
@@ -220,7 +220,7 @@ They contain most of the basic and also more advanced stuff that you need in ord
 If you are still a beginner programmer or you just prefer to **learn in a more guided way**, we suggest you to go through our [Beginner tutorial](/tutorials/beginner-tutorial/) where you will learn how to create your first bot that can win games step by step.
 
 {{< note title="Fighting bots made by Lia team" >}}
-Besides fighting your bots against themselves, you can also fight locally two bots made by Lia team. In order to do that you will need to run ```playground``` command instead of ```play``` command. Head [here](/lia-cli/#playground) to learn how to do that.
+Besides fighting your bots against themselves, you can also locally fight two bots made by Lia team. In order to do that you will need to run ```playground``` command instead of ```play``` command. Head [here](/lia-cli/#playground) to learn how to do that.
 {{< /note >}}
 
 Whichever path you take, have fun! :smile:

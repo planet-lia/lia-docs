@@ -8,7 +8,7 @@ TODO add link to legacy rules?
 -->
 
 ## Gameplay
-Each team starts with 12 biobots on opposite sides of the map. Game ends when one team is eliminated or when the game time exceeds 5 minutes. If after 5 minutes both teams are still alive the team with more remaining biobots wins. If both teams have the exact same number of biobots left, the winner is the team that dealt the most total damage. Be carefull not to let your biobots kill eachother!
+Each team starts with 12 biobots on opposite sides of the map. Game ends when one team is eliminated or when the game time exceeds 5 minutes. If after 5 minutes both teams are still alive the team with more remaining biobots wins. If both teams have the exact same number of biobots left, the winner is the team that dealt the most total damage. Be careful not to let your biobots kill eachother!
 
 * Game time: 5 min
 
@@ -42,7 +42,7 @@ Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per 
 
 ## Viewing area
 
-Each biobot have a viewing area that resembles triangle. The area has a length of 30 and does not span through obstacles. Width of 
+Each biobot has a viewing area that resembles a triangle. The area has a length of 30 and does not span through obstacles. Width of 
 the furthest side of the triangle is 16. The viewing area is always in front of the biobot and it moves with it.
 
 * Length: 30
@@ -63,9 +63,9 @@ When running your bot locally in debug mode, no restricitons are set. (Check [he
 
 ## Custom game rules
 
-If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
+If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in the extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
-Be aware that some properties may break the game if you change them too much, for example if you put 10.000 units to fight it will probably take ages before the game generates! :smile: Have fun!
+Be aware that some properties may break the game if you change them too much, for example if you put 10,000 units to fight it will probably take ages before the game generates! :smile: Have fun!
 
 ### Example of game-config.json
 
