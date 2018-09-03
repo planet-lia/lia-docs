@@ -3,7 +3,8 @@ date: 2018-08-05T04:32:25+02:00
 title: Lia CLI
 ---
 
-TODO brief description what the Lia CLI is.
+Lia CLI is a <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank">command line interface</a> that helps you play Lia as effortlessly as possible.
+By running it with provided commands (listed below) it can setup your bots, generate games for you, help you with debugging and much more.
 
 To run Lia CLI, use the following structure in terminal on linux and macOS or in [Git Bash](https://gitforwindows.org/) on Windows:
 ```shell
