@@ -384,7 +384,7 @@ public class MyBot implements Callable {
         ... // Implemented in point 1. Omitted for sanity.
     }
 
-    private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
+    private float angleBetweenUnitAndDestination(UnitData unit, Vector2 destination) {
         ... // Implemented in point 2. Omitted for sanity.
     }
 
@@ -578,7 +578,7 @@ public class MyBot implements Callable {
             Math.abs(destination.y - unit.y) < ALLOWED_DESTINATION_OFFSET;
     }
 
-    private float angleBetweenUnitAndDestination(Unit unit, Vector2 destination) {
+    private float angleBetweenUnitAndDestination(UnitData unit, Vector2 destination) {
         // Create a vector from the unit to the destination by substracting
         // base unit location vector from base destination vector
         Vector2 unitToDest = new Vector2(destination);
