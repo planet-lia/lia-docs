@@ -7,7 +7,7 @@ In some cases the ```play``` and other commands won't work. This is most often d
 
 * [(Java) Preparing bot failed](/common-problems/#java-preparing-bot-failed)
 * [(Windows) Lia-SDK can't find GitBash installation](/common-problems/#windows-lia-sdk-can-t-find-gitbash-installation)
-* [(Python) Preparing bot failed, can't generate games](/common-problems/#python3-windows-preparing-bot-failed-can-t-generate-games)
+* [(Python & Windows) Preparing bot failed, can't generate games](/common-problems/#python3-windows-preparing-bot-failed-can-t-generate-games)
 
 ----
 
