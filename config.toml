@@ -40,7 +40,7 @@ theme = "hugo-material-docs"
 [social]
 #	twitter = "liagame"
 	github  = "liagame"
-	email   = "hello@liagame.com"
+	email   = "info@liagame.com"
 
 [[menu.main]]
 	name   = "Docs"
