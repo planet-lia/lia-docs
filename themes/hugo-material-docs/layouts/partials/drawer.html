@@ -100,6 +100,14 @@
               </li>
               {{ end }}
 
+              {{ with .Site.Social.facebook }}
+              <li>
+                <a href="https://facebook.com/{{ . }}" target="_blank" title="@{{ . }} on Facebook">
+                  @{{ . }} on Facebook
+                </a>
+              </li>
+              {{ end }}
+
               {{ with .Site.Social.email }}
               <li>
                 <a href="mailto:{{ . }}" title="Email of {{ . }}">
