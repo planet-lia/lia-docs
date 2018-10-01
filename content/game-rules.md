@@ -22,7 +22,7 @@ Map is automatically generated and can be of many shapes such as diagonal, cross
 
 
 ## Units
-Each unit (a controllable biobot) has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat.
+Each unit (a controllable biobot) has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat. During the game the received location (x, y) of the unit points to it's center.
 
 * Size: 2
 * Health: 100 HP
