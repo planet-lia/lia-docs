@@ -205,7 +205,7 @@ Usage:
 Flags:
   -h, --help   help for compile
 ```
-Examples:
+Example:
 
 ```shell
 compile WorstBot  # Compiles a bot named WorstBot
