@@ -6,9 +6,9 @@ title: Getting started
 
 Let's set you up for countless hours of fun! This getting started guide consists of the following parts:
 
-1. Download Lia-SDK for your operating system
-2. Test your setup by playing a sample game
-3. Understand your bot
+1. [Download  Lia-SDK for your operating system](/getting-started/#1-download)
+2. [Test your setup by playing a sample game](/getting-started/#2-test-your-setup)
+3. [Understand your bot](/getting-started/#3-understand-your-bot)
 
 ## 1. Download
 
@@ -65,146 +65,13 @@ You should see something like in the gif below.
 
  <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="John vs John" width="50%"/></div>
 
-The game is still fairly boring since our bot is not doing anything yet. 
-Let's fix that.
-
 ## 3. Understand your bot
 
-With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). 
+With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). You can also open the whole bot folder via an IDE.
 
-In this file there is all the logic of your bot. The implementation of the starting bot is very simple, it keeps sending units to random locations on the map and if the unit sees an opponent it makes it shoot. Read through the code and the comments to see how it works!
+In ```MyBot``` file there is all the logic the bot. The basic implementation is very simple, it keeps sending units to random locations on the map and if the unit sees an opponent it makes it shoot. **Read through the code and the comments to see how it works!**
 
-Note that when you will develop your bot you can put your code in other files besides ```MyBot`` file. The structure of your bot is totally up to you!
-
-
-
-<!-- ## 3. Making changes
-
-
-{{< multilang >}}
-
-<div class="tab">
-    <button class="tablinks active" onclick="changeLanguage(event, 'Java')">Java</button>
-    <button class="tablinks" onclick="changeLanguage(event, 'Python3')">Python3</button>
-    <button class="tablinks" onclick="changeLanguage(event, 'Kotlin')">Kotlin</button>
-</div>
-
-<div id="Java" class="tabcontent" style="display: block;">
-{{% md %}}
-```java
-import lia.Api;
-import lia.Callable;
-import lia.NetworkingClient;
-import lia.api.*;
-
-/**
- * Place to write the logic for your bots.
- * */
-public class MyBot implements Callable {
-
-
-    /** Called only once when the game is initialized. */
-    @Override
-    public synchronized void process(MapData mapData) {
-        // TODO write some code to handle mapData
-    }
-
-    /** Repeatedly called from game engine with game state updates.  */
-    @Override
-    public synchronized void process(StateUpdate stateUpdate, Api api) {
-        // Make all of your units move forward, rotate left and shoot
-        for (int i = 0; i < stateUpdate.units.length; i++) {
-            UnitData unit = stateUpdate.units[i];
-            api.setRotationSpeed(unit.id, Rotation.LEFT);
-            api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD);
-            api.shoot(unit.id);
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        NetworkingClient.connectNew(args, new MyBot());
-    }
-}
-```
-{{% /md %}}
-</div>
-
-<div id="Python3" class="tabcontent">
-{{% md %}}
-```python
-from lia.callable import Bot
-from lia.networking_client import NetworkingClient
-from lia.api import *
-
-
-class MyBot(Bot):
-    
-    # Called only once when the game is initialized.
-    def process_map_data(self, map_data):
-        pass
-
-    # Repeatedly called from game engine with game state updates
-    # Use api object to tell game engine what you want your units to do
-    def process_state(self, state_update, api):
-        # Make all of your units move forward, rotate left and shoot
-        for unit in state_update['units']:
-            id = unit['id']
-            api.set_rotation_speed(id, Rotation.LEFT)
-            api.set_thrust_speed(id, ThrustSpeed.FORWARD)
-            api.shoot(id)
-
-if __name__ == "__main__":
-    client = NetworkingClient(MyBot())
-    client.connect()
-```
-{{% /md %}}
-</div>
-
-
-<div id="Kotlin" class="tabcontent">
-{{% md %}}
-```kotlin
-import lia.*
-
-/**
- * Place to write the logic for your bots.
- */
-class MyBot : Callable {
-
-
-    @Synchronized override fun process(mapData: MapData) {
-        println(mapData)
-    }
-    
-    @Synchronized override fun process(stateUpdate: StateUpdate, api: Api) {
-        // Make all of your units move forward, rotate left and shoot
-        for (unit in stateUpdate.units) {
-            api.setRotationSpeed(unit.id, Rotation.LEFT)
-            api.setThrustSpeed(unit.id, ThrustSpeed.FORWARD)
-            api.shoot(unit.id)
-        }
-    }
-
-    companion object {
-        @JvmStatic fun main(args: Array<String>) {
-            NetworkingClient.connectNew(args, MyBot())
-        }
-    }
-}
-```
-{{% /md %}}
-</div>
-
-Now save the file and run the ```play``` command again:
-
-```bash
-./lia play John John
-```
-##### *Command:* [*play*](/lia-cli/#play)
-
-After the game is generated you should see all of your units rotating to the left and constantly shooting as shown in image below.
-
- <div style="text-align:center"><img src="/static/docs/images/dummy-game.png" alt="Dummy game" width="60%"/></div> -->
+Note that when you will develop your bot you can put your code in other files besides `MyBot` file. The structure of your bot is totally up to you!
 
 {{< note title="Using an IDE" >}}
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
@@ -212,33 +79,14 @@ You can also write the code for your bot using any IDE you like. IDEs are great 
 
 ## Where to next
 
-You are good to go! 
-If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes!
+If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes. You are good to go! 
 
 Next: **[Aiming at the opponent](/examples/aiming-at-the-opponent/)**
-
-
-<!-- ## Where to go from here
-
-That is all for this getting started guide. 
-By reading it you should now have a working environment, know how to make changes to your code and know how to generate games. 
-The next step is to write some meaningful code. 
-
-If you want to start **coding on your own** without too much guidance, we suggest you to check out our [examples](/examples/overview/). 
-They contain most of the basic and also more advanced stuff that you need in order to build a real fighting bot.
-
-If you are still a beginner programmer or you just prefer to **learn in a more guided way**, we suggest you to go through our [Beginner tutorial](/tutorials/beginner-tutorial/) where you will learn how to create your first bot that can win games step by step.
-
-{{< note title="Fighting bots made by Lia team" >}}
-Besides fighting your bots against themselves, you can also locally fight two bots made by Lia team. In order to do that you will need to run ```playground``` command instead of ```play``` command. Head [here](/lia-cli/#playground) to learn how to do that.
-{{< /note >}}
-
-Whichever path you take, have fun! :smile: -->
 
 ----
 
 ### Related:
 
-* [Examples](/examples/overview/)
+* [Example: Aiming at the opponent](/examples/aiming-at-the-opponent/)
 * [Reference for Lia CLI](/lia-cli)
 * [API reference](/api/)
