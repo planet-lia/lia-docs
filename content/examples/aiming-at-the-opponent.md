@@ -9,8 +9,7 @@ Before you can go through this example you need to first setup your environment.
 {{< /headless-note >}}
 
 In this example you will learn how to make your unit aim at the opponent. 
-At the end we will also give you a few extra tips that will improve your units aiming mechanics drastically! Check them out 
-[here](/examples/aiming-at-the-opponent/#9814-extra-tips) when you finish with this example.
+At the end we will also give you a few extra tips that will improve your units aiming mechanics drastically!
 
 This is how our units will be able to aim:
 
