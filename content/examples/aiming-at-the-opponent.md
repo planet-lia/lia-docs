@@ -5,7 +5,7 @@ example: true
 ---
 
 {{< headless-note title="Prerequisites" >}}
-Before you can go through this tutorial you need to first setup your environment. Go to our [Getting started](/getting-started) guide to do that.
+Before you can go through this example you need to first setup your environment. If you haven't then go through our [Getting started](/getting-started) guide to do that.
 {{< /headless-note >}}
 
 In this example you will learn how to make your unit aim at the opponent. 
