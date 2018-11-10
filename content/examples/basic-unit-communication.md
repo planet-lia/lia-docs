@@ -12,10 +12,10 @@ In this example you will learn how to make your units communicate with each othe
 When one unit will see an opponent near a teammate it will tell the teammate to go towards the position of the opponent. 
 This way the teammate will turn towards the opponent and start fighting it when it comes in to the range.
 
-**NOTE**: In the code below the unit is not "telling" it's teammate that there is an opponent near it, the implementation is done a bit differently. 
-Each unit simply checks if any of the teammates see an opponent near it and then it makes itself move towards the opponent.
+**NOTE**: In the code implementation below the unit is not "telling" directly it's teammate that there is an opponent near it.
+Each unit checks if any teammates sees an opponent near it and makes itself move towards the opponent (the ability to check if a teammate sees an opponent is the communication here). 
 
-Take a look at the effectiveness of this simple method.
+This method proves very effective. See for yourself below:
 
 <br>
  <div style="text-align:center"><img src="/static/examples/gifs/basic-communication.gif" alt="Basic communication" width="60%"/></div>
@@ -133,7 +133,7 @@ To detect if there is an opponent near the unit we need to iterate through all o
 To calculate the distance between a unit and an opponent we use ```MathUtil``` library that comes together with all basic bot implementations. 
 It has a ```distance``` function that calculates the distance between two points on the map.
 
-If the distance is smaller than `25` (we picked the number randomly, try changing it and see what happens) then we determine that the opponent is close enough to the unit and is worth engaging it. 
+If the distance is smaller than `25` (we picked the number randomly, try changing it and see what happens) then we determine that the opponent is close enough to the unit and is worth engaging. 
 In that case we send the unit to the location of the opponent.
 
 ## &#9814; Extra tips
