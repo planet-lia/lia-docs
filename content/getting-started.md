@@ -46,13 +46,13 @@ Opt-ing in would help us improve our understanding of how our users use Lia-SDK 
 ```
 ##### *Command:* [*bot*](/lia-cli/#bot)
 
-If you have access to the internet, the ```bot``` command should be executed successfully and you should see (in the same directory where Lia CLI is located) a new directory named John. 
+If you have access to the internet, the ```bot``` command should execute successfully and you should see (in the same directory as Lia CLI) a new directory named John. 
 Congratulations, you have successfully created your first bot!
 (You can always delete your bot by simply deleting its directory, in this case directory *John*.)
 
 ### Simulate a game
 
-Now it is time to send your bot John to battle. 
+Now it's time to send your bot John to battle. 
 To make things fun let's battle it against itself! Again open up your terminal or GitBash and run the following command (if you encounter problems check our <a href="/common-problems/" target="_blank">Common problems</a> page):
 
 ```bash
@@ -61,17 +61,20 @@ To make things fun let's battle it against itself! Again open up your terminal o
 ##### *Command:* [*play*](/lia-cli/#play)
 
 Wait a few seconds until the game is generated and voila, the replay is opened for the generated game! 
-You should see something like in the gif below.
+You should see something like in the GIF below.
 
  <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="John vs John" width="50%"/></div>
 
 ## 3. Understand your bot
 
-With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). You can also open the whole bot folder via an IDE.
+With your favourite text editor open up the starting file for your bot (Java: ```John/src/MyBot.java```, Kotlin: ```John/src/MyBot.kt``` and Python3: ```John/my_bot.py```). 
+We recommend that you create a new project in your favorite IDE and point the root source directory to your bot directory.
 
-In ```MyBot``` file there is all the logic the bot. The basic implementation is very simple, it keeps sending units to random locations on the map and if the unit sees an opponent it makes it shoot. **Read through the code and the comments to see how it works!**
+The ```MyBot``` file contains the entire logic for the basic bot. 
+The implementation is very simple, it keeps sending units to random locations on the map and if the unit sees an opponent it starts shooting. **Read through the code and the comments to see how it works!**
 
-Note that when you will develop your bot you can put your code in other files besides `MyBot` file. The structure of your bot is totally up to you!
+Note that during the development of your bot you can structure your project as you like, as long as the `MyBot` file acts as your "main" file.
+This means you can have multiple files which you import into `MyBot`.
 
 {{< note title="Using an IDE" >}}
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
@@ -79,7 +82,9 @@ You can also write the code for your bot using any IDE you like. IDEs are great 
 
 ## Next up
 
-If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes. You are good to go! 
+If you feel comfortable already you can start developing your own bot now. 
+Otherwise stay with us and we will show how you can greatly improve your bot in a matter of minutes. 
+You are good to go! 
 
 Next: **[Aiming at the opponent](/examples/aiming-at-the-opponent/)**
 
