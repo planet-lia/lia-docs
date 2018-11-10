@@ -15,12 +15,14 @@ Your bot commands a fleet of biological units which goal is to eliminate the opp
 You start the game with 16 units which you can move around the map, make them shoot and teach them very simple or super advanced tactic to detect, track down and beat the opponent. 
 To do that you can use your favourite programming language and your favourite development tools, test out your code on your local machine by fighting your bot against itself and when you are ready, you can upload your bot online to battle countless other programmers around the world!
 
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="50%"/></div>
+
 ## Start playing 
 
 If you want to know what Lia is all about then here are a couple of places where you can start:
 
-* [Game rules](/game-rules) - Learn about all of the game details
 * [Getting started](/getting-started/) - Get started with Lia in under 5 minutes
+* [Game rules](/game-rules) - Learn about all of the game details
 
 ## Supported languages
 

@@ -210,12 +210,12 @@ After the game is generated you should see all of your units rotating to the lef
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
 {{< /note >}} 
 
-## What is next
+## Where to next
 
 You are good to go! 
 If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes!
 
-Next: **[Beginner tutorial](/tutorials/beginner-tutorial/)**
+Next: **[Aiming at the opponent](/examples/aiming-at-the-opponent/)**
 
 
 <!-- ## Where to go from here

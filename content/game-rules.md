@@ -14,10 +14,7 @@ Map is automatically generated and can be of many shapes.
 * Width: 160
 * Height: 90
 
-<br>
  <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="50%"/></div>
-
-
 
 ## Units
 Each controllable unit has 100 health points and starts with 3 bullets. After it has been hit by a bullet it takes 8s for it to start regenerating its health (8 HP/s). 
