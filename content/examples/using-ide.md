@@ -1,7 +1,7 @@
 ---
 title: "Using IDE"
 date: 2018-08-19T17:09:19+02:00
-tutorial: true
+example: true
 ---
 
 We highly suggest you use an IDE for writing your bot. 

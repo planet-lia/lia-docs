@@ -3,11 +3,12 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
-Let's set you up for countless hours of fun! Before we let you start exploring on your own we will go through the following essential steps:
+
+Let's set you up for countless hours of fun! This getting started guide consists of the following parts:
 
 1. Download Lia-SDK for your operating system
 2. Test your setup by playing a sample game
-3. Make first changes to your bot
+3. Understand your bot
 
 ## 1. Download
 
@@ -20,26 +21,24 @@ If needed you can find the solution for it <a href="/common-problems/#2-windows-
 
 ## 2. Test your setup
 
-When you unzip Lia-SDK you see two things: 
+<!-- When you unzip Lia-SDK you see two things: 
 
 * **lia** - Is a CLI (command line interface) program which will help you set up your bots, simulate battles between them, manage updates and much more.
 * **data directory** - Lia specific stuff that you don't need to worry about for now. 
 
 Next to *lia* executable and *data* directory Lia-SDK will also store your bots and generated replays. 
-Now let's check if everything works as expected by running a sample game between two bots.
+Now let's check if everything works as expected by running a sample game between two bots. -->
 
 ### Create your bot
 
- For all supported languages there are basic bot implementations already available on Github (eg. [Java bot](https://github.com/liagame/java-bot)). 
- Fortunately, there is no need to download them manually as Lia-SDK can do that for you. Let's create our first bot named John. 
- Open up a terminal (or Git Bash on Windows), move to the extracted Lia-SDK directory and type the lines from the snippet below and press enter.
- This will create a starting Java bot named John. 
- If you want to develop your bot in a different language you can replace the ```java``` part of the command with ```kotlin``` or ```python3```. 
+For all supported languages there are basic bot implementations already available on Github (eg. [Java bot](https://github.com/liagame/java-bot)). 
+Let's use Lia-SDK to create our first bot John. 
+Open up a terminal (or Git Bash on Windows), move to the extracted Lia-SDK directory, type in the command below and press enter (to choose a different language simply replace the ```java``` part of the command with ```kotlin``` or ```python3```).
 
 {{< note title="Help us improve" >}}
 Since this is the first time you are running a Lia command, you will be prompted with a question to allow us anonymously track Lia-SDK usage data. 
 Opt-ing in would help us improve our understanding of how our users use Lia-SDK and thus help us improve our project while your data will stay completely anonymous. 
-[Check here why and what we collect and why it is so important to us.](/privacy-policy/#what-data-we-collect-and-why) 
+[Check here why and what we collect and why it is important to us.](/privacy-policy/#what-data-we-collect-and-why) 
 {{< /note >}}
 
 ```bash
@@ -49,12 +48,12 @@ Opt-ing in would help us improve our understanding of how our users use Lia-SDK 
 
 If you have access to the internet, the ```bot``` command should be executed successfully and you should see (in the same directory where Lia CLI is located) a new directory named John. 
 Congratulations, you have successfully created your first bot!
-(You can always delete your bot by simply deleting its directory, in this case directory *John*)
+(You can always delete your bot by simply deleting its directory, in this case directory *John*.)
 
 ### Simulate a game
 
 Now it is time to send your bot John to battle. 
-To make things fun let's battle it against itself! Again open up your terminal or GitBash and run (if you encounter problems check our <a href="/common-problems/" target="_blank">Common problems</a> page):
+To make things fun let's battle it against itself! Again open up your terminal or GitBash and run the following command (if you encounter problems check our <a href="/common-problems/" target="_blank">Common problems</a> page):
 
 ```bash
 ./lia play John John
@@ -62,22 +61,25 @@ To make things fun let's battle it against itself! Again open up your terminal o
 ##### *Command:* [*play*](/lia-cli/#play)
 
 Wait a few seconds until the game is generated and voila, the replay is opened for the generated game! 
-You should see something like in the image below.
+You should see something like in the gif below.
 
- <div style="text-align:center"><img src="/static/docs/images/game-start.png" alt="Game start" width="60%"/></div>
+ <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="John vs John" width="50%"/></div>
 
 The game is still fairly boring since our bot is not doing anything yet. 
 Let's fix that.
 
-## 3. Making changes
+## 3. Understand your bot
 
-In order to improve our bot we need to write some code for it. 
 With your favourite text editor open up a starting file for your bot (for Java bot the file is ```John/src/MyBot.java```, for Kotlin is ```John/src/MyBot.kt``` and for Python3 is ```John/my_bot.py```). 
 
-We will make our units shoot while also moving forward and rotating left.
-To achieve that replace the code in the file that you have opened up with the code below. 
-Note that we won't be explaining how the code works here as this and much more is explained in our [examples](/examples/overview/). 
-This here is just to showcase how to make changes to your bot and use them in your battles.
+In this file there is all the logic of your bot. The implementation of the starting bot is very simple, it keeps sending units to random locations on the map and if the unit sees an opponent it makes it shoot. Read through the code and the comments to see how it works!
+
+Note that when you will develop your bot you can put your code in other files besides ```MyBot`` file. The structure of your bot is totally up to you!
+
+
+
+<!-- ## 3. Making changes
+
 
 {{< multilang >}}
 
@@ -202,13 +204,21 @@ Now save the file and run the ```play``` command again:
 
 After the game is generated you should see all of your units rotating to the left and constantly shooting as shown in image below.
 
- <div style="text-align:center"><img src="/static/docs/images/dummy-game.png" alt="Dummy game" width="60%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/dummy-game.png" alt="Dummy game" width="60%"/></div> -->
 
 {{< note title="Using an IDE" >}}
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
-{{< /note >}}
+{{< /note >}} 
 
-## Where to go from here
+## What is next
+
+You are good to go! 
+If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes!
+
+Next: **[Beginner tutorial](/tutorials/beginner-tutorial/)**
+
+
+<!-- ## Where to go from here
 
 That is all for this getting started guide. 
 By reading it you should now have a working environment, know how to make changes to your code and know how to generate games. 
@@ -223,13 +233,12 @@ If you are still a beginner programmer or you just prefer to **learn in a more g
 Besides fighting your bots against themselves, you can also locally fight two bots made by Lia team. In order to do that you will need to run ```playground``` command instead of ```play``` command. Head [here](/lia-cli/#playground) to learn how to do that.
 {{< /note >}}
 
-Whichever path you take, have fun! :smile:
+Whichever path you take, have fun! :smile: -->
 
 ----
 
 ### Related:
 
 * [Examples](/examples/overview/)
-* [Beginner tutorial](/tutorials/beginner-tutorial/) 
 * [Reference for Lia CLI](/lia-cli)
 * [API reference](/api/)

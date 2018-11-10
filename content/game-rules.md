@@ -2,27 +2,26 @@
 date: 2018-08-05T04:32:25+02:00
 title: Game Rules
 ---
-These are current rules of Lia and are subject to change.
-<!--
-TODO add link to legacy rules?
--->
 
 ## Gameplay
-Each team starts with 12 biobots on opposite sides of the map. Game ends when one team is eliminated or when the game time exceeds 5 minutes. If after 5 minutes both teams are still alive the team with more remaining biobots wins. If both teams have the exact same number of biobots left, the winner is the team that dealt the most total damage. Be careful not to let your biobots kill eachother!
+Each team starts with 16 units. Game ends when one team is eliminated or when the game time exceeds 200 seconds. If after 5 minutes both teams are still alive the team with more remaining units wins. If both teams have the exact same number of units left, the winner is chosen randomly. Be careful as team-kill is turned on!
 
-* Game time: 5 min
+* Game duration: 200 s
 
 ## Map 
-Map is automatically generated and can be of many shapes such as diagonal, cross-shaped, centered empty, etc.
+Map is automatically generated and can be of many shapes.
 
-* Width: 216
-* Height: 122
+* Width: 160
+* Height: 90
 
- <div style="text-align:center"><img src="/static/docs/images/game-start.png" alt="Game start" width="80%"/></div>
+<br>
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="50%"/></div>
+
 
 
 ## Units
-Each unit (a controllable biobot) has 100 health points and starts with 3 bullets which can be shot with 0.2 second delay and can be reloaded after 1 second since the last shot. The biobot's health regenerates 8 hp each second after 8 seconds out of combat. During the game the received location (x, y) of the unit points to it's center.
+Each controllable unit has 100 health points and starts with 3 bullets. After it has been hit by a bullet it takes 8s for it to start regenerating its health (8 HP/s). 
+The location (x, y) of the unit points to it's center.
 
 * Size: 2
 * Health: 100 HP
@@ -31,39 +30,41 @@ Each unit (a controllable biobot) has 100 health points and starts with 3 bullet
 * Delay between shots: 0.2s
 * Reload time: 1s
 
- <div style="text-align:center"><img src="/static/docs/images/unit.png" alt="Unit" width="20%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/unit.png" alt="Unit" width="15%"/></div>
 
 ## Bullets
-Each bullet does 40 damage on hit to friend or foe. It has a velocity of 32 per second and it travels a length of 40 or until it hits an obstacle which is either a wall or a unit.
+Each bullet does 22 damage when it hits another unit. It has a velocity of 32 per second and it has a range of 42. A unit can shoot it's bullets with a delay of 0.2s while the
+reloading takes 1s.
 
-* Damage: 40 HP
+* Damage: 22 HP
 * Speed: 32 /s
 * Range: 40
 
 ## Viewing area
 
-Each biobot has a viewing area that resembles a triangle. The area has a length of 30 and does not span through obstacles. Width of 
-the furthest side of the triangle is 16. The viewing area is always in front of the biobot and it moves with it.
+Each unit has a viewing area in a shape of a triangle. The area has a length of 28 and does not span through obstacles. Width of 
+the furthest side of the triangle is 20. The viewing area is always in front of the unit and it moves with it.
 
-* Length: 30
-* Width: 16
+* Length: 28
+* Width: 20
 
- <div style="text-align:center"><img src="/static/docs/images/viewing-area.png" alt="Viewing area" width="60%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/viewing-area.png" alt="Viewing area" width="40%"/></div>
 
 ## Bot restrictions
 
 When generating our games on Lia servers we need to limit your bot so that it does not use too much time or other reasources. Thus we place the following limitaitons on your bot:
 
 * When the bot receives the first update it has 4 seconds to respond
-* For all other game updates the bot needs to respond in 0.5 seconds
-* If the bot fails to respond in time for 8 or more times in one game it automatically looses
-* If the bot does not connect withing 5 seconds since the game engine started it also looses
+* For all other game updates the bot needs to respond in 2.0 seconds
+* If the bot fails to respond in time for 8 or more times in one game it is disqualified
+* If the bot does not connect withing 30 seconds since the game engine started it is disqualified
+* If the sum of the time that bot took to respond to all requests combined is greater than 300 seconds it is disqualified
 
-When running your bot locally in debug mode, no restricitons are set. (Check [here](/tutorials/debugging-your-code/) to see how to run your bot in debug mode)
+When running your bot locally in debug mode, no restrictions are set (check [here](/tutorials/debugging-your-code/) to see how to run your bot in debug mode).
 
 ## Custom game rules
 
-If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in the extraced Lia-SDK (or "game-config-debug.json" if running in debug mode).
+If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in the extracted Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
 Be aware that some properties may break the game if you change them too much, for example if you put 10,000 units to fight it will probably take ages before the game generates! :smile: Have fun!
 
@@ -71,23 +72,24 @@ Be aware that some properties may break the game if you change them too much, fo
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "simulation": {
-    "ticksPerSecond": 30, 
+    "ticksPerSecond": 30,
     "velocityIterationsPerTick": 6,
     "positionIterationsPerTick": 4
   },
   "bots": {
-    "initResponseTimeout": 4000,
-    "tickResponseTimeout": 200,
-    "ticksPerRequest": 5,
+    "initResponseTimeout": 4.0,
+    "tickResponseTimeout": 2.0,
+    "ticksPerRequest": 3,
     "maxFailedResponses": 8,
-    "initialConnectionTimeout": 5000
+    "initialConnectionTimeout": 30.0,
+    "requestsSumTimeout": 300.0
   },
   "gameDetails": {
     "mapWidth": 144,
-    "mapHeight": 81, 
-    "gameDuration": 100,
+    "mapHeight": 81,
+    "gameDuration": 200,
     "background": {
       "r": 0.2,
       "g": 0.2,
@@ -107,7 +109,7 @@ Be aware that some properties may break the game if you change them too much, fo
   },
   "units": {
     "size": 2,
-    "health": 100, 
+    "health": 100,
     "forwardVelocity": 7.2,
     "backwardVelocity": 5,
     "rotationVelocityDeg": 54,
@@ -115,22 +117,25 @@ Be aware that some properties may break the game if you change them too much, fo
     "timeBetweenShoots": 0.2,
     "nBulletsInMagazine": 3,
     "reloadTime": 1,
-    "bulletRange": 40,
-    "respawnTime": 10,
+    "bulletRange": 42,
     "healthRecoveryTime": 1.0,
     "healthRecoveryPoints": 8,
-    "recoveryStartsAfter": 8.0
+    "recoveryStartsAfter": 8.0,
+    "speechBubbleDuration": 2.5,
+    "minSpeechBubbleTimeSpacing": 10.0,
+    "maxSimultaneousSpeechBubblesPerTeam": 5,
+    "startSpeechBubbleNotAllowedDuration": 0.0,
+    "maxSpeechBubbleTextLength": 23
   },
   "viewingArea": {
-    "length": 30,
-    "width": 16,
-    "offset": -1,
-    "lineWidth": 2
+    "length": 28,
+    "width": 20,
+    "offset": -1
   },
   "bullets": {
     "size": 0.4,
     "velocity": 32,
-    "damage": 40
+    "damage": 22
   },
   "healthBar": {
     "width": 1.8,
@@ -142,5 +147,4 @@ Be aware that some properties may break the game if you change them too much, fo
 
 ### Related:
 
-* [Game description](/game-description/)
-* [Getting started](/getting-started/) - Get started with Lia
+* [Getting started](/getting-started/) - Get started with Lia.

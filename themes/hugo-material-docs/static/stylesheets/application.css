@@ -1308,3 +1308,15 @@ h1 .article .headerlink{
 html {
     overflow-y: scroll;
 }
+
+/* Code code snippets */
+.tabcontent .highlight div div {
+    margin: 0px;
+    padding: 0px;
+}
+.tabcontent .highlight div div table tbody tr td:first-child pre code span {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent !important;
+}
+

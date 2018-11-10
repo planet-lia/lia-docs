@@ -6,6 +6,8 @@ canonifyurls = true
 enableEmoji = true
 theme = "hugo-material-docs"
 
+pygmentsStyle = "friendly"
+
 [params]
 	# General information
 	author = "lia"
@@ -55,11 +57,18 @@ theme = "hugo-material-docs"
 	weight = 1
 	pre = "<img src='/static/images/home.svg' alt='home' style='width:1.1em;vertical-align: middle;'>"
 
+# [[menu.main]]
+# 	parent = "Docs"
+# 	name   = "Game description"
+# 	url    = "game-description/"
+# 	weight = 2
+
 [[menu.main]]
 	parent = "Docs"
-	name   = "Game description"
-	url    = "game-description/"
+	name   = "Getting started"
+	url    = "getting-started/"
 	weight = 2
+
 
 [[menu.main]]
 	parent = "Docs"
@@ -69,99 +78,63 @@ theme = "hugo-material-docs"
 
 [[menu.main]]
 	parent = "Docs"
-	name   = "Getting started"
-	url    = "getting-started/"
+	name   = "Strategy ideas"
+	url    = "strategy-ideas/"
 	weight = 4
-
-[[menu.main]]
-	parent = "Docs"
-	name   = "Lia CLI"
-	url    = "lia-cli/"
-	weight = 7
 
 [[menu.main]]
 	parent = "Docs"
 	name   = "API"
 	url    = "api/"
+	weight = 7
+
+[[menu.main]]
+	parent = "Docs"
+	name   = "Lia CLI"
+	url    = "lia-cli/"
 	weight = 8
 
 [[menu.main]]
 	parent = "Docs"
 	name   = "Common problems"
 	url    = "common-problems/"
-	weight = 9
+	weight = 10
 
 [[menu.main]]
 	parent = "Docs"
 	name   = "Privacy policy"
 	url    = "privacy-policy/"
-	weight = 10
+	weight = 11
 
 [[menu.examples]]
 	parent = "Examples"
-	name   = "Overview"
-	url    = "examples/overview/"
+	name   = "Aiming at the opponent"
+	url    = "examples/aiming-at-the-opponent/"
 	weight = 1
 
 [[menu.examples]]
 	parent = "Examples"
-	name   = "Rotation"
-	url    = "examples/rotation/"
+	name   = "Prevent team kill"
+	url    = "examples/debugging-your-code/"
 	weight = 2
 
 [[menu.examples]]
 	parent = "Examples"
-	name   = "Movement"
-	url    = "examples/movement/"
+	name   = "Unit communication"
+	url    = "examples/debugging-your-code/"
 	weight = 3
 
 [[menu.examples]]
 	parent = "Examples"
-	name   = "Shooting & ammo"
-	url    = "examples/shooting-and-ammo/"
-	weight = 4
-
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Identifying the enemy"
-	url    = "examples/identifying-the-enemy/"
-	weight = 5
-
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Following path"
-	url    = "examples/following-path/"
-	weight = 6
-
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Pathfinding"
-	url    = "examples/pathfinding/"
-	weight = 7
-
-[[menu.examples]]
-	parent = "Examples"
-	name   = "Multiple units"
-	url    = "examples/multiple-units/"
+	name   = "Extra: Using an IDE"
+	url    = "examples/using-ide/"
 	weight = 8
 
-[[menu.tutorials]]
-	parent = "Tutorials"
-	name   = "Beginner tutorial"
-	url    = "tutorials/beginner-tutorial/"
-	weight = 1
-
-[[menu.tutorials]]
-	parent = "Tutorials"
-	name   = "Debugging your code"
-	url    = "tutorials/debugging-your-code/"
-	weight = 2
-
-[[menu.tutorials]]
-	parent = "Tutorials"
-	name   = "Using an IDE"
-	url    = "tutorials/using-ide/"
-	weight = 3
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Extra: Debugging your code"
+	url    = "examples/debugging-your-code/"
+	weight = 9
 
 [blackfriday]
 	smartypants	= true

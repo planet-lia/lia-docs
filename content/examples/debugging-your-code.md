@@ -1,7 +1,7 @@
 ---
 title: "Debugging your code"
 date: 2018-08-19T09:01:24+02:00
-tutorial: true
+example: true
 ---
 
 

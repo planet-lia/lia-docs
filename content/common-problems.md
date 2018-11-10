@@ -7,7 +7,6 @@ In some cases the ```play``` and other commands won't work. This is most often d
 
 * [(Java) Preparing bot failed](/common-problems/#java-preparing-bot-failed)
 * [(Windows) Lia-SDK can't find GitBash installation](/common-problems/#windows-lia-sdk-can-t-find-gitbash-installation)
-* [(Python3 & Windows) Preparing bot failed, can't generate games](/common-problems/#python3-windows-preparing-bot-failed-can-t-generate-games)
 
 ----
 
@@ -30,28 +29,5 @@ In some cases the ```play``` and other commands won't work. This is most often d
   ...
 }
 ```
-
-----
-
-### (Python3 & Windows) Preparing bot failed, can't generate games
-  * **Identify:** play, playground and similar commands don't work due to the error below (or similar):
-
-```bash
-$ ./lia play John John
-...
-Preparing bot...
-...
-Running setup.py install for gevent: started
-    Running setup.py install for gevent: finished with status 'error'
-    Complete output from command c:\lia\John\venv\scripts\python.exe -u -c "import setuptools"
-...
-error: [WinError 3] Path couldn't: 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\PlatformSDK\\lib'
-...
-```
-  * **Solution:** Our current implementation of python3 bot requires websocket-client package. 
-  When pip is installing it it needs that a C++ compiler is installed on the system. 
-  On some versions of Windows this is not installed by default and you need to download it manually.
-  The official documentation with links to official Microsoft Build Tools for Visual Studio 2017 can be found [here](https://wiki.python.org/moin/WindowsCompilers).
-  Note that you only need Build Tools for Visual Studio 2017 and not the whole Visual Studio.
 
 ----

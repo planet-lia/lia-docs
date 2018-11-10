@@ -4,9 +4,9 @@ title: Lia CLI
 ---
 
 Lia CLI is a <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank">command line interface</a> that helps you play Lia as effortlessly as possible.
-By running it with provided commands (listed below) it can setup your bots, generate games for you, help you with debugging and much more.
+By running it with provided commands (listed below) it can setup your bots, generate games, help you with debugging and much more.
 
-To run Lia CLI, use the following structure in terminal on linux and macOS or in [Git Bash](https://gitforwindows.org/) on Windows:
+To run Lia CLI, use the following structure in [Git Bash](https://gitforwindows.org/) on Windows or in terminal on linux and macOS:
 ```shell
 $./lia <command>
 ```
@@ -101,7 +101,7 @@ lia --languages
 ### playground
 
 Runs the desired playground with the selected bot.
-Playground number 1 generates a 1v1 battle on a handmade map while playgrounds 2 and 3 play a game against our in-house bots made by Lia team.
+Playground number 1 generates a 1v1 battle on a handmade map while other playgrounds are still in development.
 
 ```shell
 Usage:
@@ -110,13 +110,13 @@ Usage:
 Flags:
   -d, --debug          toggle if you want to manually run your bot (eg. through debug mode in IDE)
   -h, --help           help for playground
-  -w, --width string   choose width of replay window, height will be calcualted automatically
+  -w, --width string   choose width of replay window, height will be calculated automatically
 ```
 
 Example:
 
 ```shell
-lia playground 2 BestBot  # Battles yor bot named BestBot against one of the bots made by Lia team
+lia playground 1 BestBot  # Plays yor bot named BestBot on our 1v1 map
 ```
 ----
 ### play
