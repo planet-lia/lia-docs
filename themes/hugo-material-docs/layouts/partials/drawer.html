@@ -40,7 +40,7 @@
   
         <!-- Render docs menu -->
         <div>
-          <span class="section clickableTitle">Docs</span>
+          <span class="section clickableTitle">Docs <i class="far fa-caret-square-down"></i></span>
           {{ if gt (len .Site.Menus.main) 0 }}
           <div class='collapsible {{ if and (not (isset .Params "example")) (not (isset .Params "tutorial")) }}open{{ end }}'> 
             <ul>
@@ -53,7 +53,7 @@
         <!-- Render examples menu -->
         <hr>
         <div>
-          <span class="section clickableTitle">Examples</span>
+          <span class="section clickableTitle">Examples <i class="far fa-caret-square-down"></i></span>
           {{ if gt (len .Site.Menus.examples) 0 }}
           <div class='collapsible {{ if isset .Params "example" }}open{{ end }}'> 
             <ul>
@@ -81,7 +81,7 @@
         {{ if isset .Site.Params "author" }}
         <hr>
         <div>
-          <span class="section clickableTitle">Contact Us</span>
+          <span class="section clickableTitle">Contact Us <i class="far fa-caret-square-down"></i></i></span>
           <div class='collapsible'> 
             <ul>
               {{ with .Site.Social.twitter }}
