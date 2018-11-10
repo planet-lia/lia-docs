@@ -77,7 +77,7 @@ Note that when you will develop your bot you can put your code in other files be
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
 {{< /note >}} 
 
-## Where to next
+## Next up
 
 If you feel comfortable you can go and develop your bot on your own, otherwise stay with us as we help you greatly improve your bot in a matter of minutes. You are good to go! 
 

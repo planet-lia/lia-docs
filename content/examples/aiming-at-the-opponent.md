@@ -4,6 +4,10 @@ date: 2018-08-19T09:01:24+02:00
 example: true
 ---
 
+{{< headless-note title="Prerequisites" >}}
+Before you can go through this tutorial you need to first setup your environment. Go to our [Getting started](/getting-started) guide to do that.
+{{< /headless-note >}}
+
 In this example you will learn how to make your unit aim at the opponent. 
 At the end we will also give you a few extra tips that will improve your units aiming mechanics drastically! Check them out 
 [here](/examples/aiming-at-the-opponent/#9814-extra-tips) when you finish with this example.
@@ -11,7 +15,7 @@ At the end we will also give you a few extra tips that will improve your units a
 This is how our units will be able to aim:
 
 <br>
- <div style="text-align:center"><img src="/static/examples/gifs/basic-aiming.gif" alt="Basic aiming" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/examples/gifs/basic-aiming.gif" alt="Basic aiming" width="60%"/></div>
 
 ## Code
 
@@ -45,7 +49,7 @@ if (unit.opponentsInView.length > 0) {
     // Stop the unit.
     api.setSpeed(unit.id, Speed.NONE);
 
-    // Based on the aiming angle turn towards the correct location.
+    // Based on the aiming angle turn towards the opponent.
     if (aimAngle < 0) {
         api.setRotation(unit.id, Rotation.RIGHT);
     } else {
@@ -58,9 +62,27 @@ if (unit.opponentsInView.length > 0) {
 <div id="Python3" class="tabcontent">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
 
-# TODO
- 
+# Set the unit from your game state.
+unit = ...
 
+# If the unit sees at least one of the opponents start turning towards it.
+if len(unit["opponentsInView"]) > 0:
+
+    # Get the first opponent that the unit sees.
+    opponent = unit["opponentsInView"][0]
+
+    # Calculate the aiming angle between units orientation and the opponent. The closer
+    # the angle is to 0 the closer is the unit aiming towards the opponent.
+    aim_angle = math_util.angle_between_unit_and_point(unit, opponent["x"], opponent["y"])
+
+    # Stop the unit.
+    api.set_speed(unit["id"], Speed.NONE)
+    
+    # Based on the aiming angle turn towards the opponent.
+    if aim_angle < 0:
+        api.set_rotation(unit["id"], Rotation.RIGHT)
+    else:
+        api.set_rotation(unit["id"], Rotation.LEFT)
 {{< /highlight >}}
 </div>
 
@@ -84,7 +106,7 @@ if (unit.opponentsInView.isNotEmpty()) {
     // Stop the unit.
     api.setSpeed(unit.id, Speed.NONE)
 
-    // Based on the aiming angle turn towards the correct location.
+    // Based on the aiming angle turn towards the opponent.
     if (aimAngle < 0) {
         api.setRotation(unit.id, Rotation.RIGHT)
     } else {
@@ -128,21 +150,27 @@ This will automatically make your unit follow the opponent when it moves away.
 
 ## &#9814; Extra tips
 
-
 1. **Better aiming** - Although the unit can turn towards the opponent it can't aim properly and misses him very often. 
 You can easily fix that by adjusting the rotation speed when the aim angle gets smaller. 
 For example when the angle is smaller than 15 degrees don't rotate with ```RIGHT``` or ```LEFT``` but with ```SLOW_RIGHT``` and ```SLOW_LEFT``` rotations.
 
 
 2. **Following opponent** - When the aim angle is small enough you can make your unit move forward. 
-This will automatically make your unit follow the opponent when it tries to flee.
+This will automatically make your unit follow the opponent when it tries to flee. 
+But be careful, your units now go close to the opponents when they fight them and will thus be often killed by their teammates that are aiming at the same opponent.
+You will need to implement some team kill prevention logic to fix that! ```MathUtil``` will come in handy.
 
+## Next up
+
+In next example we will teach our units basic communication skills. If a unit will see an opponent near a teammate it will "tell" the teammate to turn towards it (sort of).
+
+Next: **[Basic unit communication](/examples/basic-unit-communication/)**
 
 ----
 
 ### Related:
 
+* [API reference](/api/)
 * [Using an IDE](/tutorials/using-ide/)
 * [Reference for Lia CLI](/lia-cli/)
-* [API reference](/api/)
 

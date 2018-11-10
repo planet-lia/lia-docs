@@ -112,17 +112,11 @@ pygmentsStyle = "friendly"
 	url    = "examples/aiming-at-the-opponent/"
 	weight = 1
 
-# [[menu.examples]]
-# 	parent = "Examples"
-# 	name   = "Prevent team kill"
-# 	url    = "examples/debugging-your-code/"
-# 	weight = 2
-
-# [[menu.examples]]
-# 	parent = "Examples"
-# 	name   = "Unit communication"
-# 	url    = "examples/debugging-your-code/"
-# 	weight = 3
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Basic unit communication"
+	url    = "examples/basic-unit-communication/"
+	weight = 2
 
 [[menu.examples]]
 	parent = "Examples"
