@@ -53,7 +53,9 @@ Congratulations, you have successfully created your first bot!
 ### Simulate a game
 
 Now it's time to send your bot John to battle. 
-To make things fun let's battle it against itself! Again open up your terminal or GitBash and run the following command (if you encounter problems check our <a href="/common-problems/" target="_blank">Common problems</a> page):
+To make things fun let's battle it against itself! Again open up your terminal or GitBash and run the command from below (if you encounter problems check our <a href="/common-problems/" target="_blank">Common problems</a> page).
+Note that when you run the `play` command for the first time it has to download a few libraries for your bot and it might take a minute or two.
+Consecutive runs will be way faster. 
 
 ```bash
 ./lia play John John
