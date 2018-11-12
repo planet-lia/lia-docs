@@ -22,8 +22,10 @@ This method proves very effective. See for yourself below:
 
 ## Code
 
-Below is the code for this example. In order to keep the things clean we didn't include the full code of the basic bot. 
-It is your job to join everything together.
+Below is the code for this example. 
+
+⚠️ To keep the example clean we didn't include the whole code for the bot. 
+In order to use this code you need to paste it to an appropriate location in your bot implementation. 
 
 {{< multilang >}}
 
@@ -36,61 +38,63 @@ It is your job to join everything together.
 <div id="Java" class="tabcontent" style="display: block;">
 {{< highlight java "linenos=table,hl_lines=" >}}
 
-// Set the unit from your game state.
-UnitData unit = ...
+// Iterate through all of your units.
+for (UnitData unit : gameState.units) {
 
-// Do this only when there is no opponent in viewing area. If there
-// is an opponent in viewing area it is better to fight it.
-if (unit.opponentsInView.length == 0) {
+    // Check teammates vision areas for a nearby opponent only when current unit does not see 
+    // an opponent. If there is an opponent in unit's vision area it is better to fight it.
+    if (unit.opponentsInView.length == 0) {
 
-    // Check if some teammate detected an opponent near the unit. If
-    // it did then send the unit to the location of the opponent.
-    for (UnitData teammate : gameState.units) {
-        boolean found = false;
+        // Check if some teammate detected an opponent near the unit. If
+        // it did then send the unit to the location of the opponent.
+        for (UnitData teammate : gameState.units) {
+            boolean found = false;
 
-        for (OpponentInView opponent : teammate.opponentsInView) {
-            // Calculate the distance between the unit and opponent.
-            float dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y);
+            for (OpponentInView opponent : teammate.opponentsInView) {
+                // Calculate the distance between the unit and opponent.
+                float dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y);
 
-            if (dst < 25) {
-                // We have detected an opponent that is very close!
-                api.navigationStart(unit.id, opponent.x, opponent.y);
-                found = true;
-                break;
+                if (dst < 25) {
+                    // We have detected an opponent that is very close!
+                    api.navigationStart(unit.id, opponent.x, opponent.y);
+                    found = true;
+                    break;
+                }
             }
+            if (found) break;
         }
-        if (found) break;
     }
+
 }
 {{< /highlight >}}
 </div>
 
 <div id="Python3" class="tabcontent">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
-# Set the unit from your game state.
-unit = ...
+# Iterate through all of your units.
+for unit in game_state["units"]:
 
-# Do this only when there is no opponent in viewing area. If there
-# is an opponent in viewing area it is better to fight it.
-if len(unit["opponentsInView"]) is 0:
+    # Do this only when there is no opponent in viewing area. If there
+    # is an opponent in viewing area it is better to fight it.
+    if len(unit["opponentsInView"]) is 0:
 
-    # Check if some teammate detected an opponent near the unit. If
-    # it did then send the unit to the location of the opponent.
-    for teammate in game_state["units"]:
-        found = False
+        # Check if some teammate detected an opponent near the unit. If
+        # it did then send the unit to the location of the opponent.
+        for teammate in game_state["units"]:
+            found = False
 
-        for opponent in teammate["opponentsInView"]:
-            # Calculate the distance between the unit and opponent.
-            dst = math_util.distance(unit["x"], unit["y"], opponent["x"], opponent["y"])
+            for opponent in teammate["opponentsInView"]:
+                # Calculate the distance between the unit and opponent.
+                dst = math_util.distance(unit["x"], unit["y"], opponent["x"], opponent["y"])
 
-            if dst < 25:
-                # We have detected an opponent that is very close!
-                api.navigation_start(unit["id"], opponent["x"], opponent["y"])
-                found = True
+                if dst < 25:
+                    # We have detected an opponent that is very close!
+                    api.navigation_start(unit["id"], opponent["x"], opponent["y"])
+                    found = True
+                    break
+
+            if found:
                 break
-
-        if found:
-            break
 {{< /highlight >}}
 </div>
 
@@ -98,30 +102,31 @@ if len(unit["opponentsInView"]) is 0:
 <div id="Kotlin" class="tabcontent">
 {{< highlight kotlin "linenos=table,hl_lines=" >}}
 
-// Set the unit from your game state.
-val unit = ...
+// Iterate through all of your units.
+for (unit in gameState.units) {
 
-// Do this only when there is no opponent in viewing area. If there
-// is an opponent in viewing area it is better to fight it.
-if (unit.opponentsInView.isEmpty()) {
+    // Do this only when there is no opponent in viewing area. If there
+    // is an opponent in viewing area it is better to fight it.
+    if (unit.opponentsInView.isEmpty()) {
 
-    // Check if some teammate detected an opponent near the unit. If
-    // it did then send the unit to the location of the opponent.
-    for (teammate in gameState.units) {
-        var found = false
-        
-        for (opponent in teammate.opponentsInView) {
-            // Calculate the distance between the unit and opponent.
-            val dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y)
+        // Check if some teammate detected an opponent near the unit. If
+        // it did then send the unit to the location of the opponent.
+        for (teammate in gameState.units) {
+            var found = false
+            
+            for (opponent in teammate.opponentsInView) {
+                // Calculate the distance between the unit and opponent.
+                val dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y)
 
-            if (dst < 25) {
-                // We have detected an opponent that is very close! 
-                api.navigationStart(unit.id, opponent.x, opponent.y)
-                found = true
-                break
+                if (dst < 25) {
+                    // We have detected an opponent that is very close! 
+                    api.navigationStart(unit.id, opponent.x, opponent.y)
+                    found = true
+                    break
+                }
             }
+            if (found) break
         }
-        if (found) break
     }
 }
 {{< /highlight >}}

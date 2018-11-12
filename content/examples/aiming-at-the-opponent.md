@@ -18,8 +18,10 @@ This is how our units will be able to aim:
 
 ## Code
 
-Below is the code for this example. In order to keep the things clean we didn't include the full code of the basic bot. 
-It is your job to join everything together! :smile:
+Below is the code for this example. 
+
+⚠️ To keep the example clean we didn't include the whole code for the bot. 
+In order to use this code you need to paste it to an appropriate location in your bot implementation. 
 
 {{< multilang >}}
 
@@ -32,27 +34,28 @@ It is your job to join everything together! :smile:
 <div id="Java" class="tabcontent" style="display: block;">
 {{< highlight java "linenos=table,hl_lines=" >}}
 
-// Set the unit from your game state.
-UnitData unit = ...
+// Iterate through all of your units.
+for (UnitData unit : gameState.units) {
 
-// If the unit sees at least one of the opponents start turning towards it.
-if (unit.opponentsInView.length > 0) {
+    // If the unit sees at least one of the opponents start turning towards it.
+    if (unit.opponentsInView.length > 0) {
 
-    // Get the first opponent that the unit sees.
-    OpponentInView opponent = unit.opponentsInView[0];
+        // Get the first opponent that the unit sees.
+        OpponentInView opponent = unit.opponentsInView[0];
 
-    // Calculate the aiming angle between units orientation and the opponent. The closer
-    // the angle is to 0 the closer is the unit aiming towards the opponent.
-    float aimAngle = MathUtil.angleBetweenUnitAndPoint(unit, opponent.x, opponent.y);
+        // Calculate the aiming angle between units orientation and the opponent. The closer
+        // the angle is to 0 the closer is the unit aiming towards the opponent.
+        float aimAngle = MathUtil.angleBetweenUnitAndPoint(unit, opponent.x, opponent.y);
 
-    // Stop the unit.
-    api.setSpeed(unit.id, Speed.NONE);
+        // Stop the unit.
+        api.setSpeed(unit.id, Speed.NONE);
 
-    // Based on the aiming angle turn towards the opponent.
-    if (aimAngle < 0) {
-        api.setRotation(unit.id, Rotation.RIGHT);
-    } else {
-        api.setRotation(unit.id, Rotation.LEFT);
+        // Based on the aiming angle turn towards the opponent.
+        if (aimAngle < 0) {
+            api.setRotation(unit.id, Rotation.RIGHT);
+        } else {
+            api.setRotation(unit.id, Rotation.LEFT);
+        }
     }
 }
 {{< /highlight >}}
@@ -61,27 +64,27 @@ if (unit.opponentsInView.length > 0) {
 <div id="Python3" class="tabcontent">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
 
-# Set the unit from your game state.
-unit = ...
+# Iterate through all of your units.
+for unit in game_state["units"]:
 
-# If the unit sees at least one of the opponents start turning towards it.
-if len(unit["opponentsInView"]) > 0:
+    # If the unit sees at least one of the opponents start turning towards it.
+    if len(unit["opponentsInView"]) > 0:
 
-    # Get the first opponent that the unit sees.
-    opponent = unit["opponentsInView"][0]
+        # Get the first opponent that the unit sees.
+        opponent = unit["opponentsInView"][0]
 
-    # Calculate the aiming angle between units orientation and the opponent. The closer
-    # the angle is to 0 the closer is the unit aiming towards the opponent.
-    aim_angle = math_util.angle_between_unit_and_point(unit, opponent["x"], opponent["y"])
+        # Calculate the aiming angle between units orientation and the opponent. The closer
+        # the angle is to 0 the closer is the unit aiming towards the opponent.
+        aim_angle = math_util.angle_between_unit_and_point(unit, opponent["x"], opponent["y"])
 
-    # Stop the unit.
-    api.set_speed(unit["id"], Speed.NONE)
-    
-    # Based on the aiming angle turn towards the opponent.
-    if aim_angle < 0:
-        api.set_rotation(unit["id"], Rotation.RIGHT)
-    else:
-        api.set_rotation(unit["id"], Rotation.LEFT)
+        # Stop the unit.
+        api.set_speed(unit["id"], Speed.NONE)
+        
+        # Based on the aiming angle turn towards the opponent.
+        if aim_angle < 0:
+            api.set_rotation(unit["id"], Rotation.RIGHT)
+        else:
+            api.set_rotation(unit["id"], Rotation.LEFT)
 {{< /highlight >}}
 </div>
 
@@ -89,30 +92,30 @@ if len(unit["opponentsInView"]) > 0:
 <div id="Kotlin" class="tabcontent">
 {{< highlight kotlin "linenos=table,hl_lines=" >}}
 
-// Set the unit from your game state.
-val unit = ...
+// Iterate through all of your units.
+for (unit in gameState.units) {
 
-// If the unit sees at least one of the opponents start turning towards it.
-if (unit.opponentsInView.isNotEmpty()) {
+    // If the unit sees at least one of the opponents start turning towards it.
+    if (unit.opponentsInView.isNotEmpty()) {
 
-    // Get the first opponent that the unit sees.
-    val opponent = unit.opponentsInView[0]
+        // Get the first opponent that the unit sees.
+        val opponent = unit.opponentsInView[0]
 
-    // Calculate the aiming angle between units orientation and the opponent. The closer
-    // the angle is to 0 the closer is the unit aiming towards the opponent.
-    val aimAngle = MathUtil.angleBetweenUnitAndPoint(unit, opponent.x, opponent.y)
+        // Calculate the aiming angle between units orientation and the opponent. The closer
+        // the angle is to 0 the closer is the unit aiming towards the opponent.
+        val aimAngle = MathUtil.angleBetweenUnitAndPoint(unit, opponent.x, opponent.y)
 
-    // Stop the unit.
-    api.setSpeed(unit.id, Speed.NONE)
+        // Stop the unit.
+        api.setSpeed(unit.id, Speed.NONE)
 
-    // Based on the aiming angle turn towards the opponent.
-    if (aimAngle < 0) {
-        api.setRotation(unit.id, Rotation.RIGHT)
-    } else {
-        api.setRotation(unit.id, Rotation.LEFT)
+        // Based on the aiming angle turn towards the opponent.
+        if (aimAngle < 0) {
+            api.setRotation(unit.id, Rotation.RIGHT)
+        } else {
+            api.setRotation(unit.id, Rotation.LEFT)
+        }
     }
 }
-
 {{< /highlight >}}
 </div>
 
