@@ -11,7 +11,7 @@ Let's set you up for countless hours of fun! Before we let you start exploring o
 
 ## 1. Download
 
-* [Download] (https://github.com/liagame/lia-SDK/releases) latest release of Lia-SDK for your operating system and unzip it into a folder of your liking. 
+* [Download] (https://github.com/liagame/lia-SDK/releases/tag/v0.1.0) latest release of Lia-SDK for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install anything.
 * **Windows only**: Lia-SDK can, besides other things, compile all of the supported languages and is during this process heavily dependent on bash scripts. 
 Since Windows does not support bash scripting by default we need you to install [Git Bash](https://gitforwindows.org/). 
