@@ -34,6 +34,7 @@ In order to use this code you need to paste it to an appropriate location in you
 
 <div id="Java" class="tabcontent" style="display: block;">
 {{< highlight java "linenos=table,hl_lines=" >}}
+// Paste this code in processGameState(...) method.
 
 // Iterate through all of your units.
 for (int i = 0; i < gameState.units.length; i++) {
@@ -65,6 +66,7 @@ for (int i = 0; i < gameState.units.length; i++) {
 
 <div id="Python3" class="tabcontent">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
+# Paste this code in process_game_state(...) method.
 
 # Iterate through all of your units.
 for unit in game_state["units"]:
@@ -93,6 +95,7 @@ for unit in game_state["units"]:
 
 <div id="Kotlin" class="tabcontent">
 {{< highlight kotlin "linenos=table,hl_lines=" >}}
+// Paste this code in processGameState(...) method.
 
 // Iterate through all of your units.
 for (unit in gameState.units) {
