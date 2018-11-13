@@ -109,7 +109,7 @@ Together with [GameState](/api/#gamestate), Using API object you can communicate
     * *Starts automatically navigating unit with ```unitId``` to ```x``` and ```y``` coordinates. If the path to (x,y) 
 can't be find, then it does nothing. If the path is set then you can access it in [GameState](/api/#gamestate) using ```navigationPath``` variable of that unit in the next game state.*
 
-* **```navigationStop(int unitId, float x, float y)```** 
+* **```navigationStop(int unitId)```** 
     * *If the navigationPath is set and the unit is moving on it, this methods stops the navigation and drops the path.*
 
 * **```setSpeed(int unitId, Speed speed)```** 
