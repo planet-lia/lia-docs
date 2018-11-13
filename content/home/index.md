@@ -11,8 +11,8 @@ Alongside with what you can currently see here there is still much more to come!
 
 ## Game description
 
-Your bot commands a fleet of biological units which goal is to eliminate the opponent. 
-You start the game with 16 units that you can move around the map, make them shoot and teach them very simple or super advanced tactic to detect, track down and beat the opponent. 
+Your bot commands a fleet of biological units with a goal to eliminate the opponent. 
+You start the game with 16 units that you can move around the map, make them shoot and teach them very simple or super advanced tactics to detect, track down and beat the opponent. 
 You can use your favourite programming language, battle your bots against themselves on your local machine and when you are ready, you can upload them online to battle other programmers around the world!
 
  <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="Example gameplay" width="60%"/></div>

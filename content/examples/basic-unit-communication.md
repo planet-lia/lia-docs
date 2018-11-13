@@ -5,7 +5,8 @@ example: true
 ---
 
 {{< headless-note title="Prerequisites" >}}
-Before you can go through this example you need to first setup your environment. If you haven't then go through our [Getting started](/getting-started) guide to do that.
+Before you can go through this example you need to first setup your environment. 
+You can find out how to do that in our [Getting started](/getting-started) guide .
 {{< /headless-note >}}
 
 In this example you will learn how to make your units communicate with each other. 
@@ -39,7 +40,8 @@ In order to use this code you need to paste it to an appropriate location in you
 {{< highlight java "linenos=table,hl_lines=" >}}
 
 // Iterate through all of your units.
-for (UnitData unit : gameState.units) {
+for (int i = 0; i < gameState.units.length; i++) {
+    UnitData unit = gameState.units[i];
 
     // Check teammates vision areas for a nearby opponent only when current unit does not see 
     // an opponent. If there is an opponent in unit's vision area it is better to fight it.
@@ -64,7 +66,6 @@ for (UnitData unit : gameState.units) {
             if (found) break;
         }
     }
-
 }
 {{< /highlight >}}
 </div>

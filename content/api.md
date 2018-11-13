@@ -173,3 +173,29 @@ can't be find, then it does nothing. If the path is set then you can access it i
 ``` -->
 
 ---
+
+## Extra libraries
+
+Below are the libraries that are shipped together with all of the basic bot implementations.
+
+### MathUtil
+
+* **```distance(float x1, float y1, float x2, float y2): float```** 
+    * Returns the distance between points `(x1,y1)` and `(x2,y2)`.*
+
+* **```angle(float x1, float y1, float x2, float y2): float```** 
+    * *Calculates the angle of a vector from `(x1,y1)` to `(x2,y2)` relative to the x-axis.
+    Angles are measured from positive x-axis in counter-clockwise direction and between 0 and 360.*
+
+* **```angleBetweenUnitAndPoint(UnitData unit, float x, float y): float```** 
+    * *Returns an angle between where is unit looking at (it's orientation) and the specified point.
+     If the angle is 0, unit is looking directly at a point, if angle is negative the unit is looking
+     to the left side of the point and needs to rotate right to decrease the angle and if the angle is 
+     positive the unit is looking to the right side of the point and it needs to turn left to look 
+     closer to the point. Returns angle in degrees between -180 to 180 degrees*
+
+* **```angleBetweenUnitAndPoint(float unitX, float unitY, float unitOrientationAngle, float pointX, float pointY): float```** 
+    * *Same as above but instead of passing in a complete ```UnitData``` you only pass the data that is needed.
+    This way you can also pass in the data about the opponent and the function will return where it aims at relative to the `(pointX,pointY)`.*
+    
+---

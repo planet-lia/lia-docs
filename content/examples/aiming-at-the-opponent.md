@@ -5,7 +5,8 @@ example: true
 ---
 
 {{< headless-note title="Prerequisites" >}}
-Before you can go through this example you need to first setup your environment. If you haven't then go through our [Getting started](/getting-started) guide to do that.
+Before you can go through this example you need to first setup your environment. 
+You can find out how to do that in our [Getting started](/getting-started) guide .
 {{< /headless-note >}}
 
 In this example you will learn how to make your unit aim at the opponent. 
@@ -35,7 +36,8 @@ In order to use this code you need to paste it to an appropriate location in you
 {{< highlight java "linenos=table,hl_lines=" >}}
 
 // Iterate through all of your units.
-for (UnitData unit : gameState.units) {
+for (int i = 0; i < gameState.units.length; i++) {
+    UnitData unit = gameState.units[i];
 
     // If the unit sees at least one of the opponents start turning towards it.
     if (unit.opponentsInView.length > 0) {
@@ -122,11 +124,11 @@ for (unit in gameState.units) {
 ## Explanation
 
 In order to aim at the opponent we need to make our unit turn towards it. 
-Deciding about where to turn is achieved by calculating the angle between the unit's orientation and the the opponent as show in the image below.
-With every GameState you receive ```orientationAngle``` for each unit.
+Deciding about where to turn is achieved by calculating the angle between the unit's orientation and the opponent as show in the image below.
+With every [GameState](/api/#gamestate) you receive ```orientationAngle``` for each unit.
 The ```aiming angle``` is the angle from unit's orientation towards the point. 
-If the ```aiming angle``` is ```0``` the unit looks directly towards the opponent, if it is positive the unit looks to the right side of the opponent and if 
-it is negative it looks towards the left side of the opponent.
+If the ```aiming angle``` is ```0``` the unit is looking directly towards the opponent, if it is positive the unit is looking to the right side of the opponent and if 
+it is negative it is looking towards the left side of the opponent.
 
 <br>
  <div style="text-align:center"><img src="/static/examples/images/angles.png" alt="Angles" width="40%"/></div>
@@ -157,7 +159,7 @@ You can easily fix that by adjusting the rotation speed when the aim angle gets 
 For example when the angle is smaller than 15 degrees don't rotate with ```RIGHT``` or ```LEFT``` but with ```SLOW_RIGHT``` and ```SLOW_LEFT``` rotations.
 
 
-2. **Following opponent** - When the aim angle is small enough you can make your unit move forward. 
+2. **Following opponent** - When the aim angle is small enough you can make your unit move forward with with [Api](/api/#api-object) command `setSpeed(int unitId, Speed speed)`. 
 This will automatically make your unit follow the opponent when it tries to flee. 
 But be careful, your units now go close to the opponents when they fight them and will thus be often killed by their teammates that are aiming at the same opponent.
 You will need to implement some team kill prevention logic to fix that! ```MathUtil``` will come in handy.
