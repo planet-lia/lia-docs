@@ -174,6 +174,15 @@ can't be find, then it does nothing. If the path is set then you can access it i
 
 ---
 
+## Constants
+
+Each bot implementation available via Lia-SDK also has all the game constants available during the runtime of a game.
+The file holding the constants is usually found under `lia` directory inside the bot directory. 
+You can also check game rules in the documentation [HERE](/game-rules). 
+
+
+---
+
 ## Extra libraries
 
 Below are the libraries that are shipped together with all of the basic bot implementations.
@@ -198,4 +207,5 @@ Below are the libraries that are shipped together with all of the basic bot impl
     * *Same as above but instead of passing in a complete ```UnitData``` you only pass the data that is needed.
     This way you can also pass in the data about the opponent and the function will return where it aims at relative to the `(pointX,pointY)`.*
     
+
 ---

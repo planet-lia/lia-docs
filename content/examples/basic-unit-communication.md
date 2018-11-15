@@ -57,7 +57,7 @@ for (int i = 0; i < gameState.units.length; i++) {
                 // Calculate the distance between the unit and opponent.
                 float dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y);
 
-                if (dst < 25) {
+                if (dst < Constants.VIEWING_AREA_LENGTH) {
                     // We have detected an opponent that is very close!
                     api.navigationStart(unit.id, opponent.x, opponent.y);
                     found = true;
@@ -91,7 +91,7 @@ for unit in game_state["units"]:
                 # Calculate the distance between the unit and opponent.
                 dst = math_util.distance(unit["x"], unit["y"], opponent["x"], opponent["y"])
 
-                if dst < 25:
+                if dst < constants.VIEWING_AREA_LENGTH:
                     # We have detected an opponent that is very close!
                     api.navigation_start(unit["id"], opponent["x"], opponent["y"])
                     found = True
@@ -123,7 +123,7 @@ for (unit in gameState.units) {
                 // Calculate the distance between the unit and opponent.
                 val dst = MathUtil.distance(unit.x, unit.y, opponent.x, opponent.y)
 
-                if (dst < 25) {
+                if (dst < Constants.VIEWING_AREA_LENGTH) {
                     // We have detected an opponent that is very close! 
                     api.navigationStart(unit.id, opponent.x, opponent.y)
                     found = true
@@ -143,8 +143,14 @@ To detect if there is an opponent near the unit we need to iterate through all o
 To calculate the distance between a unit and an opponent we use ```MathUtil``` library that comes together with all basic bot implementations. 
 It has a ```distance``` function that calculates the distance between two points on the map.
 
-If the distance is smaller than `25` (we picked the number randomly, try changing it and see what happens) then we determine that the opponent is close enough to the unit and is worth engaging. 
-In that case we send the unit to the location of the opponent.
+Now we need to decide at what distance is it worth for the unit to engage with the opponent. 
+Here we will use `VIEWING_AREA_LENGTH`, one of the constants that each basic bot implementation ships with by default (read more about game constants [here](/api/#constants)). 
+If the distance is smaller than the `VIEWING_AREA_LENGTH` then we determine that the opponent is close enough to the unit and is worth engaging. 
+In that case we send the unit to the location of the opponent. 
+
+We have chosen this constant as our max distance value as it seems meaningful, but we didn't test if it is also optimal.
+Try playing with the values a little  and see if you can make some improvements.
+
 
 ## &#9814; Extra tips
 

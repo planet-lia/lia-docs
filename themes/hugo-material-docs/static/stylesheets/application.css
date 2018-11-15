@@ -1302,7 +1302,14 @@ h1 .article .headerlink{
     transition: height 0.2s ease;
 }
 .clickableTitle {
+    color: #000000 !important;
+    font-size: 14px;
     cursor: pointer;
+}
+
+.collapsible ul li a,
+.collapsible ul li ul a {
+    color: #666666 !important;
 }
 /* Prevent moving the page when scrollbar appears */
 html {

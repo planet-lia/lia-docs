@@ -76,7 +76,7 @@ Be aware that some properties may break the game if you change them too much, fo
     "positionIterationsPerTick": 4
   },
   "bots": {
-    "initResponseTimeout": 4.0,
+    "initResponseTimeout": 15.0,
     "tickResponseTimeout": 2.0,
     "ticksPerRequest": 3,
     "maxFailedResponses": 8,
