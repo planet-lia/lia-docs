@@ -45,6 +45,7 @@ Bot receives GameState 10 times per game second. It holds the data about what is
 
 * **```time```**```: float``` - *Current game time in seconds.*
 * **```numberOfOpponentsAlive```**```: int``` - *Number of remaining opponent's units.*
+* **```canSaySomething```**```: boolean``` - *If set to `true` your bot can make one of it's units say something.*
 * **```units```**```: array``` - *List of your units that are still alive, each unit contains:*
     * **```id```**```: int``` - *Unit's unique identifier.*
     * **```health```**```: int``` - *Unit's health.*
@@ -55,7 +56,6 @@ Bot receives GameState 10 times per game second. It holds the data about what is
     * **```rotation```**```: enum``` - *Rotation of the unit (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```).*
     * **```canShoot```**```: boolean``` - *A boolean value if the player has enough ammo and enough time has passed since last shot.*
     * **```nBullets```**```: int``` - *Number of bullets currently loaded in the gun.*
-    * **```canSaySomething```**```: boolean``` - *If the unit can say something in current moment.*
     * **```opponentsInView```**```: array``` - *List of opponent units that your unit sees, each opponent unit contains:*
         * **```id```**```: int``` - *Opponent unit's unique identifier.*
         * **```health```**```: int``` - *Opponent unit's health.*
@@ -119,8 +119,7 @@ can't be find, then it does nothing. If the path is set then you can access it i
     * *Sets the rotation of the unit with ```unitId``` to chosen rotation value (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```). When set the ```navigationPath``` is dropped.*
 
 * **```saySomething(int unitId, String text)```** 
-    * *With this method you can make your unit say something. The text shouldn't be longer than 23 characters or else it will be trimmed. To prevent spam, when unit 
-    says something it needs to wait 10s before it can say something again and a maximum of 5 units per team can be saying something at the same time. Using bad language is prohibited and will result in banning the user.*
+    * *With this method you can make your unit say something. The text shouldn't be longer than 23 characters or else it will be trimmed. To prevent spam only one unit per team can talk at the same time. Using bad language is prohibited and will result in banning the user.*
 
 <!-- **Examples:**  
 
