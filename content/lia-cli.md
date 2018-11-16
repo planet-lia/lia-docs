@@ -23,6 +23,7 @@ Name | Short description
 [playground](#playground) | Starts a game in a preset playground
 [play](#play) | Starts a game between two bots
 [generate](#generate) | Generates a game and ignores replay
+[replay](#replay) | Plays a replay
 [zip](#zip) | Compresses a bot
 [compile](#compile) | Compiles a bot
 |
@@ -172,6 +173,28 @@ Example:
 
 ```shell
 lia generate BestBot 1 WorstBot 2  # Generates a game between BestBot and WorstBot
+```
+----
+### replay
+
+Runs a replay viewer. If path to the replay file is set as an
+argument then that replay is played, else file chooser is opened.
+
+```shell
+Usage:
+  lia replay [pathToReplay] [flags]
+
+Flags:
+  -h, --help           help for replay
+  -w, --width string   choose width of replay window, height will be calculated automatically
+
+```
+
+Examples:
+
+```shell
+lia replay replays/my_replay.lia  # Plays a specified replay
+lia replay   # Opens up a replay file chooser
 ```
 ----
 ### zip
