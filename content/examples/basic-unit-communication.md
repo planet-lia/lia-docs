@@ -140,7 +140,7 @@ for (unit in gameState.units) {
 ## Explanation
 
 To detect if there is an opponent near the unit we need to iterate through all of unit's teammates and check how far away from the unit are the opponents that the teammates see.
-To calculate the distance between a unit and an opponent we use ```MathUtil``` library that comes together with all basic bot implementations. 
+To calculate the distance between a unit and an opponent we use  [MathUtil](/api/#mathutil) library that comes together with all basic bot implementations. 
 It has a ```distance``` function that calculates the distance between two points on the map.
 
 Now we need to decide at what distance is it worth for the unit to engage with the opponent. 
@@ -172,6 +172,6 @@ Next: **[Strategy ideas](/strategy-ideas)**
 ### Related:
 
 * [API reference](/api/)
-* [Using an IDE](/tutorials/using-ide/)
+* [Using an IDE](/examples/using-ide/)
 * [Reference for Lia CLI](/lia-cli/)
 

@@ -35,7 +35,7 @@ reloading takes 1s.
 
 * Damage: 22 HP
 * Speed: 32 /s
-* Range: 40
+* Range: 42
 
 ## Viewing area
 
@@ -51,13 +51,13 @@ the furthest side of the triangle is 20. The viewing area is always in front of 
 
 When generating our games on Lia servers we need to limit your bot so that it does not use too much time or other reasources. Thus we place the following limitaitons on your bot:
 
-* When the bot receives the first update it has 4 seconds to respond
+* When the bot receives the first update it has 15 seconds to respond
 * For all other game updates the bot needs to respond in 2.0 seconds
 * If the bot fails to respond in time for 8 or more times in one game it is disqualified
 * If the bot does not connect withing 30 seconds since the game engine started it is disqualified
 * If the sum of the time that bot took to respond to all requests combined is greater than 300 seconds it is disqualified
 
-When running your bot locally in debug mode, no restrictions are set (check [here](/tutorials/debugging-your-code/) to see how to run your bot in debug mode).
+When running your bot locally in debug mode, no restrictions are set (check [here](/examples/debugging-your-code/) to see how to run your bot in debug mode).
 
 ## Custom game rules
 
@@ -84,8 +84,8 @@ Be aware that some properties may break the game if you change them too much, fo
     "requestsSumTimeout": 300.0
   },
   "gameDetails": {
-    "mapWidth": 144,
-    "mapHeight": 81,
+    "mapWidth": 160,
+    "mapHeight": 90,
     "gameDuration": 200,
     "background": {
       "r": 0.2,
@@ -98,9 +98,6 @@ Be aware that some properties may break the game if you change them too much, fo
     "mapType": -1
   },
   "obstacles": {
-    "nObstacles": {"min": 5, "max": 12},
-    "minObstacleSize": {"min":0.8, "max": 2},
-    "maxObstacleSize": {"min": 5, "max": 8},
     "blockSize": 3.0,
     "blockToCoolerRatio": 0.8
   },

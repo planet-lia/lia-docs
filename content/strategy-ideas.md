@@ -42,6 +42,7 @@ Scouts drive around the map and when they see opponents they don't fight but lur
 
 ### Related:
 
-* [Examples](/examples/overview/)
+* [Example: Aiming at the opponent](/examples/aiming-at-the-opponent/)
+* [Example: Basic unit communication](/examples/basic-unit-communication/)
 * [Reference for Lia CLI](/lia-cli)
 * [API reference](/api/)

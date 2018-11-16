@@ -79,7 +79,7 @@ Note that during the development of your bot you can structure your project as y
 This means you can have multiple files which you import into `MyBot`.
 
 {{< note title="Using an IDE" >}}
-You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/tutorials/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
+You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/examples/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
 {{< /note >}} 
 
 ## Next up

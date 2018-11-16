@@ -190,7 +190,7 @@ Below are the libraries that are shipped together with all of the basic bot impl
 ### MathUtil
 
 * **```distance(float x1, float y1, float x2, float y2): float```** 
-    * Returns the distance between points `(x1,y1)` and `(x2,y2)`.*
+    * *Returns the distance between points `(x1,y1)` and `(x2,y2)`.*
 
 * **```angle(float x1, float y1, float x2, float y2): float```** 
     * *Calculates the angle of a vector from `(x1,y1)` to `(x2,y2)` relative to the x-axis.

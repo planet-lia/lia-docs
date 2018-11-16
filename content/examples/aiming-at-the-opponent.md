@@ -138,7 +138,7 @@ it is negative it is looking towards the left side of the opponent.
 
 When we calculate the aiming angle we just need to make our unit turn towards the direction that will decrease the size of the aiming angle.
 
-Library ```MathUtils``` has a couple of helper functions that you can use for quicker bot development.
+Library [MathUtil](/api/#mathutil) has a couple of helper functions that you can use for quicker bot development.
 
 <!-- {{< note title="Extra tips" >}}
 1. **Better aiming**
@@ -165,7 +165,7 @@ For example when the angle is smaller than 15 degrees don't rotate with ```RIGHT
 2. **Following opponent** - When the aim angle is small enough you can make your unit move forward with with [Api](/api/#api-object) command `setSpeed(int unitId, Speed speed)`. 
 This will automatically make your unit follow the opponent when it tries to flee. 
 But be careful, your units now go close to the opponents when they fight them and will thus be often killed by their teammates that are aiming at the same opponent.
-You will need to implement some team kill prevention logic to fix that! ```MathUtil``` will come in handy.
+You will need to implement some team kill prevention logic to fix that! [MathUtil](/api/#mathutil) will come in handy.
 
 ## Next up
 
@@ -178,6 +178,6 @@ Next: **[Basic unit communication](/examples/basic-unit-communication/)**
 ### Related:
 
 * [API reference](/api/)
-* [Using an IDE](/tutorials/using-ide/)
+* [Using an IDE](/examples/using-ide/)
 * [Reference for Lia CLI](/lia-cli/)
 
