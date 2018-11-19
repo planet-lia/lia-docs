@@ -116,9 +116,7 @@ Be aware that some properties may break the game if you change them too much, fo
     "healthRecoveryPoints": 8,
     "recoveryStartsAfter": 8.0,
     "speechBubbleDuration": 2.5,
-    "minSpeechBubbleTimeSpacing": 10.0,
-    "maxSimultaneousSpeechBubblesPerTeam": 5,
-    "startSpeechBubbleNotAllowedDuration": 0.0,
+    "delayBetweenSpeechBubbles": 0.5,
     "maxSpeechBubbleTextLength": 23
   },
   "viewingArea": {
