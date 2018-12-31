@@ -6,7 +6,8 @@
 
 /* Style the buttons inside the tab */
 .tab button {
-    background-color: inherit;
+    background-color: #FBFBFB;
+    color: rgb(0, 0, 0, .87);
     float: left;
     margin-top: 24px;
     outline: none;
@@ -38,13 +39,13 @@
 
 
 <script>
-function changeLanguage(evt, lang) {
+function changeLanguage(evt, lang, tabClass, codeClass) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName(codeClass);
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName(tabClass);
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
