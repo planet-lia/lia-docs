@@ -27,12 +27,12 @@ In order to use this code you need to paste it to an appropriate location in you
 {{< multilang >}}
 
 <div class="tab">
-    <button class="tablinks active" onclick="changeLanguage(event, 'Java')">Java</button>
-    <button class="tablinks" onclick="changeLanguage(event, 'Python3')">Python3</button>
-    <button class="tablinks" onclick="changeLanguage(event, 'Kotlin')">Kotlin</button>
+    <button class="tablinks tc1 active" onclick="changeLanguage(event, 'Java', 'tc1', 'cc1')">Java</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'Python3', 'tc1', 'cc1')">Python3</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'Kotlin', 'tc1', 'cc1')">Kotlin</button>
 </div>
 
-<div id="Java" class="tabcontent" style="display: block;">
+<div id="Java" class="tabcontent cc1" style="display: block;">
 {{< highlight java "linenos=table,hl_lines=" >}}
 // Paste this code in processGameState(...) method.
 
@@ -64,7 +64,7 @@ for (int i = 0; i < gameState.units.length; i++) {
 {{< /highlight >}}
 </div>
 
-<div id="Python3" class="tabcontent">
+<div id="Python3" class="tabcontent cc1">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
 # Paste this code in process_game_state(...) method.
 
@@ -93,7 +93,7 @@ for unit in game_state["units"]:
 </div>
 
 
-<div id="Kotlin" class="tabcontent">
+<div id="Kotlin" class="tabcontent cc1">
 {{< highlight kotlin "linenos=table,hl_lines=" >}}
 // Paste this code in processGameState(...) method.
 

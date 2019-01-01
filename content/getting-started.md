@@ -3,23 +3,23 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
-Let's setup your Lia environment, run a game with your bot and upload it to the leaderboard!
-You can also try Lia without downloading anything via our <a href="https://www.liagame.com/editor" target="_blank">Online editor</a>.
+Let's setup your Lia environment, run your first game and upload your bot to the leaderboard!
+You can also try out Lia without downloading anything via our <a href="https://www.liagame.com/editor" target="_blank">Online editor</a>.
 
 ## 1. Download
 
 * <a href="https://github.com/liagame/lia-SDK/releases/tag/v0.2.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install anything.
-* <a href="https://java.com/en/" target="_blank">Install Java</a> on your system, as the Lia is written in Kotlin and it needs it in order to run. Most system have it ins
+* <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
 * <a href="https://setup-programming-language" target="_blank">Setup programming language</a> that you will use for writing your bot. 
 If you have used the language before, you most likely already have everything that you need.
 
 ## 2. Play a game
 
-Open up a **Cmd.exe** or **PowerShell.exe** on Windows or a **Terminal** on Linux or macOS, move to the unzipped Lia-SDK directory and run the commands below. 
+Open up a **Cmd.exe** or **PowerShell.exe** on Windows or a **Terminal** on Linux or macOS, **move to the unzipped Lia-SDK** directory and run the commands below. 
 They will create a new starting bot John using programming language Java and will battle it against itself.
 To choose a different language for your bot simply replace the ```java``` part of the first command with ```python3``` or ```kotlin```.
-The first time you play a game with your bot may take some time as a few libraries needs to be downloaded, later runs will be much faster.
+The first time you play a game with your bot it may take some time as a couple of libraries needs to be downloaded, later runs will be much faster.
 
 {{< multilang >}}
 
@@ -52,7 +52,7 @@ lia.exe play John John
 
 ##### *Commands:* [*bot*](/lia-cli/#bot), [*play*](/lia-cli/#play)
 
-Wait until the game is generated and voila, the replay is opened for the generated game! 
+After running the commands above, wait until the game is generated and voila, the replay is opened for the generated game! 
 Also a new directory named John is created inside the unzipped Lia-SDK folder. 
 This folder contains all the code for your bot. We will dig into it in the next section.
 
@@ -73,9 +73,9 @@ This means that you can create additional files which you then import into `MyBo
 
 ## 4. Join the leaderboard
 
-Now it is time to upload your bot to the leaderboard and see how it does against bots made by other programmers! Follow the steps below:
+Now it is time to upload your bot to the leaderboard and see how it does against bots made by other programmers! Follow the steps below.
 
-1. Create a Lia account on our <a href="https://www.liagame.com" target="_blank">website</a>.
+1. Create your Lia account on our <a href="https://www.liagame.com" target="_blank">website</a>.
 3. Upload your bot to the leaderboard using the command below. If you are not logged in yet, the Lia-SDK will ask you for your Lia credentials.
 <div class="tab">
     <button class="tablinks tc4 active" onclick="changeLanguage(event, 'Cmd 4', 'tc4', 'cc4')">Cmd</button>
