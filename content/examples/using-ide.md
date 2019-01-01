@@ -17,12 +17,12 @@ IDE can help you autocomplete them and can easily show you which ones exists wit
 ## Using Java/Kotlin bot with IDE
 
 To use Java or Kotlin bot with IDE you need to import your full bot directory as a Gradle project. 
-After that you can fight with your bot using <a href="/lia-cli/#play" target="_blank">```play```</a> or you can run it in debug mode as explaind <a href="/examples/debugging-your-code/" target="_blank">here</a>.
+After that you can fight with your bot using <a href="/lia-cli/#play" target="_blank">```play```</a> or you can run it in debug mode as explaind <a href="/examples/debugging-your-code/" target="_blank">here</a>. 
 
 ### Example: IntelliJ IDEA
 
 We will demonstrate how to import your code in IntelliJ IDEA, but the process should be similar in all other IDEs.
-(We are by no means affiliated with JetBrains, the creators of IntelliJ IDEA, this IDE is used here just as an example).
+We are by no means affiliated with JetBrains, the creators of IntelliJ IDEA, this IDE is used here just as an example.
 
 To open your bot (eg. John) in IntelliJ IDEA you need to go through the following steps:
 

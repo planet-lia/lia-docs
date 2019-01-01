@@ -11,7 +11,7 @@ You can also try out Lia without downloading anything via our <a href="https://w
 * <a href="https://github.com/liagame/lia-SDK/releases/tag/v0.2.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install anything.
 * <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
-* <a href="https://setup-programming-language" target="_blank">Setup programming language</a> that you will use for writing your bot. 
+* <a href="/setup-programming-language/" target="_blank">Setup programming language</a> that you will use for writing your bot. 
 If you have used the language before, you most likely already have everything that you need.
 
 ## 2. Play a game
@@ -30,7 +30,7 @@ The first time you play a game with your bot it may take some time as a couple o
 </div>
 
 <div id="Cmd" class="tabcontent cc1" style="display: block;">
-{{< highlight powershell >}}
+{{< highlight cmd >}}
 lia.exe bot java John
 lia.exe play John John
 {{< /highlight >}}
@@ -56,7 +56,7 @@ After running the commands above, wait until the game is generated and voila, th
 Also a new directory named John is created inside the unzipped Lia-SDK folder. 
 This folder contains all the code for your bot. We will dig into it in the next section.
 
- <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="John vs John" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay-2.gif" alt="John vs John" width="50%"/></div>
 
 ## 3. Understand your bot
 
@@ -84,7 +84,7 @@ Now it is time to upload your bot to the leaderboard and see how it does against
 </div>
 
 <div id="Cmd 4" class="tabcontent cc4" style="display: block;">
-{{< highlight powershell >}}
+{{< highlight cmd >}}
 lia.exe upload John
 {{< /highlight >}}
 </div>

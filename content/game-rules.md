@@ -14,7 +14,7 @@ Map is automatically generated and is always symmetrical across the diagonal. Th
 * Width: 160 map units
 * Height: 90 map units
 
- <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/docs/images/map.png" alt="Map" width="50%"/></div>
 
 ## Units
 Each controllable unit has 100 health points and starts with 3 bullets. After it has been hit by a bullet it takes 8s for it to start regenerating its health with a speed of 8 health points per second. 

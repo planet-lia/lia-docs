@@ -17,7 +17,7 @@ Your bot commands a fleet of alien units with a goal to eliminate the opponent.
 You start the game with 16 units that you can move around the map, make them shoot and teach them very simple or super advanced tactics to detect, track down and beat the opponent. 
 You can use your favourite programming language, battle your bots against themselves on your local machine and when you are ready, you can upload your bot online to battle other programmers from all around the world!
 
- <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="Example gameplay" width="60%"/></div>
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay-2.gif" alt="Example gameplay" width="60%"/></div>
 
 ## Start playing 
 

@@ -96,12 +96,6 @@ pygmentsStyle = "friendly"
 
 [[menu.main]]
 	parent = "Docs"
-	name   = "Common problems"
-	url    = "common-problems/"
-	weight = 10
-
-[[menu.main]]
-	parent = "Docs"
 	name   = "Privacy policy"
 	url    = "privacy-policy/"
 	weight = 11
