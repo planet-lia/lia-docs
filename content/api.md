@@ -61,7 +61,7 @@ Bot receives GameState 10 times per game second. It holds the data about what is
         * **```health```**```: int``` - *Opponent unit's health.*
         * **```x```**```: float``` - *Opponent unit's x location.*
         * **```y```**```: float``` - *Opponent unit's y location.*
-        * **```orientation```**```: float``` - *Angle in degrees between x axis and the direction to which the unit's is facing.*
+        * **```orientationAngle```**```: float``` - *Angle in degrees between x axis and the direction to which the unit's is facing.*
         * **```speed```**```: enum``` - *Speed with which the unit is moving (```NONE```, ```FORWARD```, ```BACKWARD```).*
         * **```rotation```**```: enum``` - *Rotation of the unit (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```).*
     * **```opponentBulletsInView```**```: array``` - *List of opponent bullets that your unit sees, each contains:*
