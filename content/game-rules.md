@@ -73,7 +73,7 @@ Be aware that some properties may break the game if you change them too much, fo
 
 ```json
 {
-  "version": "0.2.1",
+  "version": "0.2.0",
   "simulation": {
     "ticksPerSecond": 30,
     "velocityIterationsPerTick": 6,
