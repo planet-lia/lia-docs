@@ -12,8 +12,6 @@ use in order to control it's units.
 
 Bot receives GameEnvironment object only once at the beginning of the game. It holds the following data:
 
-* **```width```**```: float``` - *Map width in game units.*
-* **```height```**```: float``` - *Map height in game units.*
 * **```map```**```: 2D array of booleans``` - *If the value of the map at map[x][y] equals to True, it means that at (x,y) there is an obstacle, else there is a free space. map[0][0] points to bottom left corner, while map[width - 1][height - 1] points to top right corner.*
 * **```unitLocations```**```: array``` - *List of your units locations, each contains:*
     * **```id```**```: int``` - *Unit's unique identifier.*
