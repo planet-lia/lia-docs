@@ -73,6 +73,13 @@ This means that you can create additional files which you then import into `MyBo
 
 ## 4. Join the leaderboard
 
+
+{{< warning title="Important" >}}
+Lia SDK version v0.2.0 does not support uploading your bot to the leaderboard.
+Please create an account on our website or subscribe to our newsletter and we will let you know when this functionality will be ready.
+Until then you can play Lia offline.
+{{< /warning >}}
+
 Now it is time to upload your bot to the leaderboard and see how it does against bots made by other programmers! Follow the steps below.
 
 1. Create your Lia account on our <a href="https://www.liagame.com" target="_blank">website</a>.
