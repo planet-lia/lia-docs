@@ -3,6 +3,11 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
+{{< warning title="Important" >}}
+Lia SDK version v0.2.0 does not support uploading your bot to the online leaderboard.
+Please create an account on our [website](https://www.liagame.com/) or subscribe to our newsletter and we will let you know when this functionality will be ready.
+Until then you can play Lia offline.
+{{< /warning >}}
 
 Let's set you up for countless hours of fun! This getting started guide consists of the following parts:
 
@@ -81,6 +86,12 @@ This means you can have multiple files which you import into `MyBot`.
 {{< note title="Using an IDE" >}}
 You can also write the code for your bot using any IDE you like. IDEs are great tools and we strongly believe that they can greatly improve your productivity. Check out our <a href="/examples/using-ide/" target="_blank">Using an IDE</a> page if you want to learn more.
 {{< /note >}} 
+
+## 4. Join the leaderboard
+
+Uploading your bot to the online leaderboard and battling against other players online is not yet available in current Lia version.
+Please create an account on our website or subscribe to our newsletter and we will let you know when this functionality will be ready. 
+Until then you can play Lia offline and get ready for the big day!
 
 ## Next up
 
