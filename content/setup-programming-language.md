@@ -14,7 +14,9 @@ We officially support Java 8 but if you have a never version it should work as w
 ---
 
 ## Python3 
-* Install Python3 as instructed on the official site https://www.python.org/.
+* Install Python3 as instructed on the official site https://www.python.org/. 
+* Make sure to add Python3 to path. On Windows there is a checkbox available when installing Python3.
+* On our servers your bun runs using Python3.6 so make sure your version is compatible with it.
 
 ---
 
