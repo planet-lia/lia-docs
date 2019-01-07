@@ -12,8 +12,6 @@ use in order to control it's units.
 
 Bot receives GameEnvironment object only once at the beginning of the game. It holds the following data:
 
-* **```width```**```: float``` - *Map width in game units.*
-* **```height```**```: float``` - *Map height in game units.*
 * **```map```**```: 2D array of booleans``` - *If the value of the map at map[x][y] equals to True, it means that at (x,y) there is an obstacle, else there is a free space. map[0][0] points to bottom left corner, while map[width - 1][height - 1] points to top right corner.*
 * **```unitLocations```**```: array``` - *List of your units locations, each contains:*
     * **```id```**```: int``` - *Unit's unique identifier.*
@@ -44,7 +42,7 @@ public synchronized void process(MapData mapData) {
 Bot receives GameState 10 times per game second. It holds the data about what is going on with your units on the map at a current time in the game.
 
 * **```time```**```: float``` - *Current game time in seconds.*
-* **```numberOfOpponentsAlive```**```: int``` - *Number of remaining opponent's units.*
+* **```numberOfRemainingOpponents```**```: int``` - *Number of remaining opponent's units.*
 * **```canSaySomething```**```: boolean``` - *If set to `true` your bot can make one of it's units say something.*
 * **```units```**```: array``` - *List of your units that are still alive, each unit contains:*
     * **```id```**```: int``` - *Unit's unique identifier.*
@@ -61,7 +59,7 @@ Bot receives GameState 10 times per game second. It holds the data about what is
         * **```health```**```: int``` - *Opponent unit's health.*
         * **```x```**```: float``` - *Opponent unit's x location.*
         * **```y```**```: float``` - *Opponent unit's y location.*
-        * **```orientation```**```: float``` - *Angle in degrees between x axis and the direction to which the unit's is facing.*
+        * **```orientationAngle```**```: float``` - *Angle in radians (will fix to degrees in next version) between x axis and the direction to which the unit's is facing.*
         * **```speed```**```: enum``` - *Speed with which the unit is moving (```NONE```, ```FORWARD```, ```BACKWARD```).*
         * **```rotation```**```: enum``` - *Rotation of the unit (```NONE```, ```LEFT```, ```RIGHT```, ```SLOW_LEFT```, ```SLOW_RIGHT```).*
     * **```opponentBulletsInView```**```: array``` - *List of opponent bullets that your unit sees, each contains:*

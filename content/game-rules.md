@@ -4,23 +4,24 @@ title: Game Rules
 ---
 
 ## Gameplay
-Each team starts with 16 units. Game ends when one team is eliminated or when the game time exceeds 200 seconds. If after 5 minutes both teams are still alive the team with more remaining units wins. If both teams have the exact same number of units left, the winner is chosen randomly. Be careful as team-kill is turned on!
+Each team starts with 16 units. Game ends when one team is eliminated or when the game time exceeds 200 seconds. The winner is the team with more units left. If both teams have the exact same number left at the end, the winner is chosen randomly. Be careful as team-kill is enabled!
 
 * Game duration: 200 s
 
+<br/><div style="text-align:center"><img src="/static/docs/gifs/example-gameplay-2.gif" alt="Example gameplay" width="60%"/></div>
+
+
 ## Map 
-Map is automatically generated and can be of many shapes.
+Map is automatically generated and is always symmetrical across the diagonal. This provides an equal starting point for both teams.
 
-* Width: 160
-* Height: 90
-
- <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="50%"/></div>
+* Width: 160 map units
+* Height: 90 map units
 
 ## Units
-Each controllable unit has 100 health points and starts with 3 bullets. After it has been hit by a bullet it takes 8s for it to start regenerating its health (8 HP/s). 
+Each controllable unit has 100 health points and starts with 3 bullets. After it has been hit by a bullet it takes 8s for it to start regenerating its health with a speed of 8 health points per second. 
 The location (x, y) of the unit points to it's center.
 
-* Size: 2
+* Size: 2 map units
 * Health: 100 HP
 * Regeneration speed (after 8s out of combat): 8 HP/s
 * Bullets in magazine: 3
@@ -30,40 +31,44 @@ The location (x, y) of the unit points to it's center.
  <div style="text-align:center"><img src="/static/docs/images/unit.png" alt="Unit" width="15%"/></div>
 
 ## Bullets
-Each bullet does 22 damage when it hits another unit. It has a velocity of 32 per second and it has a range of 42. A unit can shoot it's bullets with a delay of 0.2s while the
-reloading takes 1s.
+Each bullet deals 22 damage. It has a velocity of 32 map units per second and it has a range of 42 map units. 
+A unit can shoot it's bullets with a delay of 0.2s while the reloading takes 1s.
+A bullet deals a damage to an opponent as well as to a friend.
 
 * Damage: 22 HP
-* Speed: 32 /s
-* Range: 42
+* Speed: 32 map units/s
+* Range: 42 map units
+* Team-kill: on
 
 ## Viewing area
 
-Each unit has a viewing area in a shape of a triangle. The area has a length of 28 and does not span through obstacles. Width of 
-the furthest side of the triangle is 20. The viewing area is always in front of the unit and it moves with it.
+Each unit has a viewing area in a shape of a triangle. 
+The area has a length of 28 map units and although it visually spans over the obstacles, the unit only sees what is in its sight. 
+Width of the furthest side of the triangle is 20 map units. 
+The viewing area is always in front of the unit and it moves with it.
 
-* Length: 28
-* Width: 20
+* Length: 28 map units
+* Width: 20 map units
 
  <div style="text-align:center"><img src="/static/docs/images/viewing-area.png" alt="Viewing area" width="40%"/></div>
 
 ## Bot restrictions
 
-When generating our games on Lia servers we need to limit your bot so that it does not use too much time or other reasources. Thus we place the following limitaitons on your bot:
+When generating our games on Lia servers we need to limit your bot so that it does not use too much time or other resources. Thus we place the following limitations on your bot:
 
-* When the bot receives the first update it has 15 seconds to respond
-* For all other game updates the bot needs to respond in 2.0 seconds
-* If the bot fails to respond in time for 8 or more times in one game it is disqualified
-* If the bot does not connect withing 30 seconds since the game engine started it is disqualified
-* If the sum of the time that bot took to respond to all requests combined is greater than 300 seconds it is disqualified
+* When the bot receives the first update it has **15 seconds to respond**
+* For all other game state updates it has **2.0 seconds to respond**
+* If the bot **fails to respond in time for 8 or more times** in one game it is disqualified and the game continues without it
+* If the bot does **not connect within 30 seconds** since the game engine started it is disqualified
+* If the sum of the time that bot took to respond to all requests combined is **greater than 300 seconds** it is disqualified
 
 When running your bot locally in debug mode, no restrictions are set (check [here](/examples/debugging-your-code/) to see how to run your bot in debug mode).
 
 ## Custom game rules
 
-If you want to run a custom game, whether you need to test something or you just want to play around, all you have to do is change the "game-config.json" file, located in the data directory in the extracted Lia-SDK (or "game-config-debug.json" if running in debug mode).
+If you want to run a custom game, whether you need to test something or you just want to just play around, all you have to do is change the "game-config.json" file, located in the data directory in the extracted Lia-SDK (or "game-config-debug.json" if running in debug mode).
 
-Be aware that some properties may break the game if you change them too much, for example if you put 10,000 units to fight it will probably take ages before the game generates! :smile: Have fun!
+Be aware that some properties may break the game if you change them too much, for example if you put 10,000 units to fight it will probably take ages before the game generates. :smile: Have fun!
 
 ### Example of game-config.json
 

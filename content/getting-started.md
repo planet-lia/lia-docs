@@ -70,7 +70,7 @@ Later runs will be way faster.
 Wait a few seconds until the game is generated and voila, the replay is opened for the generated game! 
 You should see something like in the GIF below.
 
- <div style="text-align:center"><img src="/static/docs/gifs/john-vs-john.gif" alt="John vs John" width="50%"/></div>
+ <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay-2.gif" alt="John vs John" width="50%"/></div>
 
 ## 3. Understand your bot
 
