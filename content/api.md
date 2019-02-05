@@ -42,7 +42,7 @@ public synchronized void process(MapData mapData) {
 Bot receives GameState 10 times per game second. It holds the data about what is going on with your units on the map at a current time in the game.
 
 * **```time```**```: float``` - *Current game time in seconds.*
-* **```numberOfOpponentsAlive```**```: int``` - *Number of remaining opponent's units.*
+* **```numberOfRemainingOpponents```**```: int``` - *Number of remaining opponent's units.*
 * **```canSaySomething```**```: boolean``` - *If set to `true` your bot can make one of it's units say something.*
 * **```units```**```: array``` - *List of your units that are still alive, each unit contains:*
     * **```id```**```: int``` - *Unit's unique identifier.*

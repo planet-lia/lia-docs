@@ -9,7 +9,7 @@ You can also try out Lia without downloading anything via our <a href="https://w
 ## 1. Download
 
 * <a href="https://github.com/liagame/lia-SDK/releases/tag/v0.2.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
-Lia-SDK is portable so you don't need to install anything.
+Lia-SDK is portable so you don't need to install it.
 * <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
 * <a href="/setup-programming-language/" target="_blank">Setup programming language</a> that you will use for writing your bot. 
 If you have used the language before, you most likely already have everything that you need.
@@ -19,7 +19,7 @@ If you have used the language before, you most likely already have everything th
 Open up a **Cmd.exe** or **PowerShell.exe** on Windows or a **Terminal** on Linux or macOS, **move to the unzipped Lia-SDK** directory and run the commands below. 
 They will create a new starting bot John using programming language Java and will battle it against itself.
 To choose a different language for your bot simply replace the ```java``` part of the first command with ```python3``` or ```kotlin```.
-The first time you play a game with your bot it may take some time as a couple of libraries needs to be downloaded, later runs will be much faster.
+The first time you play a game with your bot it may take some time as a couple of libraries need to be downloaded, later runs will be much faster.
 
 {{< multilang >}}
 
@@ -60,10 +60,13 @@ This folder contains all the code for your bot. We will dig into it in the next 
 
 ## 3. Understand your bot
 
-With your favourite text editor open up your bot's main file that contains it's entire logic. If you have created `Java` bot then open up `John/src/MyBot.java`, if `Python3` then `John/my_bot.py` and if `Kotlin` then `John/src/MyBot.kt`. 
+With your favourite text editor open up your bot's main file. If you have created `Java` bot then open up `John/src/MyBot.java`, if `Python3` then `John/my_bot.py` and if `Kotlin` then `John/src/MyBot.kt`. 
 You can also open the whole bot directory (eg. John) in an IDE. Check <a href="/examples/using-ide/" target="_blank">Using an IDE</a> example to learn more.
 
-Your starting bot implementation is very simple. It keeps sending units to random locations on the map and makes them shoot if they see opponents. 
+Starting bot implementation is very simple. 
+It keeps choosing random locations on the map and sending units there. 
+Worker units collect resources if they see them while warrior units shoot when they see opponents.
+
 **Read through the code to see how it works!**
 
 Note that during the development you can structure your bot directory as you like, as long as the `MyBot` file acts as your "main" file.
@@ -73,14 +76,7 @@ This means that you can create additional files which you then import into `MyBo
 
 ## 4. Join the leaderboard
 
-
-{{< warning title="Important" >}}
-Lia SDK version v0.2.0 does not support uploading your bot to the leaderboard.
-Please create an account on our website or subscribe to our newsletter and we will let you know when this functionality will be ready.
-Until then you can play Lia offline.
-{{< /warning >}}
-
-Now it is time to upload your bot to the leaderboard and see how it does against bots made by other programmers! Follow the steps below.
+Now it is time to upload your bot to the leaderboard and see how it does against bots made by other programmers! You can do this in the following two steps.
 
 1. Create your Lia account on our <a href="https://www.liagame.com" target="_blank">website</a>.
 3. Upload your bot to the leaderboard using the command below. If you are not logged in yet, the Lia-SDK will ask you for your Lia credentials.
