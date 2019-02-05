@@ -4,9 +4,9 @@ title: Getting started
 ---
 
 {{< warning title="Important" >}}
-Lia SDK version v0.2.0 does not support uploading your bot to the online leaderboard.
-Please create an account on our [website](https://www.liagame.com/) or subscribe to our newsletter and we will let you know when this functionality will be ready.
-Until then you can play Lia offline.
+Current Lia version v0.2.0 will not be used for [Slovenian Lia Tournament 2019](https://www.liagame.com/tournament).
+Please create an account on our [website](https://www.liagame.com/) or subscribe to our newsletter and we will let you know when the official version will be ready.
+Until then you can play around with this older version of Lia.
 {{< /warning >}}
 
 Let's set you up for countless hours of fun! This getting started guide consists of the following parts:
