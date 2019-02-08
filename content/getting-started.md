@@ -8,7 +8,7 @@ You can also try out Lia without downloading anything via our <a href="https://w
 
 ## 1. Download
 
-* <a href="https://github.com/liagame/lia-SDK/releases/tag/v0.2.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
+* <a href="https://github.com/liagame/lia-SDK/releases/tag/v1.0.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install it.
 * <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
 * <a href="/setup-programming-language/" target="_blank">Setup programming language</a> that you will use for writing your bot. 
@@ -56,11 +56,11 @@ After running the commands above, wait until the game is generated and voila, th
 Also a new directory named John is created inside the unzipped Lia-SDK folder. 
 This folder contains all the code for your bot. We will dig into it in the next section.
 
- <div style="text-align:center"><img src="/static/docs/gifs/example-gameplay-2.gif" alt="John vs John" width="50%"/></div>
+<br/><div style="text-align:center"><img src="/static/docs/gifs/example-gameplay.gif" alt="Example gameplay" width="60%"/></div>
 
 ## 3. Understand your bot
 
-With your favourite text editor open up your bot's main file. If you have created `Java` bot then open up `John/src/MyBot.java`, if `Python3` then `John/my_bot.py` and if `Kotlin` then `John/src/MyBot.kt`. 
+With your favorite text editor open up your bot's main file. If you have created `Java` bot then open up `John/src/MyBot.java`, if `Python3` then `John/my_bot.py` and if `Kotlin` then `John/src/MyBot.kt`. 
 You can also open the whole bot directory (eg. John) in an IDE. Check <a href="/examples/using-ide/" target="_blank">Using an IDE</a> example to learn more.
 
 Starting bot implementation is very simple. 
@@ -124,6 +124,6 @@ Next: **[Aiming at the opponent](/examples/aiming-at-the-opponent/)**
 
 ### Related:
 
-* [Example: Aiming at the opponent](/examples/aiming-at-the-opponent/)
-* [Reference for Lia CLI](/lia-cli)
+* [Examples](/examples/overview/)
 * [API reference](/api/)
+* [Reference for Lia CLI](/lia-cli)

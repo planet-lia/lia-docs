@@ -5,6 +5,7 @@ title: Lia CLI
 
 Lia CLI is a <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank">command line interface</a> that helps you play Lia as effortlessly as possible.
 By running it with provided commands listed below, it can setup your bots, generate games, help you with debugging, uploads your bot to the leaderboard and more.
+To set it up check our [Getting started](/getting-started) guide.
 
 To run Lia CLI, open up a **Cmd.exe** or **PowerShell.exe** on Windows or a **Terminal** on Linux or macOS, **move to the unzipped Lia-SDK** and run the commands below with the following structure:
 
@@ -46,7 +47,6 @@ Name | Short description
 [update](#update) | Automatically updates Lia-SDK to new version
 [generate](#generate) | Generates a game and ignores replay
 [compile](#compile) | Compiles a bot
-[playground](#playground) | Starts a game in a preset playground
 [login](#login) | Login to Lia-SDK with your Lia account
 [logout](#logout) | Logout from your Lia account
 [account](#account) | Prints out currently logged in user
@@ -239,30 +239,6 @@ Examples:
 ```shell
 lia compile John  # Compiles a bot named John
 ```
-
-----
-
-### playground
-
-Runs the desired playground with the selected bot.
-Playground number 1 generates a 1v1 battle on a handmade map while other playgrounds are still in development.
-
-```shell
-Usage:
-  lia playground <number> <name> [flags]
-
-Flags:
-  -d, --debug          toggle if you want to manually run your bot (eg. through debug mode in IDE)
-  -h, --help           help for playground
-  -w, --width string   choose width of replay window, height will be calculated automatically
-```
-
-Example:
-
-```shell
-lia playground 1 BestBot  # Plays yor bot named BestBot on our 1v1 map
-```
-----
 
 ### login
 

@@ -21,6 +21,6 @@ We officially support Java 8 but if you have a never version it should work as w
 ---
 
 ## Kotlin
-* The requirements are the same as with `Java`.
+* The requirements are the same as for `Java`.
 
 ---

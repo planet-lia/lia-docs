@@ -1,6 +1,6 @@
 # Lia SDK
-lia_sdk_url = "https://github.com/liagame/lia-SDK/releases/tag/v0.2.0"
-lia_sdk_version = "0.2.0"
+lia_sdk_url = "https://github.com/liagame/lia-SDK/releases/tag/v1.0.0"
+lia_sdk_version = "1.0.0"
 
-version = "0.2.0"
+version = "1.0.0"
 

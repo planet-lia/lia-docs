@@ -10,11 +10,11 @@ You can find out how to do that in our [Getting started](/getting-started) guide
 {{< /headless-note >}}
 
 In this example you will learn how to make your units communicate with each other. 
-When one unit will see an opponent near a teammate it will tell the teammate to go towards the position of the opponent. 
+When one unit will see an opponent near a teammate it will tell a warrior teammate to go towards the position of the opponent. 
 This way the teammate will turn towards the opponent and start fighting it when it comes in to the range.
 
 **NOTE**: In the code implementation below the unit is not "telling" directly it's teammate that there is an opponent near it.
-Each unit checks if any teammates sees an opponent near it and makes itself move towards the opponent (the ability to check if a teammate sees an opponent is the communication here). 
+We check for each warrior unit if any teammates sees an opponent near it and we then make it move towards the opponent (the ability to check if a teammate sees an opponent is the communication here). 
 
 This method proves very effective. See for yourself below:
 
@@ -38,19 +38,21 @@ In order to use this code you need to paste it to an appropriate location in you
 
 <div id="Java" class="tabcontent cc1" style="display: block;">
 {{< highlight java "linenos=table,hl_lines=" >}}
-// Paste this code in processGameState(...) method.
+// Paste this code in update(...) method. Note that you should not set 
+// a new navigation path to your unit in the code after the one below,
+// as it will override it. Thus it is good to place this code on the 
+// bottom of your update(...) method.
 
 // Iterate through all of your units.
-for (int i = 0; i < gameState.units.length; i++) {
-    UnitData unit = gameState.units[i];
+for (UnitData unit : state.units) {
 
-    // Check teammates vision areas for a nearby opponent only when current unit does not see 
-    // an opponent. If there is an opponent in unit's vision area it is better to fight it.
-    if (unit.opponentsInView.length == 0) {
+    // If the unit is a warrior and it currently does not see an opponent
+    // (and fights it), check it's teammates vision ares for nearby opponents.
+    if (unit.type == UnitType.WARRIOR && unit.opponentsInView.length == 0) {
 
         // Check if some teammate detected an opponent near the unit. If
         // it did then send the unit to the location of the opponent.
-        for (UnitData teammate : gameState.units) {
+        for (UnitData teammate : state.units) {
             boolean found = false;
 
             for (OpponentInView opponent : teammate.opponentsInView) {
@@ -73,18 +75,21 @@ for (int i = 0; i < gameState.units.length; i++) {
 
 <div id="Python3" class="tabcontent cc1">
 {{< highlight python3 "linenos=table,hl_lines=" >}}
-# Paste this code in process_game_state(...) method.
+# Paste this code in update(...) method. Note that you should not set 
+# a new navigation path to your unit in the code after the one below,
+# as it will override it. Thus it is good to place this code on the 
+# bottom of your update(...) method.
 
 # Iterate through all of your units.
-for unit in game_state["units"]:
+for unit in state["units"]:
 
-    # Do this only when there is no opponent in viewing area. If there
-    # is an opponent in viewing area it is better to fight it.
-    if len(unit["opponentsInView"]) is 0:
+    # If the unit is a warrior and it currently does not see an opponent
+    # (and fights it), check it's teammates vision ares for nearby opponents.
+    if unit["type"] == UnitType.WARRIOR and len(unit["opponentsInView"]) is 0:
 
         # Check if some teammate detected an opponent near the unit. If
         # it did then send the unit to the location of the opponent.
-        for teammate in game_state["units"]:
+        for teammate in state["units"]:
             found = False
 
             for opponent in teammate["opponentsInView"]:
@@ -105,18 +110,21 @@ for unit in game_state["units"]:
 
 <div id="Kotlin" class="tabcontent cc1">
 {{< highlight kotlin "linenos=table,hl_lines=" >}}
-// Paste this code in processGameState(...) method.
+// Paste this code in update(...) method. Note that you should not set 
+// a new navigation path to your unit in the code after the one below,
+// as it will override it. Thus it is good to place this code on the 
+// bottom of your update(...) method.
 
 // Iterate through all of your units.
-for (unit in gameState.units) {
+for (unit in state.units) {
 
     // Do this only when there is no opponent in viewing area. If there
     // is an opponent in viewing area it is better to fight it.
-    if (unit.opponentsInView.isEmpty()) {
+    if (unit.type == UnitType.WARRIOR && unit.opponentsInView.isEmpty()) {
 
         // Check if some teammate detected an opponent near the unit. If
         // it did then send the unit to the location of the opponent.
-        for (teammate in gameState.units) {
+        for (teammate in state.units) {
             var found = false
             
             for (opponent in teammate.opponentsInView) {
@@ -156,21 +164,21 @@ Try playing with the values a little  and see if you can make some improvements.
 
 1. **Smartly pick your opponent** - If there are multiple opponents near you, try picking the one with the lowest health left and aim at it.
 
-2. **Attack from behind** - Check if there is an opponent that is fairly close and is turning its back to the unit. Send your unit to attack it from behind.
+2. **Attack from behind** - Check if there is an opponent that is fairly close and is turning its back to your warrior unit. Send your unit to attack it from behind.
 
-3. **All together!** - Send all of your units to attack one of the detected opponents and see what happens. :smile:
+3. **All together!** - Send all of your units to attack one of the detected opponents regardless of the distance to it and see what happens. :smile:
 
 ## Next up
 
-Now you are ready to go on your own! If you need some help with ideas of what to implement next you can check our [Strategy ideas](/strategy-ideas) page.
-You can also check our [API reference](/api/) to see all the data your bot receives during the game.
+In the next example we will implement a simple tactic to make our units retreat back to safety.
 
-Next: **[Strategy ideas](/strategy-ideas)**
+Next: **[Retreat](/examples/retreat/)**
 
 ----
 
 ### Related:
 
+* [Examples](/examples/overview/)
 * [API reference](/api/)
 * [Using an IDE](/examples/using-ide/)
 * [Reference for Lia CLI](/lia-cli/)

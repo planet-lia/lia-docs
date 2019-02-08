@@ -11,7 +11,7 @@ pygmentsStyle = "friendly"
 [params]
 	# General information
 	author = "lia"
-	description = "Fighting for nerds."
+	description = "Competitive coding game."
 	copyright = "Lia"
 
 	# Repository
@@ -102,15 +102,39 @@ pygmentsStyle = "friendly"
 
 [[menu.examples]]
 	parent = "Examples"
+	name   = "Overview"
+	url    = "examples/overview/"
+	weight = 1
+
+[[menu.examples]]
+	parent = "Examples"
 	name   = "Aiming at the opponent"
 	url    = "examples/aiming-at-the-opponent/"
-	weight = 1
+	weight = 2
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Smartly spawn your units"
+	url    = "examples/smartly-spawn-your-units/"
+	weight = 3
 
 [[menu.examples]]
 	parent = "Examples"
 	name   = "Basic unit communication"
 	url    = "examples/basic-unit-communication/"
-	weight = 2
+	weight = 4
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Retreat"
+	url    = "examples/retreat/"
+	weight = 5
+
+[[menu.examples]]
+	parent = "Examples"
+	name   = "Prepare your bot on start"
+	url    = "examples/prepare-your-bot-on-start/"
+	weight = 6
 
 [[menu.examples]]
 	parent = "Examples"
