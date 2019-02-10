@@ -3,6 +3,12 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
+{{< note title="Important" >}}
+We have just released a new and better version of Lia (v1.0.0) that will be used on [Slovenian Lia Tournament 2019](https://www.liagame.com/tournament)! 
+If you encounter any bugs or problems please report them to us so that we can fix them as soon as possible.
+The **bot upload functionality will be enabled with the start of the tournament**. Until then you can play Lia offline.
+{{< /note >}}
+
 Let's setup your Lia environment, run your first game and upload your bot to the leaderboard!
 You can also try out Lia without downloading anything via our <a href="https://www.liagame.com/editor" target="_blank">Online editor</a>.
 
