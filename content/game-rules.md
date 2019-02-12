@@ -23,9 +23,9 @@ Map is automatically generated and is always symmetrical across the diagonal. Th
 * Height: 99 map units
 
 ## Worker units
-Each worker unit has 100 health points and starts with 3 bullets. 
+Each worker unit has 100 health. 
 After it has been hit by a bullet it takes 8s for it to start regenerating its health with a speed of 8 health points per second. 
-The location (x, y) of the unit points to it's center.
+The location (x, y) of the unit points to it's center (the same goes for warrior units).
 Worker units can't shoot but can move backwards and forwards.
 
 * Size: 2 map units
@@ -39,9 +39,9 @@ Worker units can't shoot but can move backwards and forwards.
  <div style="text-align:center"><img src="/static/docs/images/workers.png" alt="Workers" width="25%"/></div>
 
 ## Warrior units
-Warrior units can't move backwards, but take less damage then worker units and can shoot bullets. 
-They are also a bit more expensive. 
-A warrior unit can shoot it's bullets with a delay of 0.2s while the reloading takes 1s.
+Warrior units can't move backwards, but take less damage then worker units and can shoot bullets.
+They can have the maximum of three bullets loaded at once and can shoot them with a delay of 0.2s while the reloading of a single bullet takes 1s.
+The warrior units are also a bit more expensive than the workers. 
 
 * Price: 4 resources
 * Health: 100 HP
