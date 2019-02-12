@@ -12,9 +12,9 @@ To run Lia CLI, open up a **Cmd.exe** or **PowerShell.exe** on Windows or a **Te
 {{< multilang >}}
 
 <div class="tab">
-    <button class="tablinks tc1 active" onclick="changeLanguage(event, 'Cmd', 'tc1', 'cc1')">Cmd</button>
-    <button class="tablinks tc1" onclick="changeLanguage(event, 'PowerShell', 'tc1', 'cc1')">PowerShell</button>
-    <button class="tablinks tc1" onclick="changeLanguage(event, 'Terminal', 'tc1', 'cc1')">Terminal</button>
+    <button class="tablinks tc1 active" onclick="changeLanguage(event, 'Cmd', 'tc1', 'cc1')">Windows cmd</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'PowerShell', 'tc1', 'cc1')">Windows PowerShell</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'Terminal', 'tc1', 'cc1')">Linux/macOS</button>
 </div>
 
 <div id="Cmd" class="tabcontent cc1" style="display: block;">

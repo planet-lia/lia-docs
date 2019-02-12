@@ -30,9 +30,9 @@ The first time you play a game with your bot it may take some time as a couple o
 {{< multilang >}}
 
 <div class="tab">
-    <button class="tablinks tc1 active" onclick="changeLanguage(event, 'Cmd', 'tc1', 'cc1')">Cmd</button>
-    <button class="tablinks tc1" onclick="changeLanguage(event, 'PowerShell', 'tc1', 'cc1')">PowerShell</button>
-    <button class="tablinks tc1" onclick="changeLanguage(event, 'Terminal', 'tc1', 'cc1')">Terminal</button>
+    <button class="tablinks tc1 active" onclick="changeLanguage(event, 'Cmd', 'tc1', 'cc1')">Windows cmd</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'PowerShell', 'tc1', 'cc1')">Windows PowerShell</button>
+    <button class="tablinks tc1" onclick="changeLanguage(event, 'Terminal', 'tc1', 'cc1')">Linux/macOS</button>
 </div>
 
 <div id="Cmd" class="tabcontent cc1" style="display: block;">
@@ -87,9 +87,9 @@ Now it is time to upload your bot to the leaderboard and see how it does against
 1. Create your Lia account on our <a href="https://www.liagame.com" target="_blank">website</a>.
 3. Upload your bot to the leaderboard using the command below. If you are not logged in yet, the Lia-SDK will ask you for your Lia credentials.
 <div class="tab">
-    <button class="tablinks tc4 active" onclick="changeLanguage(event, 'Cmd 4', 'tc4', 'cc4')">Cmd</button>
-    <button class="tablinks tc4" onclick="changeLanguage(event, 'PowerShell 4', 'tc4', 'cc4')">PowerShell</button>
-    <button class="tablinks tc4" onclick="changeLanguage(event, 'Terminal 4', 'tc4', 'cc4')">Terminal</button>
+    <button class="tablinks tc4 active" onclick="changeLanguage(event, 'Cmd 4', 'tc4', 'cc4')">Windows cmd</button>
+    <button class="tablinks tc4" onclick="changeLanguage(event, 'PowerShell 4', 'tc4', 'cc4')">Windows PowerShell</button>
+    <button class="tablinks tc4" onclick="changeLanguage(event, 'Terminal 4', 'tc4', 'cc4')">Linux/macOS</button>
 </div>
 
 <div id="Cmd 4" class="tabcontent cc4" style="display: block;">
