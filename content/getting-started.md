@@ -52,7 +52,7 @@ lia.exe play John John
 <div id="Terminal" class="tabcontent cc1">
 {{< highlight bash >}}
 ./lia bot java John
-./lia.exe play John John
+./lia play John John
 {{< /highlight >}}
 </div>
 
