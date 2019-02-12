@@ -4,7 +4,7 @@ title: Game Rules
 ---
 
 ## Gameplay
-Your goal is to write a bot that controls a group of units and eliminate the opponent. The game starts with each side having 3 worker and 3 warrior units. With resources you can spawn new worker or warrior units. Workers can collect resources that lay on the map, but note that resources stop spawning after 140 seconds. Worker units can't shoot but can move backwards while warrior units can shoot but can only move forward. Game ends when one team is eliminated or when the game time exceeds 200 seconds. If after 200 seconds no team was eliminated, then the team with the most power wins. If both bots powers are the same then the winner is chosen randomly. Be careful as team-kill is enabled!
+Your goal is to write a bot that controls a group of units and eliminates the opponent. The game starts with each side having 3 worker and 3 warrior units. With resources you can spawn new worker or warrior units. Workers can collect resources that lay on the map, but note that resources stop spawning after 140 seconds. Worker units can't shoot but can move backwards while warrior units can shoot but can only move forward. Game ends when one team is eliminated or when the game time exceeds 200 seconds. If after 200 seconds no team was eliminated, then the team with the most power wins. If both bots powers are the same then the winner is chosen randomly. Be careful as team-kill is enabled!
 
 * Game duration: 200 s
 
@@ -56,7 +56,7 @@ The warrior units are also a bit more expensive than the workers.
 
 ## Resources
 Game starts with 20 resources placed symmetrically on the map. 
-When a resource is picked up by a worker unit, new one is spawned randomly on the map, but not to close to both spawn locations.
+When a resource is picked up by a worker unit, new one is spawned randomly on the map, but not too close to both spawn locations.
 After 140s new resources are not spawned anymore and the game enters its final stage.
 
 * Game stops spawning new resources after 140s
@@ -66,7 +66,7 @@ After 140s new resources are not spawned anymore and the game enters its final s
 
 ## Bullets
 Each bullet has a velocity of 32 map units per second and it has a range of 42 map units. 
-A bullet deals a damage to an opponent as well as to an allay unit.
+A bullet deals a damage to an opponent as well as to an ally unit.
 
 * Speed: 32 map units/s
 * Range: 42 map units
