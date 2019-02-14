@@ -4,7 +4,7 @@ title: Getting started
 ---
 
 {{< note title="Important" >}}
-We have just released a new and better version of Lia (v1.0.0) that will be used on [Slovenian Lia Tournament 2019](https://www.liagame.com/tournament)! 
+We have just released a new and better version of Lia (v1.0.1) that will be used on [Slovenian Lia Tournament 2019](https://www.liagame.com/tournament)! 
 If you encounter any bugs or problems please report them to us so that we can fix them as soon as possible.
 The **bot upload functionality will be enabled with the start of the tournament**. Until then you can play Lia offline.
 {{< /note >}}
@@ -14,7 +14,7 @@ You can also try out Lia without downloading anything via our <a href="https://w
 
 ## 1. Download
 
-* <a href="https://github.com/liagame/lia-SDK/releases/tag/v1.0.0" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
+* <a href="https://github.com/liagame/lia-SDK/releases/tag/v1.0.1" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install it.
 * <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
 * <a href="/setup-programming-language/" target="_blank">Setup programming language</a> that you will use for writing your bot. 
