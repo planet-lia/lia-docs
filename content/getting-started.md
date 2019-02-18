@@ -3,12 +3,6 @@ date: 2018-08-05T04:32:25+02:00
 title: Getting started
 ---
 
-{{< note title="Important" >}}
-We have just released a new and better version of Lia (v1.0.1) that will be used on [Slovenian Lia Tournament 2019](https://www.liagame.com/tournament)! 
-If you encounter any bugs or problems please report them to us so that we can fix them as soon as possible.
-The **bot upload functionality will be enabled with the start of the tournament**. Until then you can play Lia offline.
-{{< /note >}}
-
 Let's setup your Lia environment, run your first game and upload your bot to the leaderboard!
 You can also try out Lia without downloading anything via our <a href="https://www.liagame.com/editor" target="_blank">Online editor</a>.
 
@@ -111,6 +105,10 @@ lia.exe upload John
 </div>
 
 ##### *Commands:* [*upload*](/lia-cli/#upload)
+
+{{< note title="Having issues with uploading your bot?" >}}
+If you have any issues when uploading your bot you can get in touch with us on <a href="https://discord.gg/weXRxyU" target="_blank">Discord chat</a>, create a post on our <a href="https://www.reddit.com/r/liagame/" target="_blank">Reddit forum</a> or contact us over <a href="mailto:info@liagame.com" target="_blank">email</a> or on any of our social media (<a href="https://www.facebook.com/liagame/" target="_blank">Facebook</a>, <a href="https://www.github.com/liagame/" target="_blank">Github</a>). We will gladly help you to start competing!
+{{< /note >}}
 
 If everything went smoothly your bot should now be uploaded to the leaderboard and it will start playing games within a few minutes. 
 Lia-SDK will also open up your profile page on our website where you will be able to follow your bot's progress. 
