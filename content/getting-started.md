@@ -106,7 +106,7 @@ lia.exe upload John
 
 ##### *Commands:* [*upload*](/lia-cli/#upload)
 
-{{< note title="Having issues with uploading your bot?" >}}
+{{< note title="Having issues when uploading your bot?" >}}
 If you have any issues when uploading your bot you can get in touch with us on <a href="https://discord.gg/weXRxyU" target="_blank">Discord chat</a>, create a post on our <a href="https://www.reddit.com/r/liagame/" target="_blank">Reddit forum</a> or contact us over <a href="mailto:info@liagame.com" target="_blank">email</a> or on any of our social media (<a href="https://www.facebook.com/liagame/" target="_blank">Facebook</a>, <a href="https://www.github.com/liagame/" target="_blank">Github</a>). We will gladly help you to start competing!
 {{< /note >}}
 
