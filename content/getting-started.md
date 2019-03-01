@@ -8,7 +8,7 @@ You can also try out Lia without downloading anything via our <a href="https://w
 
 ## 1. Download
 
-* <a href="https://github.com/liagame/lia-SDK/releases/tag/v1.0.1" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
+* <a href="https://github.com/liagame/lia-SDK/releases/latest" target="_blank">Download Lia-SDK</a> for your operating system and unzip it into a folder of your liking. 
 Lia-SDK is portable so you don't need to install it.
 * <a href="https://java.com/en/" target="_blank">Install Java</a> on your system as Lia is written in Kotlin and it needs it in order to run.
 * <a href="/setup-programming-language/" target="_blank">Setup programming language</a> that you will use for writing your bot. 
